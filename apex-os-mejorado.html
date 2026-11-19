@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APEX OS — Desktop Preview</title>
+<link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 <style>
 :root{
   --bg:#0E0E10;
@@ -69,8 +70,6 @@ body{background:var(--bg)}
 .browser-page th{background:#2A2A2F}
 @media(max-width:520px){.desktop-icons{grid-template-columns:repeat(2,78px);gap:5px;top:15px;left:10px}.brand{top:15px;right:15px}.status .date{display:none}.explorer{grid-template-columns:100px 1fr}.task{min-width:55px;padding:0 7px;font-size:10px}}
 </style>
-<link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
-<script src="https://v8.js-dos.com/latest/js-dos.js"></script>
 </head>
 <body>
 <div class="desktop" id="desktop">
@@ -109,14 +108,14 @@ body{background:var(--bg)}
     </div>
   </section>
 
-  <!-- DOOM (js-dos real) -->
-  <section class="window hidden" id="doom" style="left:18%;top:8%;width:680px;height:480px">
-    <header class="titlebar"><span class="title-icon">🎮</span><span class="title">DOOM — Shareware (js-dos)</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
-    <div class="content doom" style="display:flex;flex-direction:column;background:#000">
-      <div id="jsdos-container" style="flex:1;min-height:0;background:#000"></div>
+  <!-- DOOM (dos.zone player) -->
+  <section class="window hidden" id="doom" style="left:12%;top:6%;width:720px;height:520px">
+    <header class="titlebar"><span class="title-icon">🎮</span><span class="title">DOOM — Shareware</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="content doom" style="display:flex;flex-direction:column;background:#000;height:100%">
+      <iframe id="doom-frame" src="about:blank" style="flex:1;width:100%;border:0;background:#000" allow="fullscreen"></iframe>
       <div class="doom-foot">
-        <span>DOOM Shareware · Controles clásicos: flechas + Ctrl para disparar</span>
-        <span id="doom-status">Listo para cargar</span>
+        <span>DOOM Shareware · Controles: flechas + Ctrl para disparar</span>
+        <span id="doom-status">Cargando…</span>
       </div>
     </div>
   </section>
@@ -258,45 +257,24 @@ document.getElementById('br-back').onclick = () => { if (histIndex > 0) { histIn
 document.getElementById('br-fwd').onclick = () => { if (histIndex < history.length - 1) { histIndex++; loadBrowserPage(history[histIndex]); } };
 document.getElementById('br-home').onclick = () => navigateTo('apex://home');
 
-// ===== DOOM Real (js-dos) =====
-let dosbox = null;
+// ===== DOOM (dos.zone iframe) =====
 let doomStarted = false;
 
 function startDoom() {
   if (doomStarted) return;
   doomStarted = true;
+  const frame = document.getElementById('doom-frame');
   const status = document.getElementById('doom-status');
-  status.textContent = "Cargando DOOM...";
-
-  const container = document.getElementById('jsdos-container');
-  container.innerHTML = '';
-
-  // Configurar path de emuladores
-  if (typeof emulators !== 'undefined') {
-    emulators.pathPrefix = "https://v8.js-dos.com/latest/js-dos/";
-  }
-
-  try {
-    dosbox = Dos(container, {
-      url: "https://cdn.dos.zone/original/2X/2/24b00b14f118580763440ecaddcc948f8cb94f14.jsdos",
-      onload: (dos) => {
-        status.textContent = "DOOM listo · Flechas + Ctrl";
-      },
-      onrun: (dos, app) => {
-        status.textContent = "Ejecutando: " + app;
-      }
-    });
-  } catch (e) {
-    status.textContent = "Error al cargar. Prueba recargar.";
-    console.error(e);
-  }
+  status.textContent = "Cargando DOOM…";
+  // Reproductor oficial de dos.zone con el bundle de DOOM
+  frame.src = "https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/custom/dos/doom.jsdos&anonymous=1";
+  frame.onload = () => { status.textContent = "Listo · Flechas + Ctrl"; };
+  frame.onerror = () => { status.textContent = "Error al cargar. Recarga la ventana."; };
 }
 
 function stopDoom() {
-  if (dosbox) {
-    try { dosbox.exit(); } catch(e) {}
-    dosbox = null;
-  }
+  const frame = document.getElementById('doom-frame');
+  if (frame) frame.src = "about:blank";
   doomStarted = false;
   const status = document.getElementById('doom-status');
   if (status) status.textContent = "Detenido";
