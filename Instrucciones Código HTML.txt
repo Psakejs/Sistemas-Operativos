@@ -6,19 +6,24 @@ ESTRUCTURA DE ARCHIVOS
 - temas.html: contenidos y ejes temáticos.
 - conceptos.html: glosario de conceptos.
 - casos-practicos.html: situaciones para análisis y aplicación.
+- repaso.html: repaso del parcial con temas, tarjetas, preguntas y simulacros.
 - proyecto.html: orientación del proyecto y video tutorial.
 - css/estilos.css: diseño visual compartido por todas las páginas.
+- css/repaso.css: estilos propios de la página de repaso.
+- js/repaso-datos.js: temas, tarjetas y preguntas del repaso.
+- js/repaso.js: funcionamiento de la página de repaso.
 
 
 CÓMO ABRIR EL SITIO
 1. Extrae el contenido del archivo ZIP en una carpeta.
-2. Mantén los archivos HTML y la carpeta css en la misma estructura.
+2. Mantén los archivos HTML y las carpetas css y js en la misma estructura.
 3. Abre index.html con doble clic o desde un navegador web.
 4. Navega por las páginas usando el menú superior.
 
 PERSONALIZACIÓN
 - Puedes editar los textos de cada archivo HTML para ajustar los contenidos al desarrollo de la asignatura.
 - Para cambiar colores, tamaños, tipografía o distribución, modifica css/estilos.css.
+- Para agregar o corregir preguntas del repaso, edita js/repaso-datos.js.
 - No muevas la carpeta css ni cambies el nombre de estilos.css sin actualizar los enlaces de los archivos HTML.
 
 El sitio funciona localmente y no necesita instalación, servidor ni conexión a internet.

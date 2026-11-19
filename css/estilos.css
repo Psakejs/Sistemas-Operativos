@@ -384,3 +384,98 @@ h1 {
     transition-duration: .01ms !important
   }
 }
+
+/* Contenido agregado al proyecto final:
+   texto dentro de los recuadros, subtítulos de casos y tabla de particiones */
+.edit-area p {
+  margin: 0 0 10px;
+  color: #d5edf0
+}
+
+.edit-area p:last-child {
+  margin-bottom: 0
+}
+
+.edit-area ul,
+.edit-area ol,
+.project-content ol {
+  margin: 6px 0 12px;
+  padding-left: 22px;
+  color: var(--muted)
+}
+
+.edit-area li,
+.project-content ol li {
+  margin: 6px 0
+}
+
+.edit-area strong,
+.card li strong,
+.card p strong {
+  color: #f1ffff
+}
+
+.edit-area .block-title {
+  font-family: 'Exo 2';
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #f1ffff
+}
+
+.card code {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: .9em;
+  color: #c9fbf8;
+  background: #31e6df14;
+  padding: 1px 5px;
+  border-radius: 4px
+}
+
+.case-subtitle {
+  margin: -6px 0 4px !important;
+  color: #f1ffff !important;
+  font-weight: 600
+}
+
+.table-wrap {
+  overflow-x: auto
+}
+
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+  color: var(--muted)
+}
+
+.table-wrap th,
+.table-wrap td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap
+}
+
+.table-wrap th {
+  color: var(--cyan);
+  font-family: 'Exo 2'
+}
+
+.table-wrap tr.highlight td {
+  color: #f1ffff;
+  background: #31e6df12
+}
+
+.sources li {
+  margin: 8px 0
+}
+
+.sources a {
+  color: var(--cyan);
+  text-decoration: underline
+}
+
+/* Cada caso práctico ocupa todo el ancho para que la problemática y la solución se lean cómodas */
+.case-card {
+  grid-column: 1 / -1
+}

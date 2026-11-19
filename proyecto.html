@@ -14,7 +14,7 @@
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
           href="temas.html" class="">Temas</a><a href="conceptos.html" class="">Conceptos</a><a
-          href="casos-practicos.html" class="">Casos prácticos</a><a href="proyecto.html" class="active">Proyecto -
+          href="casos-practicos.html" class="">Casos prácticos</a><a href="repaso.html" class="">Repaso del parcial</a><a href="proyecto.html" class="active">Proyecto -
           Video Tutorial</a></nav>
     </div>
   </header>
@@ -28,47 +28,139 @@
     <div class="project-content">
       <article class="card">
         <h2>Propósito</h2>
-        <p>Demostrar el funcionamiento del sistema operativo mediante una explicación técnica y una actividad práctica
-          que evidencie la administración de los recursos del equipo.</p>
+        <p>Instalar Lubuntu junto a Windows en mi portátil, con arranque dual, para aprender los fundamentos de Linux y
+          usar el equipo como un laboratorio en casa. El proyecto muestra en la práctica cómo arranca un computador, cómo
+          se organiza el disco y cómo el sistema operativo administra los recursos.</p>
+        <p style="margin-top:12px"><strong>Resultado:</strong> el arranque dual funciona. GRUB muestra Lubuntu y Windows
+          Boot Manager, los dos sistemas arrancan, y Lubuntu quedó actualizado y probado.</p>
+      </article>
+      <article class="card">
+        <h2>Equipo y sistema</h2>
+        <ul>
+          <li><strong>Portátil:</strong> Lenovo IdeaPad S145-14IWL (81MU).</li>
+          <li><strong>Procesador:</strong> Intel Core i7-8565U, 4 núcleos y 8 hilos.</li>
+          <li><strong>Memoria:</strong> 4 GB de RAM.</li>
+          <li><strong>Gráficos:</strong> Intel UHD Graphics 620 y NVIDIA GeForce MX110 de 2 GB.</li>
+          <li><strong>Almacenamiento:</strong> disco duro WD de 1 TB, 2,5 pulgadas, 5400 RPM (SMR).</li>
+          <li><strong>Red inalámbrica:</strong> Qualcomm Atheros QCA9377.</li>
+          <li><strong>Firmware:</strong> UEFI, Lenovo ASCN37WW (2019-07-04).</li>
+          <li><strong>Sistema original:</strong> Windows 10 Pro.</li>
+          <li><strong>Sistema instalado:</strong> Lubuntu 26.04.1 LTS con escritorio LXQt 2.3.2 (kernel registrado:
+            7.0.0-43-generic).</li>
+        </ul>
+        <p style="margin-top:12px">Se eligió Lubuntu porque su escritorio LXQt es liviano y funciona bien con 4 GB de
+          RAM.</p>
       </article>
       <article class="card">
         <h2>Desarrollo del proyecto</h2>
         <ul>
-          <li><strong>Identificación del entorno:</strong> presentar el equipo, sus características principales y el
-            sistema operativo instalado.</li>
-          <li><strong>Exploración del sistema:</strong> consultar información del procesador, memoria RAM,
-            almacenamiento y dispositivos.</li>
-          <li><strong>Administración de recursos:</strong> utilizar herramientas del sistema para observar procesos,
-            consumo de recursos y servicios.</li>
-          <li><strong>Configuración o solución:</strong> realizar un procedimiento práctico, como administrar archivos o
-            permisos, revisar controladores o diagnosticar el rendimiento.</li>
-          <li><strong>Análisis:</strong> explicar la función del sistema operativo y los resultados obtenidos.</li>
+          <li><strong>Identificación del entorno:</strong> se revisaron el hardware del portátil, el firmware UEFI y el
+            estado del disco antes de cambiar nada.</li>
+          <li><strong>Exploración del sistema:</strong> con <code>inxi</code>, <code>lsblk</code>, <code>uname -a</code>
+            y <code>hostnamectl</code> se consultaron el procesador, la memoria, los discos y el kernel.</li>
+          <li><strong>Administración de recursos:</strong> se instalaron <code>htop</code> (procesos, CPU y RAM),
+            <code>iotop</code> (uso del disco por proceso), sysstat (estadísticas como <code>iostat</code>), lm-sensors
+            (temperaturas) y smartmontools (salud del disco con <code>smartctl</code>).</li>
+          <li><strong>Configuración o solución:</strong> particionado manual del disco y configuración del arranque dual
+            con GRUB, sin tocar las particiones de Windows.</li>
+          <li><strong>Análisis:</strong> se explica qué hace el sistema operativo en cada etapa del arranque y cómo se
+            comprobó que todo funciona.</li>
         </ul>
+      </article>
+      <article class="card">
+        <h2>Procedimiento paso a paso</h2>
+        <ol>
+          <li><strong>Respaldo:</strong> como el disco tiene errores de lectura y sectores pendientes, los archivos
+            importantes se copiaron (no se movieron) y se verificaron las copias.</li>
+          <li><strong>Espacio:</strong> se redujo la unidad D: en unos 102.400 MB para dejarle unos 100 GB a Lubuntu.</li>
+          <li><strong>USB de instalación:</strong> se grabó la ISO de Lubuntu con Rufus, con esquema GPT para arranque
+            UEFI (no BIOS/CSM).</li>
+          <li><strong>Arranque desde el USB:</strong> como F12 no abría bien el menú de Lenovo, se usó Inicio avanzado de
+            Windows → Usar un dispositivo.</li>
+          <li><strong>Sesión en vivo:</strong> antes de instalar se probaron el Wi-Fi y el audio desde el USB.</li>
+          <li><strong>Particionado manual:</strong> se usó solo el espacio libre y se crearon dos particiones: EFI y raíz.</li>
+          <li><strong>Arranque dual:</strong> se comprobó que GRUB muestra Lubuntu y Windows Boot Manager, y que los dos
+            arrancan.</li>
+          <li><strong>Primer inicio:</strong> se ejecutaron <code>sudo apt update</code> y <code>sudo apt upgrade</code>,
+            y se probaron Wi-Fi, audio, navegador y YouTube, pantalla, teclado, touchpad, batería, suspensión y
+            apagado.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>Plan de particiones</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Partición</th><th>Tamaño</th><th>Formato</th><th>Uso</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>sda1</td><td>~499 MB</td><td>NTFS</td><td>Recuperación de Windows</td></tr>
+              <tr><td>sda2</td><td>100 MB</td><td>FAT32</td><td>EFI de Windows</td></tr>
+              <tr><td>sda3</td><td>16 MB</td><td>—</td><td>Reservada de Microsoft</td></tr>
+              <tr><td>sda4</td><td>~506,3 GB</td><td>NTFS</td><td>Windows C:</td></tr>
+              <tr><td>sda5</td><td>~932 MB</td><td>NTFS</td><td>Recuperación</td></tr>
+              <tr><td>sda6</td><td>~323,7 GB</td><td>NTFS</td><td>Datos D:</td></tr>
+              <tr class="highlight"><td>sda7</td><td>512 MiB</td><td>FAT32</td><td>EFI de Lubuntu, montada en /boot/efi</td></tr>
+              <tr class="highlight"><td>sda8</td><td>~99,5 GiB</td><td>ext4</td><td>Raíz de Lubuntu, montada en /</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px">Se usaron dos particiones porque tienen funciones distintas: la EFI guarda los archivos
+          de arranque que lanza el firmware, y la raíz contiene el sistema, las aplicaciones, la configuración y los
+          archivos del usuario. Linux puede compartir la partición EFI de Windows, pero se creó una aparte para mantener
+          separados los dos sistemas.</p>
+        <p style="margin-top:12px">Ojo con las unidades: los instaladores mezclan MB y MiB, y GB y GiB. Antes de aplicar
+          los cambios se confirmaron el tamaño, el formato y el punto de montaje.</p>
+      </article>
+      <article class="card">
+        <h2>Cómo arranca el equipo</h2>
+        <ol>
+          <li><strong>UEFI</strong> inicializa el hardware y ejecuta una entrada de arranque EFI.</li>
+          <li><strong>La partición EFI</strong> guarda los archivos de arranque que el firmware puede lanzar.</li>
+          <li><strong>GRUB</strong> muestra el menú y arranca el sistema elegido.</li>
+          <li><strong>La partición raíz /</strong> se monta y Lubuntu termina de iniciar.</li>
+        </ol>
+        <p style="margin-top:12px">Si GRUB falla, el equipo no encuentra qué cargar o arranca directo a Windows. Se puede
+          reparar desde un USB en vivo, reinstalando GRUB o revisando el orden de arranque UEFI.</p>
       </article>
       <article class="card">
         <h2>Video tutorial</h2>
         <p>Grabar un video con captura de pantalla y narración en el que se evidencie el desarrollo de la actividad.</p>
         <ul>
-          <li>Presentar el objetivo de la actividad.</li>
-          <li>Explicar el procedimiento paso a paso.</li>
-          <li>Mostrar los resultados obtenidos.</li>
+          <li>Presentar el objetivo: instalar Lubuntu junto a Windows en arranque dual.</li>
+          <li>Explicar el procedimiento paso a paso: respaldo, espacio, USB, arranque, particiones y GRUB.</li>
+          <li>Mostrar los resultados: el menú de GRUB, los dos sistemas funcionando y los comandos de verificación.</li>
           <li>Finalizar con conclusiones.</li>
         </ul>
-        <p style="margin-top:12px">No mostrar contraseñas, datos personales ni información privada durante la grabación.
-        </p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Pega aquí el enlace del video tutorial (YouTube o Drive)..."></div>
       </article>
       <article class="card">
         <h2>Recomendaciones</h2>
         <ul>
-          <li>Organizar el video con introducción, desarrollo y conclusión.</li>
-          <li>Utilizar vocabulario técnico claro.</li>
-          <li>Ejecutar comandos y configuraciones de forma segura.</li>
-          <li>Incluir las fuentes consultadas.</li>
-          <li>Dejar visible el enlace del video tutorial.</li>
+          <li>Hacer copias de seguridad antes de reducir particiones o instalar, y comprobar que se pueden abrir.</li>
+          <li>No formatear ni modificar las particiones NTFS de Windows durante la instalación.</li>
+          <li>Crear el USB con el mismo modo del firmware: GPT para UEFI.</li>
+          <li>Revisar el tamaño, el formato y el punto de montaje antes de aplicar los cambios de particiones.</li>
+          <li>Vigilar el disco con <code>smartctl</code> y no guardar en él datos irremplazables.</li>
+          <li>No mostrar contraseñas, datos personales ni información privada durante la grabación.</li>
         </ul>
       </article>
-      <div class="note"><strong>Nota:</strong> El sistema operativo y la herramienta utilizada pueden variar. El
-        alcance, la fecha de entrega y los criterios de evaluación se confirmarán en clase.</div>
+      <article class="card">
+        <h2>Fuentes consultadas</h2>
+        <ul class="sources">
+          <li>Canonical. (2026). <em>The Linux command line for beginners</em>. Documentación de Ubuntu Desktop.
+            <a href="https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/">ubuntu.com</a></li>
+          <li>Coulouris, G., Dollimore, J., Kindberg, T., y Blair, G. (2012). <em>Distributed systems: Concepts and
+            design</em> (5.ª ed.). Pearson.</li>
+          <li>Mahecha Camargo, O. F. (2026). <em>Sistemas operativos distribuidos</em> [Diapositivas de clase].
+            Corporación Universitaria Remington.</li>
+          <li>Silberschatz, A., Galvin, P. B., y Gagne, G. (2018). <em>Operating system concepts</em> (10.ª ed.). Wiley.</li>
+          <li>Tanenbaum, A. S., y Bos, H. (2015). <em>Modern operating systems</em> (4.ª ed.). Pearson.</li>
+          <li>van Steen, M., y Tanenbaum, A. S. (2023). <em>Distributed systems</em> (4.ª ed.). Maarten van Steen.</li>
+        </ul>
+      </article>
+      <div class="note"><strong>Importante:</strong> el disco del portátil tiene errores de lectura y sectores pendientes.
+        El equipo sirve como laboratorio, pero no se le deben confiar datos irremplazables.</div>
     </div>
   </main>
   <footer class="footer">Sistemas Operativos · Espacio académico de aprendizaje</footer>

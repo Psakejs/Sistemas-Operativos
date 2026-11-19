@@ -14,7 +14,7 @@
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
           href="temas.html" class="">Temas</a><a href="conceptos.html" class="active">Conceptos</a><a
-          href="casos-practicos.html" class="">Casos prácticos</a><a href="proyecto.html" class="">Proyecto - Video
+          href="casos-practicos.html" class="">Casos prácticos</a><a href="repaso.html" class="">Repaso del parcial</a><a href="proyecto.html" class="">Proyecto - Video
           Tutorial</a></nav>
     </div>
   </header>
@@ -27,19 +27,55 @@
     <section class="grid">
       <article class="card concept-card">
         <h2><span class="concept-icon">▣</span>HARDWARE</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <p><strong>Procesador (CPU):</strong> componente que ejecuta las instrucciones de los programas. Un procesador multinúcleo puede ejecutar varios hilos en paralelo.</p>
+          <p><strong>Núcleo e hilo:</strong> el núcleo es una unidad física de procesamiento; con Hyper-Threading o SMT, cada núcleo ejecuta dos hilos y aparece como dos procesadores lógicos.</p>
+          <p><strong>Memoria RAM:</strong> memoria volátil y rápida donde se cargan los programas y datos en uso. Las generaciones DDR3, DDR4 y DDR5 no son compatibles entre sí.</p>
+          <p><strong>Almacenamiento:</strong> discos duros y SSD que guardan la información de forma permanente; son más lentos que la RAM pero no pierden los datos al apagar.</p>
+          <p><strong>Bus:</strong> canal por el que viajan datos, direcciones y señales de control entre los componentes, como PCI Express, SATA o USB.</p>
+          <p><strong>GPU y VRAM:</strong> la GPU procesa los gráficos; la VRAM es su memoria propia. Los gráficos integrados, en cambio, usan parte de la RAM del sistema.</p>
+          <p><strong>Firmware (BIOS o UEFI):</strong> programa que inicializa el hardware al encender y lanza el gestor de arranque. UEFI es el reemplazo moderno del BIOS.</p>
+        </div>
       </article>
       <article class="card concept-card">
         <h2><span class="concept-icon">⌘</span>SOFTWARE</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <p><strong>Sistema operativo:</strong> software intermediario entre el usuario, las aplicaciones y el hardware, que administra los recursos del equipo.</p>
+          <p><strong>Kernel:</strong> núcleo del sistema operativo; corre en modo privilegiado y administra la CPU, la memoria y los dispositivos.</p>
+          <p><strong>Proceso:</strong> programa en ejecución, con su código, datos, estado y recursos. El SO guarda su información en el PCB.</p>
+          <p><strong>Llamada al sistema:</strong> mecanismo controlado con el que una aplicación en modo usuario pide un servicio al kernel, por ejemplo <code>read()</code>.</p>
+          <p><strong>Controlador (driver):</strong> módulo que permite al kernel comunicarse con un dispositivo específico, traduciendo órdenes generales en instrucciones del dispositivo.</p>
+          <p><strong>Memoria virtual:</strong> uso de parte del disco (archivo de paginación o swap) como extensión de la RAM cuando esta no alcanza.</p>
+          <p><strong>Planificador de CPU:</strong> parte del SO que decide qué proceso usa el procesador y por cuánto tiempo, con algoritmos como FCFS, SJF o Round Robin.</p>
+          <p><strong>Shell:</strong> intérprete que lee y ejecuta los comandos que el usuario escribe en la terminal, como Bash o PowerShell.</p>
+          <p><strong>Gestor de arranque:</strong> programa que carga el kernel en memoria y le cede el control; en Linux suele ser GRUB.</p>
+        </div>
       </article>
       <article class="card concept-card">
         <h2><span class="concept-icon">⌁</span>REDES</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <p><strong>Sistema distribuido:</strong> conjunto de computadores conectados por una red que coordinan su trabajo con mensajes y se presentan como un solo sistema.</p>
+          <p><strong>Cliente-servidor:</strong> arquitectura en la que los clientes piden servicios y los servidores los atienden; en tres niveles se separan presentación, lógica de negocio y datos.</p>
+          <p><strong>Socket:</strong> punto de comunicación entre procesos en red, identificado por una dirección IP y un puerto.</p>
+          <p><strong>Cola de mensajes:</strong> mecanismo en el que los mensajes esperan hasta que el receptor los procesa; permite que el emisor siga trabajando.</p>
+          <p><strong>Comunicación síncrona y asíncrona:</strong> en la síncrona el emisor espera la respuesta; en la asíncrona envía el mensaje y continúa trabajando.</p>
+          <p><strong>Balanceador de carga:</strong> componente que reparte las peticiones entre varios servidores y deja de enviarlas a uno que haya fallado.</p>
+          <p><strong>Transparencia:</strong> propiedad que le permite al usuario usar recursos remotos sin saber en qué servidor están.</p>
+          <p><strong>Sistema de archivos distribuido:</strong> sistema que guarda los archivos en varios servidores y los muestra como si estuvieran en un solo lugar, como NFS o DFS de Windows.</p>
+        </div>
       </article>
       <article class="card concept-card">
         <h2><span class="concept-icon">◇</span>SEGURIDAD</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <p><strong>Permisos de acceso:</strong> reglas que definen qué usuarios o procesos pueden leer, escribir o ejecutar un archivo (en Linux: r, w, x).</p>
+          <p><strong>Modo usuario y modo kernel:</strong> las aplicaciones corren en modo usuario con acceso restringido; solo el kernel, en modo privilegiado, accede directamente al hardware.</p>
+          <p><strong>Secure Boot:</strong> función de UEFI que solo permite arrancar gestores de arranque firmados digitalmente.</p>
+          <p><strong>Control de acceso basado en roles (RBAC):</strong> asignar permisos según el cargo de cada persona dentro de la organización.</p>
+          <p><strong>Sección crítica:</strong> parte del código que accede a un recurso compartido y que solo un proceso debe ejecutar a la vez para evitar datos inconsistentes.</p>
+          <p><strong>Semáforo:</strong> herramienta de sincronización con un contador y las operaciones <code>wait()</code> y <code>signal()</code>, que controla el acceso a los recursos compartidos.</p>
+          <p><strong>Tolerancia a fallos:</strong> capacidad de seguir funcionando cuando falla un componente, gracias a la redundancia, la replicación y la conmutación por error.</p>
+          <p><strong>Copias de seguridad:</strong> respaldo periódico de la información; conviene comprobar que se pueden restaurar y, si el disco falla, copiar en lugar de mover los archivos.</p>
+        </div>
       </article>
     </section>
   </main>
