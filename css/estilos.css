@@ -480,19 +480,257 @@ h1 {
   grid-column: 1 / -1
 }
 
-/* Video tutorial incrustado (proporción 16:9, se adapta al ancho) */
-.video-wrap {
+/* Componente de video (js/video.js): tarjeta con portada y ventana flotante */
+.video-card {
   position: relative;
-  margin-top: 16px;
+  margin-top: 18px;
   aspect-ratio: 16 / 9;
-  border-radius: 13px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
   background: #01111a;
-  box-shadow: 0 0 22px #31e6df1f
+  box-shadow: 0 18px 40px #0007, 0 0 26px #31e6df1f;
+  isolation: isolate
 }
 
-.video-wrap iframe {
+.video-card:not(.is-ready) {
+  display: grid;
+  place-items: center
+}
+
+.video-card:not(.is-ready) a {
+  color: var(--cyan);
+  text-decoration: underline
+}
+
+.video-card__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.9) brightness(.78);
+  transform: scale(1.02);
+  transition: transform .6s ease, filter .4s ease
+}
+
+.video-card__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(2, 14, 20, .95) 0%, rgba(2, 14, 20, .55) 32%, transparent 62%),
+    linear-gradient(to bottom, rgba(2, 14, 20, .55), transparent 28%);
+  pointer-events: none
+}
+
+.video-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font: 700 .72rem 'Exo 2', sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(2, 18, 26, .72);
+  border: 1px solid #31e6df55;
+  backdrop-filter: blur(6px);
+  pointer-events: none
+}
+
+.video-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan)
+}
+
+.video-card__trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer
+}
+
+.video-card__play {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: #04212b;
+  box-shadow: 0 0 0 8px #31e6df26, 0 12px 30px #0008, 0 0 34px #31e6df80;
+  transition: transform .3s ease, box-shadow .3s ease
+}
+
+.video-card__play svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  fill: currentColor
+}
+
+.video-card__play:after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid #31e6dfaa;
+  animation: videoPulse 2.2s ease-out infinite
+}
+
+.video-card__trigger:hover .video-card__play,
+.video-card__trigger:focus-visible .video-card__play {
+  transform: scale(1.09);
+  box-shadow: 0 0 0 10px #31e6df33, 0 14px 34px #0009, 0 0 46px #31e6dfb0
+}
+
+.video-card:hover .video-card__thumb {
+  transform: scale(1.07);
+  filter: saturate(1) brightness(.88)
+}
+
+.video-card__trigger:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: -3px;
+  border-radius: 16px
+}
+
+.video-card__info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  display: grid;
+  gap: 2px;
+  pointer-events: none
+}
+
+.video-card__title {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.6vw, 1.45rem);
+  line-height: 1.2;
+  color: #f1ffff;
+  text-shadow: 0 2px 14px #000a
+}
+
+.video-card__meta {
+  font-size: .85rem;
+  color: var(--muted)
+}
+
+.video-btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #31e6df55;
+  background: rgba(2, 18, 26, .72);
+  color: #e9fbff;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: all .25s
+}
+
+.video-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor
+}
+
+.video-btn:hover,
+.video-btn:focus-visible {
+  color: #04212b;
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px #31e6df80;
+  outline: none
+}
+
+.video-card__yt {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  background: rgba(1, 10, 15, .84);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity .25s ease
+}
+
+.video-modal[hidden] {
+  display: none
+}
+
+.video-modal.is-visible {
+  opacity: 1
+}
+
+.video-modal__dialog {
+  width: min(1040px, 100%);
+  min-width: 0;
+  transform: translateY(14px) scale(.97);
+  transition: transform .3s ease
+}
+
+.video-modal.is-visible .video-modal__dialog {
+  transform: none
+}
+
+.video-modal__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px
+}
+
+.video-modal__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 700 1.1rem 'Exo 2', sans-serif;
+  color: #f1ffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.video-modal__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #31e6df66;
+  box-shadow: 0 30px 80px #000c, 0 0 40px #31e6df33
+}
+
+.video-modal__frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -500,12 +738,47 @@ h1 {
   border: 0
 }
 
-.card p.video-link {
-  margin-top: 10px;
-  font-size: .88rem
+html.video-open {
+  overflow: hidden
 }
 
-.video-link a {
-  color: var(--cyan);
-  text-decoration: underline
+@keyframes videoPulse {
+  from {
+    transform: scale(.92);
+    opacity: .9
+  }
+
+  to {
+    transform: scale(1.45);
+    opacity: 0
+  }
+}
+
+@media(max-width:560px) {
+  .video-card__play {
+    width: 60px;
+    height: 60px
+  }
+
+  .video-card__play svg {
+    width: 24px;
+    height: 24px
+  }
+
+  .video-card__meta {
+    display: none
+  }
+
+  .video-card__badge {
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    font-size: .64rem
+  }
+
+  .video-card__yt {
+    top: 6px;
+    right: 6px;
+    transform: scale(.86)
+  }
 }
