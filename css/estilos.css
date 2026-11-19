@@ -479,3 +479,33 @@ h1 {
 .case-card {
   grid-column: 1 / -1
 }
+
+/* Video tutorial incrustado (proporción 16:9, se adapta al ancho) */
+.video-wrap {
+  position: relative;
+  margin-top: 16px;
+  aspect-ratio: 16 / 9;
+  border-radius: 13px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #01111a;
+  box-shadow: 0 0 22px #31e6df1f
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0
+}
+
+.card p.video-link {
+  margin-top: 10px;
+  font-size: .88rem
+}
+
+.video-link a {
+  color: var(--cyan);
+  text-decoration: underline
+}
