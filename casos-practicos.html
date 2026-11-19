@@ -14,7 +14,7 @@
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
           href="temas.html" class="">Temas</a><a href="conceptos.html" class="">Conceptos</a><a
-          href="casos-practicos.html" class="active">Casos prácticos</a><a href="proyecto.html" class="">Proyecto -
+          href="casos-practicos.html" class="active">Casos prácticos</a><a href="repaso.html" class="">Repaso del parcial</a><a href="proyecto.html" class="">Proyecto -
           Video Tutorial</a></nav>
     </div>
   </header>
@@ -27,53 +27,103 @@
     <section class="grid">
       <article class="card case-card">
         <h2>CASO PRÁCTICO 1</h2>
+        <p class="case-subtitle">SOLUCIONES DIGITALES: EQUIPO LENTO</p>
         <div class="case-parts">
           <section class="case-part">
             <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+            <p>En la empresa Soluciones Digitales S.A.S., un empleado del área administrativa reporta que su computador se pone lento y se bloquea cuando tiene abiertos al mismo tiempo un navegador con varias pestañas, una hoja de cálculo, un programa de facturación y una videollamada.</p>
+            <p>La memoria RAM se mantiene casi al límite, el uso de CPU sube, aparecen avisos de falta de recursos y algunos procesos siguen activos aunque se cierren sus ventanas. La causa principal es que la RAM no alcanza y el sistema operativo depende de la memoria virtual, que es mucho más lenta.</p>
+        </div>
           </section>
           <section class="case-part">
             <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+            <p>Primero se recopilan datos con el Administrador de tareas (<code>Ctrl + Shift + Esc</code>): uso de CPU y RAM, memoria virtual y procesos que más consumen, para poder comparar después.</p>
+            <ul>
+              <li>Finalizar los procesos innecesarios en segundo plano.</li>
+              <li>Limitar las pestañas del navegador y revisar sus extensiones.</li>
+              <li>Deshabilitar las aplicaciones de arranque que no se necesitan.</li>
+              <li>Revisar la memoria virtual y ampliar la RAM física.</li>
+              <li>Enseñarle al usuario a monitorear sus recursos.</li>
+            </ul>
+            <p>Cada acción se comprueba comparando con los datos iniciales. Como prevención: drivers solo de fuentes oficiales, cuenta de usuario estándar, copias de seguridad, mantenimiento y revisión del Visor de eventos.</p>
+        </div>
           </section>
         </div>
       </article>
       <article class="card case-card">
         <h2>CASO PRÁCTICO 2</h2>
+        <p class="case-subtitle">CONDICIÓN DE CARRERA EN UNA CUENTA</p>
         <div class="case-parts">
           <section class="case-part">
             <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+            <p>Dos operaciones depositan 50 al mismo tiempo en una cuenta con saldo de 100, sin ningún control. Las dos leen el saldo de 100, cada una calcula 150, y la última en escribir deja 150.</p>
+            <p>El resultado correcto era 200: se perdió uno de los depósitos. Esto es una condición de carrera, porque el resultado depende del orden en que los procesos acceden al dato compartido.</p>
+        </div>
           </section>
           <section class="case-part">
             <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+            <p>Hay que proteger la sección crítica (leer, modificar y escribir el saldo) para que funcione como una operación atómica.</p>
+            <ul>
+              <li>Usar un semáforo binario iniciado en 1 (o un mutex): <code>wait()</code> antes de tocar el saldo y <code>signal()</code> al terminar.</li>
+              <li>Así solo un proceso modifica el saldo a la vez, y el segundo depósito parte del valor ya actualizado.</li>
+              <li>Si se usan varios bloqueos, tomarlos siempre en el mismo orden y con tiempo de espera, para evitar interbloqueos.</li>
+            </ul>
+        </div>
           </section>
         </div>
       </article>
       <article class="card case-card">
         <h2>CASO PRÁCTICO 3</h2>
+        <p class="case-subtitle">MULTISERVICIOS S.A.: DE CENTRALIZADO A DISTRIBUIDO</p>
         <div class="case-parts">
           <section class="case-part">
             <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+            <p>MULTISERVICIOS S.A. tiene cuatro sedes y unos 350 empleados que dependen de un único servidor central para inventario, facturación, ventas, clientes y documentos.</p>
+            <p>El servidor se satura cuando entran todas las sedes, si falla nadie puede trabajar, el inventario no se actualiza a tiempo entre sedes, hay registros modificados a la vez, los documentos no tienen réplica, los accesos no se controlan por cargo y la empresa abrirá tres sedes más.</p>
+        </div>
           </section>
           <section class="case-part">
             <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+            <ul>
+              <li>Arquitectura cliente-servidor de tres niveles, con balanceador de carga y varios servidores de aplicación.</li>
+              <li>Colas de mensajes para el inventario (asíncrono), comunicación síncrona para la facturación y publicación-suscripción para las notificaciones.</li>
+              <li>Redundancia, replicación de datos y conmutación automática por error.</li>
+              <li>Sistema de archivos distribuido con réplicas, cifrado, copias de seguridad, bloqueos o versiones, y permisos por rol.</li>
+              <li>Crecimiento horizontal: cada sede nueva se integra como un nodo más.</li>
+            </ul>
+        </div>
           </section>
         </div>
       </article>
       <article class="card case-card">
         <h2>CASO PRÁCTICO 4</h2>
+        <p class="case-subtitle">ARRANQUE DUAL CON UN DISCO CON FALLAS</p>
         <div class="case-parts">
           <section class="case-part">
             <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+            <p>Instalar Lubuntu junto a Windows 10 Pro en una Lenovo IdeaPad con 4 GB de RAM, sin dañar Windows.</p>
+            <p>El disco duro de 1 TB tiene errores de lectura y sectores pendientes, así que no se le pueden confiar datos irremplazables. Además, la tecla F12 no abría bien el menú de arranque para iniciar desde el USB.</p>
+        </div>
           </section>
           <section class="case-part">
             <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta..."></div>
+            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+            <ul>
+              <li>Respaldar los datos copiando (no moviendo) y verificando las copias.</li>
+              <li>Reducir D: en unos 100 GB y crear el USB con Rufus en GPT para UEFI.</li>
+              <li>Arrancar el USB desde Inicio avanzado de Windows → Usar un dispositivo.</li>
+              <li>Particionado manual solo en el espacio libre: una partición EFI de 512 MiB en FAT32 (<code>/boot/efi</code>) y una raíz ext4 de unos 99,5 GiB (<code>/</code>).</li>
+              <li>Comprobar que GRUB muestra Lubuntu y Windows, y vigilar el disco con smartmontools.</li>
+            </ul>
+            <p>Se eligió Lubuntu porque su escritorio LXQt es liviano para 4 GB de RAM. El detalle completo está en la página del proyecto.</p>
+        </div>
           </section>
         </div>
       </article>

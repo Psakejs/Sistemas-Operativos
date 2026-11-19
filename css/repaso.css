@@ -1,0 +1,702 @@
+/* Repaso del parcial: estilos propios de repaso.html.
+   Todo va dentro de .repaso para no afectar las demás páginas ni estilos.css.
+   Usa la misma paleta del sitio: fondo oscuro, acento cian, Exo 2 e Inter. */
+
+.repaso {
+  --bg: #02161f99;
+  --surface: #0c3240;
+  --sunk: #01111980;
+  --ink: #e9fbff;
+  --muted: #a9cbd2;
+  --line: rgba(49, 230, 223, .28);
+  --accent: #31e6df;
+  --accent-ink: #04212b;
+  --accent-soft: #31e6df1f;
+  --practice: #ffb86b;
+  --practice-soft: #ffb86b1f;
+  --ok: #5ee3a1;
+  --ok-soft: #5ee3a11f;
+  --bad: #ff8f85;
+  --bad-soft: #ff8f851f;
+  --f-display: 'Exo 2', Arial, sans-serif;
+  --f-body: Inter, 'Segoe UI', sans-serif;
+  --f-mono: Consolas, 'Courier New', monospace;
+  --r: 10px;
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color-scheme: dark
+}
+
+.repaso *,
+.repaso *:before,
+.repaso *:after {
+  box-sizing: border-box
+}
+
+.repaso [hidden] {
+  display: none !important
+}
+
+.repaso h2 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+  color: var(--accent)
+}
+
+.repaso .lead {
+  color: var(--muted);
+  margin: 0 0 18px
+}
+
+/* Resumen de progreso */
+.repaso .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px
+}
+
+.repaso .stat {
+  background: var(--sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 12px 14px
+}
+
+.repaso .stat b {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  color: #f1ffff;
+  font-variant-numeric: tabular-nums
+}
+
+.repaso .stat span {
+  color: var(--muted);
+  font-size: .85rem
+}
+
+/* Pestañas de modos */
+.repaso .tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #04141dcc
+}
+
+.repaso .tabs button {
+  flex: 1 1 auto;
+  font: 600 .9rem var(--f-body);
+  background: none;
+  border: 1px solid transparent;
+  color: var(--muted);
+  padding: 9px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .2s
+}
+
+.repaso .tabs button:hover {
+  color: #fff
+}
+
+.repaso .tabs button[aria-selected="true"] {
+  color: #fff;
+  border-color: #31e6df94;
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px #31e6df30
+}
+
+.repaso button:focus-visible,
+.repaso select:focus-visible,
+.repaso input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px
+}
+
+/* Pasos sugeridos */
+.repaso .steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+  counter-reset: s
+}
+
+.repaso .steps li {
+  background: var(--sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 10px 12px;
+  font-size: .85rem;
+  color: var(--muted);
+  counter-increment: s
+}
+
+.repaso .steps li:before {
+  content: counter(s);
+  display: block;
+  font-family: var(--f-display);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1.1rem
+}
+
+.repaso .steps li b {
+  color: var(--ink)
+}
+
+/* Filtros */
+.repaso .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px
+}
+
+.repaso .chip {
+  font: 600 .85rem var(--f-body);
+  border: 1px solid var(--line);
+  background: var(--sunk);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer
+}
+
+.repaso .chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent)
+}
+
+.repaso .tag {
+  display: inline-block;
+  font: 700 .68rem var(--f-body);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 5px
+}
+
+.repaso .tag.T {
+  background: var(--accent-soft);
+  color: var(--accent)
+}
+
+.repaso .tag.P {
+  background: var(--practice-soft);
+  color: var(--practice)
+}
+
+/* Lista de temas */
+.repaso .topics {
+  display: grid;
+  gap: 8px
+}
+
+.repaso .topic {
+  background: linear-gradient(145deg, #11414fe0, #08222fe0);
+  border: 1px solid var(--line);
+  border-radius: 14px
+}
+
+.repaso .topic-h {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  padding: 14px 16px;
+  cursor: pointer;
+  font: inherit;
+  border-radius: 14px
+}
+
+.repaso .topic-h .t {
+  font-weight: 600;
+  min-width: 0
+}
+
+.repaso .meter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums
+}
+
+.repaso .meter i {
+  display: block;
+  width: 64px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--sunk);
+  overflow: hidden
+}
+
+.repaso .meter i span {
+  display: block;
+  height: 100%;
+  background: var(--ok)
+}
+
+.repaso .topic-b {
+  padding: 0 16px 18px;
+  border-top: 1px solid var(--line)
+}
+
+.repaso .topic-b p.sum {
+  font-size: 1.05rem;
+  margin: 16px 0 10px
+}
+
+.repaso .topic-b ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  color: var(--muted)
+}
+
+.repaso .tip {
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: .95rem
+}
+
+.repaso .tip.warn {
+  background: var(--practice-soft);
+  border-left: 3px solid var(--practice)
+}
+
+.repaso .tip.ex {
+  background: var(--sunk);
+  border-left: 3px solid var(--accent)
+}
+
+.repaso .tip b {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  color: var(--accent)
+}
+
+.repaso .tip.warn b {
+  color: var(--practice)
+}
+
+/* Botones y controles */
+.repaso .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px
+}
+
+.repaso .btn {
+  font: 600 .92rem var(--f-body);
+  border-radius: 9px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--sunk);
+  color: var(--ink);
+  transition: all .2s
+}
+
+.repaso .btn:hover:not(:disabled) {
+  border-color: var(--accent)
+}
+
+.repaso .btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink)
+}
+
+.repaso .btn.primary:hover:not(:disabled) {
+  box-shadow: 0 0 18px #31e6df55
+}
+
+.repaso .btn.ghost {
+  background: none
+}
+
+.repaso .btn:disabled {
+  opacity: .45;
+  cursor: default
+}
+
+.repaso code {
+  font-family: var(--f-mono);
+  font-size: .9em;
+  background: #31e6df14;
+  color: #c9fbf8;
+  padding: 1px 5px;
+  border-radius: 4px
+}
+
+.repaso .panel {
+  background: linear-gradient(145deg, #11414fe0, #08222fe0);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, .3)
+}
+
+.repaso .setup {
+  display: grid;
+  gap: 14px
+}
+
+.repaso label.f {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: .92rem
+}
+
+.repaso select,
+.repaso input[type=text] {
+  font: 1rem var(--f-body);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #02161f;
+  color: var(--ink);
+  width: 100%
+}
+
+/* Preguntas */
+.repaso .qhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: .85rem;
+  font-variant-numeric: tabular-nums
+}
+
+.repaso .bar {
+  height: 4px;
+  background: var(--sunk);
+  border-radius: 2px;
+  margin-bottom: 18px;
+  overflow: hidden
+}
+
+.repaso .bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width .25s
+}
+
+.repaso .case {
+  background: var(--practice-soft);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: .92rem;
+  margin-bottom: 12px
+}
+
+.repaso .q {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 16px;
+  color: #f1ffff
+}
+
+.repaso .opts {
+  display: grid;
+  gap: 8px
+}
+
+.repaso .opt {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: start;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: border-color .2s
+}
+
+.repaso .opt .k {
+  font: 600 .8rem var(--f-mono);
+  color: var(--muted);
+  padding-top: 2px
+}
+
+.repaso .opt:hover:not(:disabled) {
+  border-color: var(--accent)
+}
+
+.repaso .opt.sel {
+  border-color: var(--accent);
+  background: var(--accent-soft)
+}
+
+.repaso .opt.right {
+  border-color: var(--ok);
+  background: var(--ok-soft)
+}
+
+.repaso .opt.wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft)
+}
+
+.repaso .opt:disabled {
+  cursor: default
+}
+
+.repaso .fb {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 12px 14px
+}
+
+.repaso .fb.ok {
+  background: var(--ok-soft)
+}
+
+.repaso .fb.no {
+  background: var(--bad-soft)
+}
+
+.repaso .fb strong {
+  display: block;
+  margin-bottom: 2px
+}
+
+.repaso .fb.ok strong {
+  color: var(--ok)
+}
+
+.repaso .fb.no strong {
+  color: var(--bad)
+}
+
+.repaso .order-pool,
+.repaso .order-pick {
+  display: grid;
+  gap: 6px
+}
+
+.repaso .order-pick {
+  margin: 10px 0;
+  min-height: 44px;
+  border: 1px dashed #a9cbd261;
+  border-radius: 9px;
+  padding: 8px
+}
+
+.repaso .order-pick:empty:before {
+  content: "Toca los pasos en el orden correcto";
+  color: var(--muted);
+  font-size: .85rem;
+  padding: 4px
+}
+
+.repaso .ord {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 9px 12px;
+  cursor: pointer
+}
+
+.repaso .ord .n {
+  font: 600 .8rem var(--f-mono);
+  color: var(--accent);
+  min-width: 18px
+}
+
+/* Tarjetas de memoria */
+.repaso .flash-wrap {
+  perspective: 1200px
+}
+
+.repaso .flashcard {
+  position: relative;
+  display: block;
+  min-height: 260px;
+  border-radius: 16px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .45s;
+  border: 0;
+  background: none;
+  width: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit
+}
+
+.repaso .flashcard.flip {
+  transform: rotateY(180deg)
+}
+
+.repaso .face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(145deg, #11414f, #08222f);
+  border: 1px solid var(--line);
+  text-align: left
+}
+
+.repaso .face.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(145deg, #0f5157, #0a2d38);
+  border-color: #31e6df80
+}
+
+.repaso .face .front-q {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 4.6vw, 1.6rem);
+  line-height: 1.25;
+  color: #f1ffff
+}
+
+.repaso .face .hint {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: auto
+}
+
+/* Resultados */
+.repaso .result-big {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 24px #31e6df40;
+  font-variant-numeric: tabular-nums
+}
+
+.repaso .split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 16px 0
+}
+
+.repaso .review {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px
+}
+
+.repaso .rv {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ok);
+  border-radius: 0 9px 9px 0;
+  padding: 10px 14px;
+  background: var(--sunk)
+}
+
+.repaso .rv.no {
+  border-left-color: var(--bad)
+}
+
+.repaso .rv p {
+  margin: 4px 0
+}
+
+.repaso .rv .small {
+  font-size: .88rem;
+  color: var(--muted)
+}
+
+.repaso .empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 30px 10px
+}
+
+.repaso .timer {
+  font: 600 .88rem var(--f-mono);
+  color: var(--accent)
+}
+
+@media(max-width:760px) {
+  .repaso .steps {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .repaso .stats {
+    gap: 6px
+  }
+
+  .repaso .stat {
+    padding: 10px
+  }
+
+  .repaso .stat b {
+    font-size: 1.25rem
+  }
+
+  .repaso .meter i {
+    width: 40px
+  }
+
+  .repaso .q {
+    font-size: 1.08rem
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+  .repaso .flashcard,
+  .repaso .bar span {
+    transition: none
+  }
+}

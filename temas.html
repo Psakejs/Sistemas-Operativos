@@ -14,7 +14,7 @@
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
           href="temas.html" class="active">Temas</a><a href="conceptos.html" class="">Conceptos</a><a
-          href="casos-practicos.html" class="">Casos prácticos</a><a href="proyecto.html" class="">Proyecto - Video
+          href="casos-practicos.html" class="">Casos prácticos</a><a href="repaso.html" class="">Repaso del parcial</a><a href="proyecto.html" class="">Proyecto - Video
           Tutorial</a></nav>
     </div>
   </header>
@@ -27,23 +27,85 @@
     <section class="grid">
       <article class="card week-card">
         <h2>SEMANA 1</h2>
-        <div class="edit-area" contenteditable="true"
-          data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
+          <p class="block-title">Introducción a los sistemas operativos</p>
+          <p><strong>Teoría</strong></p>
+          <ul>
+            <li>Concepto y propósito del sistema operativo.</li>
+            <li>Relación entre hardware, software, usuario y aplicaciones.</li>
+            <li>Funciones principales y el SO como administrador de recursos.</li>
+            <li>Procesos, procesador y planificación de la CPU.</li>
+            <li>Memoria RAM, memoria virtual y almacenamiento permanente.</li>
+            <li>Dispositivos de entrada y salida, y controladores (drivers).</li>
+            <li>Archivos, directorios, permisos y sistemas de archivos (NTFS, ext4, APFS).</li>
+            <li>Kernel, llamadas al sistema y el recorrido de una lectura de archivo.</li>
+            <li>Consola, shell y comandos básicos (<code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cp</code>).</li>
+          </ul>
+          <p><strong>Práctica</strong></p>
+          <ul>
+            <li>Diagnóstico y solución de un equipo lento: síntomas, causas, Administrador de tareas, cinco acciones de solución y un plan preventivo.</li>
+          </ul>
+        </div>
       </article>
       <article class="card week-card">
         <h2>SEMANA 2</h2>
-        <div class="edit-area" contenteditable="true"
-          data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
+          <p class="block-title">Gestión de procesos y hardware</p>
+          <p><strong>Teoría</strong></p>
+          <ul>
+            <li>Programa vs proceso, bloque de control de proceso (PCB) y estados de un proceso.</li>
+            <li>Algoritmos de planificación FCFS, SJF y Round Robin.</li>
+            <li>Condición de carrera y sección crítica.</li>
+            <li>Semáforos (wait y signal) y bloqueos.</li>
+            <li>Interbloqueos: las cuatro condiciones y cómo prevenirlos.</li>
+          </ul>
+          <p><strong>Práctica</strong></p>
+          <ul>
+            <li>Procesadores multinúcleo, procesos e hilos.</li>
+            <li>Saturación de RAM y generaciones DDR.</li>
+            <li>Buses de transferencia (PCI Express, SATA, USB).</li>
+            <li>Gráficos integrados, dedicados y VRAM.</li>
+            <li>Compatibilidad de hardware, diagnóstico integral e impresora con su cola de impresión.</li>
+          </ul>
+        </div>
       </article>
       <article class="card week-card">
         <h2>SEMANA 3</h2>
-        <div class="edit-area" contenteditable="true"
-          data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
+          <p class="block-title">Sistemas operativos distribuidos</p>
+          <p><strong>Teoría</strong></p>
+          <ul>
+            <li>Concepto y diferencias con un sistema centralizado.</li>
+            <li>Arquitectura cliente-servidor de tres niveles.</li>
+            <li>Comunicación entre procesos: sockets, paso de mensajes, colas y RPC.</li>
+            <li>Comunicación síncrona, asíncrona y publicación-suscripción.</li>
+            <li>Transparencia, tolerancia a fallos, escalabilidad y disponibilidad.</li>
+            <li>Sistemas de archivos distribuidos y aplicaciones empresariales.</li>
+          </ul>
+          <p><strong>Práctica</strong></p>
+          <ul>
+            <li>Caso MULTISERVICIOS S.A.: pasar de un servidor central a una arquitectura distribuida para siete sedes.</li>
+          </ul>
+        </div>
       </article>
       <article class="card week-card">
         <h2>SEMANA 4</h2>
-        <div class="edit-area" contenteditable="true"
-          data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana..."></div>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
+          <p class="block-title">Booteo e instalación de un sistema operativo</p>
+          <p><strong>Teoría</strong></p>
+          <ul>
+            <li>Proceso de arranque: POST, firmware, gestor de arranque, kernel y systemd.</li>
+            <li>BIOS vs UEFI, Secure Boot y orden de arranque.</li>
+            <li>Gestor de arranque (GRUB y Windows Boot Manager) y arranque dual.</li>
+            <li>Tablas de particiones GPT y MBR.</li>
+            <li>Imágenes ISO, medios booteables (Rufus y Ventoy) y máquinas virtuales.</li>
+          </ul>
+          <p><strong>Práctica</strong></p>
+          <ul>
+            <li>Instalación y verificación con <code>uname -a</code>, <code>hostnamectl</code>, <code>lsblk</code> y <code>systeminfo</code>.</li>
+            <li>Proyecto final: Lubuntu junto a Windows en arranque dual.</li>
+          </ul>
+        </div>
       </article>
     </section>
   </main>
