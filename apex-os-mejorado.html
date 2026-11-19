@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX OS — Desktop Preview</title>
+<style>
+:root{
+  --bg:#0E0E10;
+  --panel:#2A2A2F;
+  --panel2:#1a1a1e;
+  --line:#6A040F;
+  --text:#F3F3F4;
+  --muted:#a0a0a8;
+  --accent:#D00000;
+  --accent-dark:#6A040F;
+  --shadow:0 18px 55px #000c;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);overflow:hidden}
+body{background:var(--bg)}
+.desktop{height:100%;position:relative;overflow:hidden;background:
+  radial-gradient(ellipse at 70% 25%,#3a1010 0,transparent 42%),
+  radial-gradient(ellipse at 20% 80%,#2A2A2F 0,transparent 40%),
+  linear-gradient(135deg,#0E0E10,#1a0e10 60%,#0E0E10)}
+.desktop:before{content:"";position:absolute;inset:0;opacity:.08;background-image:linear-gradient(#6A040F22 1px,transparent 1px),linear-gradient(90deg,#6A040F22 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.brand{position:absolute;right:34px;top:30px;text-align:right;pointer-events:none}
+.brand strong{font-size:clamp(28px,5vw,58px);letter-spacing:.18em;font-weight:800;color:#D0000018}
+.brand span{display:block;font-size:10px;letter-spacing:.28em;color:#F3F3F430;margin-top:5px}
+.desktop-icons{position:absolute;top:24px;left:22px;display:grid;gap:17px;z-index:1}
+.icon{width:78px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--text);display:flex;flex-direction:column;align-items:center;gap:7px;padding:9px 4px;cursor:pointer;font-size:11px;text-shadow:0 1px 4px #000}
+.icon:hover,.icon:focus{background:#D0000018;border-color:#D0000044;outline:none}
+.glyph{width:38px;height:38px;display:grid;place-items:center;font-size:26px;filter:drop-shadow(0 5px 5px #0008)}
+.taskbar{position:absolute;z-index:1000;bottom:0;left:0;right:0;height:54px;background:#0E0E10ee;border-top:1px solid #6A040F66;backdrop-filter:blur(18px);display:flex;align-items:center;padding:0 12px;gap:9px}
+.start{height:38px;padding:0 15px;border:1px solid #D0000066;border-radius:7px;background:linear-gradient(#6A040F,#3a0206);color:#F3F3F4;font-weight:700;letter-spacing:.08em;cursor:pointer}
+.start:hover,.task:hover{background:#D0000033}
+.task-list{display:flex;gap:5px;flex:1;min-width:0}
+.task{height:36px;max-width:190px;min-width:90px;padding:0 12px;border:1px solid transparent;border-radius:6px;background:#ffffff0b;color:#d0d0d4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;text-align:left}
+.task.active{background:#D0000028;border-color:#D0000066;color:white}
+.status{font-size:11px;color:#b0b0b8;display:flex;gap:13px;align-items:center;padding:0 7px}
+.window{position:absolute;z-index:10;width:min(650px,calc(100vw - 28px));height:min(440px,calc(100vh - 90px));min-width:280px;min-height:190px;background:var(--panel);border:1px solid #6A040F88;border-radius:10px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.window.hidden{display:none}.window.max{left:8px!important;top:8px!important;width:calc(100vw - 16px)!important;height:calc(100vh - 70px)!important}
+.titlebar{height:39px;flex:0 0 39px;display:flex;align-items:center;gap:9px;padding:0 9px 0 13px;background:linear-gradient(90deg,#6A040F,#3a0206);border-bottom:1px solid #D0000044;cursor:move;user-select:none}
+.title-icon{font-size:15px}.title{font-size:12px;font-weight:650;letter-spacing:.03em;flex:1}
+.controls{display:flex;gap:5px}.winbtn{width:25px;height:23px;border:0;border-radius:4px;background:#ffffff18;color:#F3F3F4;cursor:pointer}.winbtn:hover{background:#ffffff30}.winbtn.close:hover{background:#D00000}
+.content{flex:1;min-height:0;overflow:auto;background:var(--panel2)}
+.toolbar{height:36px;padding:0 12px;display:flex;align-items:center;gap:15px;background:#1a1a1e;border-bottom:1px solid #6A040F44;color:#a0a0a8;font-size:11px}
+.explorer{display:grid;grid-template-columns:145px 1fr;height:100%}.side{padding:14px 10px;background:#1e1e22;border-right:1px solid #6A040F33;color:#a0a0a8;font-size:12px}.side div{padding:8px;border-radius:5px}.side div:first-child{background:#D0000018;color:#fff}.files{padding:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));align-content:start;gap:14px}.file{border:1px solid transparent;border-radius:7px;padding:12px 5px;text-align:center;font-size:11px;color:#d0d0d4}.file:hover{background:#D0000010;border-color:#D0000030}.file b{display:block;font-size:27px;margin-bottom:7px}
+.terminal{height:100%;padding:17px;font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;color:#e0c0c0;background:#0a0a0c}.terminal .dim{color:#888}.terminal form{display:flex;gap:8px;margin-top:7px}.terminal input{flex:1;background:transparent;border:0;outline:0;color:#F3F3F4;font:inherit;min-width:0}
+.doom{height:100%;display:flex;flex-direction:column;background:#080808}
+.doom-screen{flex:1;position:relative;overflow:hidden;background:#111}
+.doom-screen canvas{width:100%;height:100%;display:block;background:#0a0a0a;cursor:crosshair}
+.doom-foot{padding:10px 15px;color:#aaa;font-size:11px;display:flex;justify-content:space-between;background:#111;border-top:1px solid #6A040F44}
+.start-menu{position:absolute;z-index:999;left:12px;bottom:61px;width:270px;background:#1a1a1ef5;border:1px solid #6A040F88;border-radius:10px;box-shadow:var(--shadow);padding:14px;backdrop-filter:blur(18px);display:none}
+.start-menu.open{display:block}.user{font-weight:700;padding:7px 8px 14px;border-bottom:1px solid #D0000033;margin-bottom:8px}.menu-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:6px;color:#F3F3F4;font-size:13px;cursor:pointer}.menu-item:hover{background:#D0000020}
+.note{padding:22px;color:#c0c0c4;font-size:13px;line-height:1.6}.note h2{color:#F3F3F4;font-size:19px;margin:0 0 9px}.pill{display:inline-block;border:1px solid #D00000;border-radius:20px;padding:4px 9px;color:#D00000;font-size:10px;letter-spacing:.08em}
+/* Browser */
+.browser{height:100%;display:flex;flex-direction:column;background:#111}
+.browser-bar{height:42px;background:#1a1a1e;border-bottom:1px solid #6A040F44;display:flex;align-items:center;gap:8px;padding:0 10px}
+.browser-bar button{background:#2A2A2F;border:1px solid #6A040F44;color:#F3F3F4;border-radius:4px;padding:4px 8px;cursor:pointer;font-size:12px}
+.browser-bar button:hover{background:#D0000022}
+.browser-bar input{flex:1;background:#0E0E10;border:1px solid #6A040F55;color:#F3F3F4;border-radius:4px;padding:6px 10px;font-size:12px;outline:none}
+.browser-content{flex:1;overflow:auto;background:#0E0E10}
+.browser-page{padding:24px;max-width:800px;margin:0 auto;line-height:1.6}
+.browser-page h1{color:#D00000;margin-top:0}
+.browser-page a{color:#D00000}
+.browser-page table{width:100%;border-collapse:collapse;margin:16px 0}
+.browser-page th,.browser-page td{border:1px solid #6A040F44;padding:8px;text-align:left}
+.browser-page th{background:#2A2A2F}
+@media(max-width:520px){.desktop-icons{grid-template-columns:repeat(2,78px);gap:5px;top:15px;left:10px}.brand{top:15px;right:15px}.status .date{display:none}.explorer{grid-template-columns:100px 1fr}.task{min-width:55px;padding:0 7px;font-size:10px}}
+</style>
+<link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+<script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+</head>
+<body>
+<div class="desktop" id="desktop">
+  <div class="brand"><strong>APEX</strong><span>PERSONAL DESKTOP ENVIRONMENT</span></div>
+  <div class="desktop-icons">
+    <button class="icon" data-open="explorer"><span class="glyph">📁</span>Archivos</button>
+    <button class="icon" data-open="terminal"><span class="glyph">▣</span>Terminal</button>
+    <button class="icon" data-open="browser"><span class="glyph">🌐</span>Navegador</button>
+    <button class="icon" data-open="doom"><span class="glyph">🎮</span>DOOM</button>
+    <button class="icon" data-open="about"><span class="glyph">◈</span>Acerca de</button>
+  </div>
+
+  <section class="window hidden" id="explorer" style="left:13%;top:13%;width:590px;height:390px">
+    <header class="titlebar"><span class="title-icon">📁</span><span class="title">Explorador de archivos</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="toolbar">← &nbsp; → &nbsp; ↑ <span>Este equipo / Escritorio</span></div>
+    <div class="content explorer"><aside class="side"><div>⌂ &nbsp; Inicio</div><div>▣ &nbsp; Escritorio</div><div>◷ &nbsp; Recientes</div><div>★ &nbsp; Favoritos</div><div>▤ &nbsp; Este equipo</div></aside><div class="files"><div class="file"><b>📁</b>Documentos</div><div class="file"><b>📁</b>Juegos</div><div class="file"><b>📁</b>Proyectos</div><div class="file"><b>🗒️</b>readme.txt</div><div class="file"><b>⚙️</b>system</div></div></div>
+  </section>
+
+  <section class="window hidden" id="terminal" style="left:22%;top:20%;width:570px;height:340px">
+    <header class="titlebar"><span class="title-icon">▣</span><span class="title">Terminal — apex@desktop</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="content terminal" id="term"><div>APEX Shell [Version 0.9.5]</div><div class="dim">Entorno de demostración · Escribe "help" para ver comandos.</div><br><div>apex@desktop:~$ <span>neofetch</span></div><div class="dim">  /\_/\\ &nbsp; APEX OS 0.9.5</div><div class="dim"> ( o.o ) &nbsp; Kernel: Web Runtime</div><div class="dim">  > ^ < &nbsp; Shell: Apex Shell</div><br><div id="term-output"></div><form id="term-form"><span>apex@desktop:~$</span><input id="term-input" autocomplete="off" spellcheck="false" aria-label="Comando"></form></div>
+  </section>
+
+  <!-- Browser -->
+  <section class="window hidden" id="browser" style="left:8%;top:8%;width:720px;height:480px">
+    <header class="titlebar"><span class="title-icon">🌐</span><span class="title">Navegador — APEX Browser</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="browser">
+      <div class="browser-bar">
+        <button id="br-back">←</button>
+        <button id="br-fwd">→</button>
+        <button id="br-home">⌂</button>
+        <input id="br-url" type="text" value="apex://home" spellcheck="false">
+        <button id="br-go">Ir</button>
+      </div>
+      <div class="browser-content" id="br-content"></div>
+    </div>
+  </section>
+
+  <!-- DOOM (js-dos real) -->
+  <section class="window hidden" id="doom" style="left:18%;top:8%;width:680px;height:480px">
+    <header class="titlebar"><span class="title-icon">🎮</span><span class="title">DOOM — Shareware (js-dos)</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="content doom" style="display:flex;flex-direction:column;background:#000">
+      <div id="jsdos-container" style="flex:1;min-height:0;background:#000"></div>
+      <div class="doom-foot">
+        <span>DOOM Shareware · Controles clásicos: flechas + Ctrl para disparar</span>
+        <span id="doom-status">Listo para cargar</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="window hidden" id="about" style="left:36%;top:25%;width:390px;height:280px">
+    <header class="titlebar"><span class="title-icon">◈</span><span class="title">Acerca de APEX OS</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="content note"><span class="pill">CONCEPT BUILD 0.2</span><h2>APEX OS</h2><p>Un escritorio ficticio que vive dentro del navegador. No es un sistema operativo real: es una interfaz web con ventanas y aplicaciones simuladas.</p><p><b>Objetivo:</b> convertir GitHub Pages en un pequeño PC interactivo con paleta negra-roja.</p></div>
+  </section>
+
+  <div class="start-menu" id="start-menu">
+    <div class="user">◈ &nbsp; APEX USER</div>
+    <div class="menu-item" data-open="explorer">📁 <span>Explorador de archivos</span></div>
+    <div class="menu-item" data-open="terminal">▣ <span>Terminal</span></div>
+    <div class="menu-item" data-open="browser">🌐 <span>Navegador</span></div>
+    <div class="menu-item" data-open="doom">🎮 <span>DOOM</span></div>
+    <div class="menu-item" data-open="about">◈ <span>Acerca de APEX OS</span></div>
+  </div>
+  <footer class="taskbar"><button class="start" id="start-btn">◈ &nbsp; INICIO</button><div class="task-list" id="task-list"></div><div class="status"><span>◉ ONLINE</span><span class="date" id="clock">20:49</span></div></footer>
+</div>
+<script>
+const windows=[...document.querySelectorAll('.window')], taskList=document.getElementById('task-list');
+let topZ=20;
+function focusWin(w){topZ++;w.style.zIndex=topZ;windows.forEach(x=>x.classList.toggle('focused',x===w));}
+function taskFor(id){return document.querySelector(`[data-task="${id}"]`)}
+function openWin(id){
+  const w=document.getElementById(id);if(!w)return;
+  w.classList.remove('hidden');w.classList.remove('minimized');focusWin(w);
+  if(!taskFor(id)){
+    const b=document.createElement('button');b.className='task active';b.dataset.task=id;
+    b.textContent=({explorer:'📁 Archivos',terminal:'▣ Terminal',browser:'🌐 Navegador',doom:'🎮 DOOM',about:'◈ Acerca de'})[id];
+    b.onclick=()=>{if(w.classList.contains('hidden'))w.classList.remove('hidden');else if(w.style.display!=='none'&&!w.classList.contains('minimized'))w.classList.add('hidden');else w.classList.remove('hidden');focusWin(w);};
+    taskList.appendChild(b)
+  }
+  updateTasks();document.getElementById('start-menu').classList.remove('open');
+  if(id==='doom') startDoom();
+  if(id==='browser') loadBrowserPage(currentPage);
+}
+function closeWin(w){w.classList.add('hidden');w.classList.remove('max');taskFor(w.id)?.remove(); if(w.id==='doom') stopDoom();}
+function updateTasks(){windows.forEach(w=>{const t=taskFor(w.id);if(t)t.classList.toggle('active',!w.classList.contains('hidden'))})}
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openWin(b.dataset.open)));
+windows.forEach(w=>{
+  w.addEventListener('mousedown',()=>focusWin(w));
+  w.querySelector('[data-close]').onclick=()=>closeWin(w);
+  w.querySelector('[data-min]').onclick=()=>{w.classList.add('hidden');updateTasks()};
+  w.querySelector('[data-max]').onclick=()=>{w.classList.toggle('max');focusWin(w)};
+  const bar=w.querySelector('.titlebar');let drag=false,sx=0,sy=0,ox=0,oy=0;
+  bar.addEventListener('pointerdown',e=>{if(e.target.closest('button')||w.classList.contains('max'))return;drag=true;bar.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;ox=w.offsetLeft;oy=w.offsetTop;focusWin(w)});
+  bar.addEventListener('pointermove',e=>{if(!drag)return;w.style.left=Math.max(0,Math.min(innerWidth-w.offsetWidth,ox+e.clientX-sx))+'px';w.style.top=Math.max(0,Math.min(innerHeight-75,oy+e.clientY-sy))+'px'});
+  bar.addEventListener('pointerup',()=>drag=false);bar.addEventListener('pointercancel',()=>drag=false);
+});
+const start=document.getElementById('start-menu');document.getElementById('start-btn').onclick=()=>start.classList.toggle('open');
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('#start-menu')&&!e.target.closest('#start-btn'))start.classList.remove('open')});
+
+// Terminal
+const form=document.getElementById('term-form'),input=document.getElementById('term-input'),out=document.getElementById('term-output');
+form.addEventListener('submit',e=>{e.preventDefault();const cmd=input.value.trim();if(!cmd)return;const line=document.createElement('div');line.textContent='apex@desktop:~$ '+cmd;out.appendChild(line);const response=document.createElement('div');response.className='dim';const c=cmd.toLowerCase();response.textContent=({help:'Comandos: help, about, date, ls, clear, whoami, launch doom, browser',about:'APEX OS 0.9.5 — navegador como escritorio.',date:new Date().toLocaleString('es-CO'),ls:'Desktop/  Documents/  Games/  Projects/',whoami:'apex-user'})[c]??(c==='clear'?'':c==='launch doom'?'Abriendo DOOM...':c==='browser'?'Abriendo Navegador...':`Comando no encontrado: ${cmd}`);if(c==='clear')out.innerHTML='';else{out.appendChild(response);if(c==='launch doom')openWin('doom');if(c==='browser')openWin('browser')}input.value='';document.getElementById('term').scrollTop=9999});
+
+// Clock
+function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}tick();setInterval(tick,15000);
+
+// ===== Browser =====
+const pages = {
+  'apex://home': `
+    <div class="browser-page">
+      <h1>APEX Browser</h1>
+      <p>Navegador simulado dentro de APEX OS.</p>
+      <h2>Páginas disponibles</h2>
+      <ul>
+        <li><a href="apex://home" data-nav>Inicio</a></li>
+        <li><a href="apex://so" data-nav>Proyecto Sistemas Operativos</a></li>
+        <li><a href="apex://about" data-nav>Acerca de APEX</a></li>
+        <li><a href="https://psakejs.github.io/Sistemas-Operativos/proyecto.html" data-nav>Página real (iframe)</a></li>
+      </ul>
+      <p>Escribe una dirección o haz clic en los enlaces.</p>
+    </div>`,
+  'apex://so': `
+    <div class="browser-page">
+      <h1>Proyecto — Sistemas Operativos</h1>
+      <p><strong>Video Tutorial | Dual Boot Lubuntu + Windows</strong></p>
+      <p>Instalación de Lubuntu 26.04.1 LTS junto a Windows 10 en un Lenovo IdeaPad S145-14IWL para aprender fundamentos de Linux y demostrar el funcionamiento de un sistema operativo.</p>
+      <h2>Hardware</h2>
+      <ul>
+        <li>CPU: Intel Core i7-8565U</li>
+        <li>RAM: 4 GB</li>
+        <li>GPU: Intel UHD 620 + NVIDIA MX110</li>
+        <li>Disco: 1 TB HDD (con errores de lectura)</li>
+      </ul>
+      <h2>Plan de particiones</h2>
+      <table>
+        <tr><th>Partición</th><th>Tamaño</th><th>Formato</th><th>Uso</th></tr>
+        <tr><td>sda1</td><td>~499 MB</td><td>NTFS</td><td>Recovery</td></tr>
+        <tr><td>sda2</td><td>100 MB</td><td>EFI</td><td>Windows EFI</td></tr>
+        <tr><td>sda4</td><td>~506 GB</td><td>NTFS</td><td>Windows C:</td></tr>
+        <tr><td>sda6</td><td>~324 GB</td><td>NTFS</td><td>Windows D:</td></tr>
+        <tr><td>sda7</td><td>512 MiB</td><td>FAT32</td><td>EFI Lubuntu</td></tr>
+        <tr><td>sda8</td><td>~99.5 GiB</td><td>ext4</td><td>Root Lubuntu</td></tr>
+      </table>
+      <p>GRUB muestra el menú de arranque dual. Ambos sistemas arrancan correctamente.</p>
+      <p><a href="https://psakejs.github.io/Sistemas-Operativos/proyecto.html" target="_blank">Ver página completa →</a></p>
+    </div>`,
+  'apex://about': `
+    <div class="browser-page">
+      <h1>Acerca de APEX OS</h1>
+      <p>Escritorio ficticio de demostración construido con HTML, CSS y JavaScript puro.</p>
+      <p>Paleta: negro #0E0E10 · rojo #D00000 · rojo oscuro #6A040F</p>
+    </div>`
+};
+let currentPage = 'apex://home';
+let history = ['apex://home'];
+let histIndex = 0;
+
+function loadBrowserPage(url) {
+  const content = document.getElementById('br-content');
+  const urlInput = document.getElementById('br-url');
+  urlInput.value = url;
+  currentPage = url;
+
+  if (url.startsWith('apex://') && pages[url]) {
+    content.innerHTML = pages[url];
+  } else if (url.startsWith('http')) {
+    content.innerHTML = `<iframe src="${url}" style="width:100%;height:100%;border:0;background:#fff" sandbox="allow-scripts allow-same-origin"></iframe>`;
+  } else {
+    content.innerHTML = `<div class="browser-page"><h1>Página no encontrada</h1><p>No se pudo cargar: ${url}</p><p><a href="apex://home" data-nav>Volver al inicio</a></p></div>`;
+  }
+  // Bind nav links
+  content.querySelectorAll('[data-nav]').forEach(a => {
+    a.onclick = e => { e.preventDefault(); navigateTo(a.getAttribute('href') || a.href); };
+  });
+}
+function navigateTo(url) {
+  history = history.slice(0, histIndex + 1);
+  history.push(url);
+  histIndex = history.length - 1;
+  loadBrowserPage(url);
+}
+document.getElementById('br-go').onclick = () => navigateTo(document.getElementById('br-url').value.trim() || 'apex://home');
+document.getElementById('br-url').onkeydown = e => { if (e.key === 'Enter') navigateTo(e.target.value.trim()); };
+document.getElementById('br-back').onclick = () => { if (histIndex > 0) { histIndex--; loadBrowserPage(history[histIndex]); } };
+document.getElementById('br-fwd').onclick = () => { if (histIndex < history.length - 1) { histIndex++; loadBrowserPage(history[histIndex]); } };
+document.getElementById('br-home').onclick = () => navigateTo('apex://home');
+
+// ===== DOOM Real (js-dos) =====
+let dosbox = null;
+let doomStarted = false;
+
+function startDoom() {
+  if (doomStarted) return;
+  doomStarted = true;
+  const status = document.getElementById('doom-status');
+  status.textContent = "Cargando DOOM...";
+
+  const container = document.getElementById('jsdos-container');
+  container.innerHTML = '';
+
+  // Configurar path de emuladores
+  if (typeof emulators !== 'undefined') {
+    emulators.pathPrefix = "https://v8.js-dos.com/latest/js-dos/";
+  }
+
+  try {
+    dosbox = Dos(container, {
+      url: "https://cdn.dos.zone/original/2X/2/24b00b14f118580763440ecaddcc948f8cb94f14.jsdos",
+      onload: (dos) => {
+        status.textContent = "DOOM listo · Flechas + Ctrl";
+      },
+      onrun: (dos, app) => {
+        status.textContent = "Ejecutando: " + app;
+      }
+    });
+  } catch (e) {
+    status.textContent = "Error al cargar. Prueba recargar.";
+    console.error(e);
+  }
+}
+
+function stopDoom() {
+  if (dosbox) {
+    try { dosbox.exit(); } catch(e) {}
+    dosbox = null;
+  }
+  doomStarted = false;
+  const status = document.getElementById('doom-status');
+  if (status) status.textContent = "Detenido";
+}
+
+openWin('about');
+</script>
+</body>
+</html>
