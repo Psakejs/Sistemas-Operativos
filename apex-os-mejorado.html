@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APEX OS — Desktop Preview</title>
-<link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 <style>
 :root{
   --bg:#0E0E10;
@@ -69,16 +68,104 @@ body{background:var(--bg)}
 .browser-page th,.browser-page td{border:1px solid #6A040F44;padding:8px;text-align:left}
 .browser-page th{background:#2A2A2F}
 @media(max-width:520px){.desktop-icons{grid-template-columns:repeat(2,78px);gap:5px;top:15px;left:10px}.brand{top:15px;right:15px}.status .date{display:none}.explorer{grid-template-columns:100px 1fr}.task{min-width:55px;padding:0 7px;font-size:10px}}
+
+.arcade-btn{background:#2A2A2F;border:1px solid #D00000;color:#F3F3F4;padding:12px 24px;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600}
+.arcade-btn:hover{background:#D0000022}
+/* Boot / BIOS screen - estilo terminal retro */
+.boot-screen{position:fixed;inset:0;z-index:10000;background:#0c0c0e;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
+.boot-screen.hide{opacity:0;pointer-events:none}
+.login-screen{position:fixed;inset:0;z-index:9999;background:#0c0c0e;display:none;align-items:center;justify-content:center}
+.login-screen.show{display:flex}
+.desktop.hidden{visibility:hidden;pointer-events:none}
+.term-window{background:#1c1c1f;border-radius:12px;width:min(920px,96vw);height:min(640px,92vh);box-shadow:0 20px 70px #000c;display:flex;flex-direction:column;padding:28px 32px;position:relative}
+.term-prompt{font-family:ui-monospace,Consolas,monospace;font-size:22px;font-weight:700;color:#D00000;letter-spacing:.05em;margin-bottom:18px}
+.term-body{flex:1;font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.65;color:#c8c8cc;overflow:hidden}
+.term-body div{opacity:0;animation:bootIn .25s forwards}
+@keyframes bootIn{to{opacity:1}}
+.boot-logo-small{position:absolute;bottom:18px;right:22px;width:48px;height:48px;opacity:.7;filter:drop-shadow(0 0 6px #D0000044)}
+
+/* Login screen - estilo terminal */
+.login-term{background:#1c1c1f;border-radius:12px;width:min(520px,94vw);padding:32px 36px 36px;box-shadow:0 20px 70px #000c;text-align:left}
+.login-term .prompt{font-family:ui-monospace,Consolas,monospace;font-size:20px;color:#D00000;font-weight:700;margin-bottom:22px}
+.login-field{background:#b8f07a;color:#1a1a1e;font-family:ui-monospace,Consolas,monospace;font-size:18px;padding:14px 16px;border-radius:4px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.login-field label{font-weight:600;min-width:110px}
+.login-field input{flex:1;background:transparent;border:0;outline:0;font:inherit;color:#1a1a1e;padding:0}
+.login-field input::placeholder{color:#3a3a3a80}
+.login-actions{margin-top:16px;display:flex;justify-content:flex-end}
+.login-actions button{background:#D00000;border:0;color:#fff;font-family:ui-monospace,Consolas,monospace;padding:8px 18px;border-radius:4px;cursor:pointer;font-weight:600}
+.login-actions button:hover{background:#ff2222}
+.login-error{color:#D00000;font-family:ui-monospace,Consolas,monospace;font-size:13px;margin-top:10px;min-height:16px}
+/* CRT Effects + Aberración cromática */
+.crt{position:relative}
+.crt::before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:10;
+  background:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0px,rgba(0,0,0,.18) 1px,transparent 1px,transparent 3px),
+    radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.4) 100%);
+  border-radius:inherit;
+  mix-blend-mode:multiply;
+}
+.crt::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:11;
+  background:linear-gradient(180deg,rgba(208,0,0,.04) 0%,transparent 35%,rgba(0,0,0,.1) 100%);
+  border-radius:inherit;
+  animation:crtFlicker 7s infinite;
+}
+@keyframes crtFlicker{
+  0%,100%{opacity:1}
+  48%{opacity:.98}
+  50%{opacity:1}
+  52%{opacity:.96}
+}
+/* Aberración cromática */
+.chroma{filter:contrast(1.06) brightness(1.03) saturate(1.15);
+  text-shadow: 
+    -1px 0 1px rgba(208,0,0,.4),
+     1px 0 1px rgba(0,180,255,.25);
+}
+.chroma-strong{
+  filter:
+    drop-shadow(-1.5px 0 0 rgba(208,0,0,.35))
+    drop-shadow(1.5px 0 0 rgba(0,180,255,.25))
+    contrast(1.08) brightness(1.04) saturate(1.2);
+}
+.crt-screen{filter:contrast(1.06) brightness(1.03) saturate(1.12)}
 </style>
 </head>
 <body>
-<div class="desktop" id="desktop">
+<div class="boot-screen crt chroma-strong" id="boot-screen">
+  <div class="term-window">
+    <div class="term-prompt">C:\></div>
+    <div class="term-body" id="boot-log"></div>
+    <img class="boot-logo-small" src="apex-logo.jpg" alt="APEX">
+  </div>
+</div>
+<div class="login-screen crt chroma" id="login-screen">
+  <div class="login-term">
+    <div class="prompt">C:\></div>
+    <div class="login-field">
+      <label>Login:</label>
+      <input type="text" id="login-user" placeholder="_" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="login-field">
+      <label>Password:</label>
+      <input type="password" id="login-pass" placeholder="*">
+    </div>
+    <div class="login-actions">
+      <button id="login-btn">Enter</button>
+    </div>
+    <div class="login-error" id="login-error"></div>
+  </div>
+</div>
+<div class="desktop crt-screen hidden" id="desktop">
   <div class="brand"><strong>APEX</strong><span>PERSONAL DESKTOP ENVIRONMENT</span></div>
   <div class="desktop-icons">
     <button class="icon" data-open="explorer"><span class="glyph">📁</span>Archivos</button>
     <button class="icon" data-open="terminal"><span class="glyph">▣</span>Terminal</button>
     <button class="icon" data-open="browser"><span class="glyph">🌐</span>Navegador</button>
-    <button class="icon" data-open="doom"><span class="glyph">🎮</span>DOOM</button>
+    <button class="icon" data-open="doom"><span class="glyph">🕹️</span>Arcade</button>
     <button class="icon" data-open="about"><span class="glyph">◈</span>Acerca de</button>
   </div>
 
@@ -90,7 +177,7 @@ body{background:var(--bg)}
 
   <section class="window hidden" id="terminal" style="left:22%;top:20%;width:570px;height:340px">
     <header class="titlebar"><span class="title-icon">▣</span><span class="title">Terminal — apex@desktop</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
-    <div class="content terminal" id="term"><div>APEX Shell [Version 0.9.5]</div><div class="dim">Entorno de demostración · Escribe "help" para ver comandos.</div><br><div>apex@desktop:~$ <span>neofetch</span></div><div class="dim">  /\_/\\ &nbsp; APEX OS 0.9.5</div><div class="dim"> ( o.o ) &nbsp; Kernel: Web Runtime</div><div class="dim">  > ^ < &nbsp; Shell: Apex Shell</div><br><div id="term-output"></div><form id="term-form"><span>apex@desktop:~$</span><input id="term-input" autocomplete="off" spellcheck="false" aria-label="Comando"></form></div>
+    <div class="content terminal" id="term"><div>APEX Shell [Version 0.9.5]</div><div class="dim">Entorno de demostración · Escribe "help" para ver comandos.</div><br><div>apex@desktop:~$ <span>neofetch</span></div><div class="dim">  /\_/\\ &nbsp; APEX OS 0.9.5</div><div class="dim"> ( o.o ) &nbsp; Kernel: Web Runtime</div><div class="dim">  > ^ < &nbsp; Shell: Apex Shell</div><br><div id="term-output"></div><form id="term-form"><span id="term-prompt">apex@desktop:~$</span><input id="term-input" autocomplete="off" spellcheck="false" aria-label="Comando"></form></div>
   </section>
 
   <!-- Browser -->
@@ -108,14 +195,22 @@ body{background:var(--bg)}
     </div>
   </section>
 
-  <!-- DOOM (dos.zone player) -->
-  <section class="window hidden" id="doom" style="left:12%;top:6%;width:720px;height:520px">
-    <header class="titlebar"><span class="title-icon">🎮</span><span class="title">DOOM — Shareware</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
-    <div class="content doom" style="display:flex;flex-direction:column;background:#000;height:100%">
-      <iframe id="doom-frame" src="about:blank" style="flex:1;width:100%;border:0;background:#000" allow="fullscreen"></iframe>
-      <div class="doom-foot">
-        <span>DOOM Shareware · Controles: flechas + Ctrl para disparar</span>
-        <span id="doom-status">Cargando…</span>
+  <!-- Arcade (juegos autocontenidos) -->
+  <section class="window hidden" id="doom" style="left:15%;top:8%;width:640px;height:500px">
+    <header class="titlebar"><span class="title-icon">🎮</span><span class="title">Arcade</span><div class="controls"><button class="winbtn" data-min>−</button><button class="winbtn" data-max>□</button><button class="winbtn close" data-close>×</button></div></header>
+    <div class="content" style="display:flex;flex-direction:column;background:#0a0a0c;height:100%">
+      <div id="arcade-menu" style="padding:16px;text-align:center;flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;overflow:auto">
+        <h2 style="color:#D00000;margin:0 0 8px">Arcade</h2>
+        <button class="arcade-btn" data-game="snake">🐍 Snake</button>
+        <button class="arcade-btn" data-game="pong">🏓 Pong</button>
+        <button class="arcade-btn" data-game="breakout">🧱 Breakout</button>
+        <button class="arcade-btn" data-game="invaders">👾 Space Invaders</button>
+        <button class="arcade-btn" data-game="asteroids">☄️ Asteroids</button>
+      </div>
+      <canvas id="arcade-canvas" style="display:none;flex:1;background:#000;cursor:crosshair"></canvas>
+      <div class="doom-foot" id="arcade-foot">
+        <span id="arcade-info">Selecciona un juego</span>
+        <span id="arcade-score">Score: 0</span>
       </div>
     </div>
   </section>
@@ -130,7 +225,7 @@ body{background:var(--bg)}
     <div class="menu-item" data-open="explorer">📁 <span>Explorador de archivos</span></div>
     <div class="menu-item" data-open="terminal">▣ <span>Terminal</span></div>
     <div class="menu-item" data-open="browser">🌐 <span>Navegador</span></div>
-    <div class="menu-item" data-open="doom">🎮 <span>DOOM</span></div>
+    <div class="menu-item" data-open="doom">🕹️ <span>Arcade</span></div>
     <div class="menu-item" data-open="about">◈ <span>Acerca de APEX OS</span></div>
   </div>
   <footer class="taskbar"><button class="start" id="start-btn">◈ &nbsp; INICIO</button><div class="task-list" id="task-list"></div><div class="status"><span>◉ ONLINE</span><span class="date" id="clock">20:49</span></div></footer>
@@ -145,7 +240,7 @@ function openWin(id){
   w.classList.remove('hidden');w.classList.remove('minimized');focusWin(w);
   if(!taskFor(id)){
     const b=document.createElement('button');b.className='task active';b.dataset.task=id;
-    b.textContent=({explorer:'📁 Archivos',terminal:'▣ Terminal',browser:'🌐 Navegador',doom:'🎮 DOOM',about:'◈ Acerca de'})[id];
+    b.textContent=({explorer:'📁 Archivos',terminal:'▣ Terminal',browser:'🌐 Navegador',doom:'🕹️ Arcade',about:'◈ Acerca de'})[id];
     b.onclick=()=>{if(w.classList.contains('hidden'))w.classList.remove('hidden');else if(w.style.display!=='none'&&!w.classList.contains('minimized'))w.classList.add('hidden');else w.classList.remove('hidden');focusWin(w);};
     taskList.appendChild(b)
   }
@@ -170,8 +265,199 @@ const start=document.getElementById('start-menu');document.getElementById('start
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('#start-menu')&&!e.target.closest('#start-btn'))start.classList.remove('open')});
 
 // Terminal
-const form=document.getElementById('term-form'),input=document.getElementById('term-input'),out=document.getElementById('term-output');
-form.addEventListener('submit',e=>{e.preventDefault();const cmd=input.value.trim();if(!cmd)return;const line=document.createElement('div');line.textContent='apex@desktop:~$ '+cmd;out.appendChild(line);const response=document.createElement('div');response.className='dim';const c=cmd.toLowerCase();response.textContent=({help:'Comandos: help, about, date, ls, clear, whoami, launch doom, browser',about:'APEX OS 0.9.5 — navegador como escritorio.',date:new Date().toLocaleString('es-CO'),ls:'Desktop/  Documents/  Games/  Projects/',whoami:'apex-user'})[c]??(c==='clear'?'':c==='launch doom'?'Abriendo DOOM...':c==='browser'?'Abriendo Navegador...':`Comando no encontrado: ${cmd}`);if(c==='clear')out.innerHTML='';else{out.appendChild(response);if(c==='launch doom')openWin('doom');if(c==='browser')openWin('browser')}input.value='';document.getElementById('term').scrollTop=9999});
+const form = document.getElementById('term-form');
+const input = document.getElementById('term-input');
+const out = document.getElementById('term-output');
+const promptEl = document.getElementById('term-prompt');
+let cwd = '/home/apex';
+
+const fs = {
+  '/home/apex': ['Desktop', 'Documents', 'Games', 'Projects', '.bashrc'],
+  '/home/apex/Desktop': ['readme.txt'],
+  '/home/apex/Documents': ['notas.txt'],
+  '/home/apex/Games': [],
+  '/home/apex/Projects': ['apex-os.html']
+};
+
+function normalize(path) {
+  const parts = path.split('/').filter(Boolean);
+  const stack = [];
+  for (const p of parts) {
+    if (p === '..') stack.pop();
+    else if (p !== '.') stack.push(p);
+  }
+  return '/' + stack.join('/');
+}
+
+function resolvePath(p) {
+  if (!p || p === '~' || p === '') return '/home/apex';
+  if (p === '..') {
+    const parts = cwd.split('/').filter(Boolean);
+    parts.pop();
+    return '/' + parts.join('/') || '/';
+  }
+  if (p.startsWith('/')) return normalize(p);
+  return normalize(cwd + '/' + p);
+}
+
+function updatePrompt() {
+  const display = cwd === '/home/apex' ? '~' : cwd.replace('/home/apex', '~');
+  promptEl.textContent = 'apex@desktop:' + display + '$';
+}
+
+function appendOutput(text) {
+  if (!text) return;
+  const div = document.createElement('div');
+  div.className = 'dim';
+  div.style.whiteSpace = 'pre-wrap';
+  div.textContent = text;
+  out.appendChild(div);
+}
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const raw = input.value.trim();
+  if (!raw) return;
+
+  const line = document.createElement('div');
+  const displayCwd = cwd === '/home/apex' ? '~' : cwd.replace('/home/apex', '~');
+  line.textContent = 'apex@desktop:' + displayCwd + '$ ' + raw;
+  out.appendChild(line);
+
+  const parts = raw.split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+  const args = parts.slice(1);
+  let outText = '';
+
+  switch (cmd) {
+    case 'help':
+      outText = `Comandos disponibles:
+  help              Muestra esta ayuda
+  ls [dir]          Lista archivos
+  cd [dir]          Cambia de directorio
+  pwd               Directorio actual
+  cat <archivo>     Muestra contenido
+  echo <texto>      Imprime texto
+  whoami            Usuario actual
+  uname -a          Info del sistema
+  free              Memoria
+  df                Discos
+  ps                Procesos
+  date              Fecha y hora
+  clear             Limpia pantalla
+  neofetch          Info del sistema
+  launch doom       Abre Arcade
+  browser           Abre navegador`;
+      break;
+
+    case 'ls': {
+      const target = args[0] ? resolvePath(args[0]) : cwd;
+      const items = fs[target];
+      if (items === undefined) outText = `ls: cannot access '${args[0] || '.'}': No such file or directory`;
+      else outText = items.length ? items.join('  ') : '';
+      break;
+    }
+
+    case 'cd': {
+      if (!args[0] || args[0] === '~') {
+        cwd = '/home/apex';
+      } else {
+        const target = resolvePath(args[0]);
+        if (fs[target] !== undefined) {
+          cwd = target;
+        } else {
+          outText = `bash: cd: ${args[0]}: No such file or directory`;
+        }
+      }
+      updatePrompt();
+      break;
+    }
+
+    case 'pwd':
+      outText = cwd;
+      break;
+
+    case 'cat':
+      if (!args[0]) outText = 'cat: missing file operand';
+      else {
+        const file = args[0].split('/').pop();
+        if (file === 'readme.txt') outText = 'APEX OS — Personal Desktop Environment\nDual boot demo · Use with caution on real hardware.';
+        else if (file === 'notas.txt') outText = 'Notas del proyecto Sistemas Operativos.\n- Lubuntu 26.04 dual boot\n- GRUB configurado\n- HDD con sectores pendientes';
+        else if (file === '.bashrc') outText = '# ~/.bashrc\nalias ll="ls -la"\nexport PS1="apex@desktop:\\w\\$ "';
+        else outText = `cat: ${args[0]}: No such file or directory`;
+      }
+      break;
+
+    case 'echo':
+      outText = args.join(' ');
+      break;
+
+    case 'whoami':
+      outText = 'apex';
+      break;
+
+    case 'uname':
+      outText = args.includes('-a') ? 'APEX OS 0.9.5 Web x86_64 GNU/Linux' : 'APEX';
+      break;
+
+    case 'free':
+      outText = `              total        used        free
+Mem:          4096        1840        2256
+Swap:         2048           0        2048`;
+      break;
+
+    case 'df':
+      outText = `Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/sda7       103809024 12582912  85934080  13% /
+/dev/sda2          102400    28672     73728  28% /boot/efi`;
+      break;
+
+    case 'ps':
+      outText = `  PID TTY          TIME CMD
+    1 ?        00:00:01 init
+  412 pts/0    00:00:00 bash
+  891 pts/0    00:00:00 apex-desktop`;
+      break;
+
+    case 'date':
+      outText = new Date().toString();
+      break;
+
+    case 'neofetch':
+      outText = `  /\\_/\\     APEX OS 0.9.5
+ ( o.o )    Kernel: Web Runtime
+  > ^ <     Shell: Apex Shell
+            User: apex
+            Uptime: 0m
+            Memory: 1840MiB / 4096MiB`;
+      break;
+
+    case 'clear':
+      out.innerHTML = '';
+      input.value = '';
+      return;
+
+    case 'launch':
+      if ((args[0] || '').toLowerCase() === 'doom') {
+        openWin('doom');
+        outText = 'Abriendo Arcade...';
+      } else outText = `launch: unknown target '${args[0] || ''}'`;
+      break;
+
+    case 'browser':
+      openWin('browser');
+      outText = 'Abriendo navegador...';
+      break;
+
+    default:
+      outText = `bash: ${cmd}: command not found`;
+  }
+
+  appendOutput(outText);
+  input.value = '';
+  const term = document.getElementById('term');
+  term.scrollTop = term.scrollHeight;
+});
 
 // Clock
 function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'})}tick();setInterval(tick,15000);
@@ -257,30 +543,509 @@ document.getElementById('br-back').onclick = () => { if (histIndex > 0) { histIn
 document.getElementById('br-fwd').onclick = () => { if (histIndex < history.length - 1) { histIndex++; loadBrowserPage(history[histIndex]); } };
 document.getElementById('br-home').onclick = () => navigateTo('apex://home');
 
-// ===== DOOM (dos.zone iframe) =====
-let doomStarted = false;
+// ===== Arcade (juegos locales mejorados) =====
+const arcadeCanvas = document.getElementById('arcade-canvas');
+const arcadeMenu = document.getElementById('arcade-menu');
+const arcadeInfo = document.getElementById('arcade-info');
+const arcadeScore = document.getElementById('arcade-score');
+let arcadeGame = null;
+let arcadeLoop = null;
+let keys = {};
 
-function startDoom() {
-  if (doomStarted) return;
-  doomStarted = true;
-  const frame = document.getElementById('doom-frame');
-  const status = document.getElementById('doom-status');
-  status.textContent = "Cargando DOOM…";
-  // Reproductor oficial de dos.zone con el bundle de DOOM
-  frame.src = "https://dos.zone/player/?bundleUrl=https://cdn.dos.zone/custom/dos/doom.jsdos&anonymous=1";
-  frame.onload = () => { status.textContent = "Listo · Flechas + Ctrl"; };
-  frame.onerror = () => { status.textContent = "Error al cargar. Recarga la ventana."; };
+function showMenu() {
+  if (arcadeLoop) cancelAnimationFrame(arcadeLoop);
+  arcadeCanvas.style.display = 'none';
+  arcadeMenu.style.display = 'flex';
+  arcadeInfo.textContent = 'Selecciona un juego';
+  arcadeScore.textContent = 'Score: 0';
+  arcadeGame = null;
+  keys = {};
 }
 
-function stopDoom() {
-  const frame = document.getElementById('doom-frame');
-  if (frame) frame.src = "about:blank";
-  doomStarted = false;
-  const status = document.getElementById('doom-status');
-  if (status) status.textContent = "Detenido";
+function startArcade(game) {
+  arcadeMenu.style.display = 'none';
+  arcadeCanvas.style.display = 'block';
+  const rect = arcadeCanvas.parentElement.getBoundingClientRect();
+  arcadeCanvas.width = Math.max(400, rect.width);
+  arcadeCanvas.height = Math.max(300, rect.height - 36);
+  arcadeGame = game;
+  if (game === 'snake') initSnake();
+  else if (game === 'pong') initPong();
+  else if (game === 'breakout') initBreakout();
+  else if (game === 'invaders') initInvaders();
+  else if (game === 'asteroids') initAsteroids();
 }
 
-openWin('about');
+document.querySelectorAll('.arcade-btn').forEach(btn => {
+  btn.onclick = () => startArcade(btn.dataset.game);
+});
+
+document.addEventListener('keydown', e => { keys[e.key.toLowerCase()] = true; });
+document.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+
+// ---- SNAKE (clásico con cuadrícula) ----
+let snake, dir, food, snakeScore, snakeSpeed, gridSize;
+function initSnake() {
+  const ctx = arcadeCanvas.getContext('2d');
+  gridSize = 18;
+  const cols = Math.floor(arcadeCanvas.width / gridSize);
+  const rows = Math.floor(arcadeCanvas.height / gridSize);
+  snake = [{x: Math.floor(cols/2), y: Math.floor(rows/2)}];
+  dir = {x: 1, y: 0};
+  snakeScore = 0;
+  snakeSpeed = 110;
+  placeFood(cols, rows);
+  arcadeInfo.textContent = 'Snake · Flechas/WASD · Llega a 200 para ganar · R reinicia';
+  arcadeScore.textContent = 'Score: 0';
+  let last = 0;
+  function loop(t) {
+    if (arcadeGame !== 'snake') return;
+    if (t - last > snakeSpeed) {
+      last = t;
+      const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
+      if (head.x < 0 || head.y < 0 || head.x >= cols || head.y >= rows || snake.some(s => s.x === head.x && s.y === head.y)) {
+        arcadeInfo.textContent = 'Game Over · R para reiniciar';
+        return;
+      }
+      snake.unshift(head);
+      if (head.x === food.x && head.y === food.y) {
+        snakeScore += 10;
+        arcadeScore.textContent = 'Score: ' + snakeScore;
+        if (snakeScore >= 200) {
+          arcadeInfo.textContent = '¡GANASTE! · R para reiniciar';
+          return;
+        }
+        placeFood(cols, rows);
+        snakeSpeed = Math.max(55, snakeSpeed - 1.5);
+      } else snake.pop();
+    }
+    ctx.fillStyle = '#0a0a0c';
+    ctx.fillRect(0, 0, arcadeCanvas.width, arcadeCanvas.height);
+    // grid sutil
+    ctx.strokeStyle = '#1a1a1e';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < cols; x++) for (let y = 0; y < rows; y++) {
+      ctx.strokeRect(x*gridSize, y*gridSize, gridSize, gridSize);
+    }
+    ctx.fillStyle = '#D00000';
+    ctx.fillRect(food.x*gridSize + 1, food.y*gridSize + 1, gridSize-2, gridSize-2);
+    snake.forEach((s, i) => {
+      ctx.fillStyle = i === 0 ? '#ff3333' : '#F3F3F4';
+      ctx.fillRect(s.x*gridSize + 1, s.y*gridSize + 1, gridSize-2, gridSize-2);
+    });
+    arcadeLoop = requestAnimationFrame(loop);
+  }
+  function placeFood(cols, rows) {
+    do {
+      food = {x: Math.floor(Math.random()*cols), y: Math.floor(Math.random()*rows)};
+    } while (snake.some(s => s.x === food.x && s.y === food.y));
+  }
+  arcadeLoop = requestAnimationFrame(loop);
+}
+
+// ---- PONG ----
+let pongBall, pongPaddle, pongAI, pongScore;
+function initPong() {
+  const ctx = arcadeCanvas.getContext('2d');
+  pongBall = {x: arcadeCanvas.width/2, y: arcadeCanvas.height/2, vx: 5, vy: 3};
+  pongPaddle = {x: 30, y: arcadeCanvas.height/2 - 45, w: 12, h: 90};
+  pongAI = {x: arcadeCanvas.width - 42, y: arcadeCanvas.height/2 - 45, w: 12, h: 90};
+  pongScore = 0;
+  arcadeInfo.textContent = 'Pong · Flechas/W-S o ratón · 15 puntos para ganar · R reinicia';
+  arcadeScore.textContent = 'Score: 0';
+  function loop() {
+    if (arcadeGame !== 'pong') return;
+    pongBall.x += pongBall.vx;
+    pongBall.y += pongBall.vy;
+    if (pongBall.y < 10 || pongBall.y > arcadeCanvas.height - 10) pongBall.vy *= -1;
+    if (pongBall.x < pongPaddle.x + pongPaddle.w && pongBall.y > pongPaddle.y && pongBall.y < pongPaddle.y + pongPaddle.h) {
+      pongBall.vx = Math.abs(pongBall.vx) + 0.15;
+      pongScore++;
+      arcadeScore.textContent = 'Score: ' + pongScore;
+      if (pongScore >= 15) { arcadeInfo.textContent = '¡GANASTE! · R para reiniciar'; return; }
+    }
+    if (pongBall.x > pongAI.x && pongBall.y > pongAI.y && pongBall.y < pongAI.y + pongAI.h) pongBall.vx = -Math.abs(pongBall.vx);
+    if (pongBall.x < 0 || pongBall.x > arcadeCanvas.width) {
+      arcadeInfo.textContent = 'Game Over · R para reiniciar';
+      return;
+    }
+    if (pongAI.y + pongAI.h/2 < pongBall.y) pongAI.y += 3.2;
+    if (pongAI.y + pongAI.h/2 > pongBall.y) pongAI.y -= 3.2;
+    pongAI.y = Math.max(0, Math.min(arcadeCanvas.height - pongAI.h, pongAI.y));
+    ctx.fillStyle = '#0a0a0c';
+    ctx.fillRect(0, 0, arcadeCanvas.width, arcadeCanvas.height);
+    ctx.fillStyle = '#F3F3F4';
+    ctx.fillRect(pongPaddle.x, pongPaddle.y, pongPaddle.w, pongPaddle.h);
+    ctx.fillRect(pongAI.x, pongAI.y, pongAI.w, pongAI.h);
+    ctx.fillStyle = '#D00000';
+    ctx.beginPath();
+    ctx.arc(pongBall.x, pongBall.y, 9, 0, Math.PI*2);
+    ctx.fill();
+    arcadeLoop = requestAnimationFrame(loop);
+  }
+  arcadeLoop = requestAnimationFrame(loop);
+}
+
+// ---- BREAKOUT ----
+let bricks, ball, paddle, breakScore, totalBricks;
+function initBreakout() {
+  const ctx = arcadeCanvas.getContext('2d');
+  paddle = {x: arcadeCanvas.width/2 - 55, y: arcadeCanvas.height - 28, w: 110, h: 12};
+  ball = {x: arcadeCanvas.width/2, y: arcadeCanvas.height - 50, vx: 3.5, vy: -4.5};
+  breakScore = 0;
+  bricks = [];
+  const cols = 9, rows = 5;
+  const bw = 58, bh = 22, gap = 6;
+  const startX = (arcadeCanvas.width - (cols*(bw+gap))) / 2;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      bricks.push({x: startX + c*(bw+gap), y: 40 + r*(bh+gap), w: bw, h: bh, alive: true});
+    }
+  }
+  totalBricks = bricks.length;
+  arcadeInfo.textContent = 'Breakout · Flechas/A-D o ratón · Rompe todos · R reinicia';
+  arcadeScore.textContent = 'Score: 0';
+  function loop() {
+    if (arcadeGame !== 'breakout') return;
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+    if (ball.x < 8 || ball.x > arcadeCanvas.width - 8) ball.vx *= -1;
+    if (ball.y < 8) ball.vy *= -1;
+    if (ball.y > arcadeCanvas.height) {
+      arcadeInfo.textContent = 'Game Over · R para reiniciar';
+      return;
+    }
+    if (ball.y > paddle.y - 8 && ball.x > paddle.x && ball.x < paddle.x + paddle.w) {
+      ball.vy = -Math.abs(ball.vy);
+      ball.vx += (ball.x - (paddle.x + paddle.w/2)) * 0.04;
+    }
+    let alive = 0;
+    bricks.forEach(b => {
+      if (!b.alive) return;
+      alive++;
+      if (ball.x > b.x && ball.x < b.x + b.w && ball.y > b.y && ball.y < b.y + b.h) {
+        b.alive = false;
+        ball.vy *= -1;
+        breakScore += 10;
+        arcadeScore.textContent = 'Score: ' + breakScore;
+      }
+    });
+    if (alive === 0) {
+      arcadeInfo.textContent = '¡GANASTE! · R para reiniciar';
+      return;
+    }
+    ctx.fillStyle = '#0a0a0c';
+    ctx.fillRect(0, 0, arcadeCanvas.width, arcadeCanvas.height);
+    bricks.forEach(b => {
+      if (!b.alive) return;
+      ctx.fillStyle = '#D00000';
+      ctx.fillRect(b.x, b.y, b.w, b.h);
+    });
+    ctx.fillStyle = '#F3F3F4';
+    ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+    ctx.fillStyle = '#D00000';
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, 7, 0, Math.PI*2);
+    ctx.fill();
+    arcadeLoop = requestAnimationFrame(loop);
+  }
+  arcadeLoop = requestAnimationFrame(loop);
+}
+
+// ---- SPACE INVADERS (simple) ----
+let invaders, invDir, invSpeed, player, invBullets, playerBullets, invScore, invWave;
+function initInvaders() {
+  const ctx = arcadeCanvas.getContext('2d');
+  invWave = 1;
+  invScore = 0;
+  player = {x: arcadeCanvas.width/2 - 18, y: arcadeCanvas.height - 40, w: 36, h: 16};
+  invBullets = [];
+  playerBullets = [];
+  spawnInvaders();
+  arcadeInfo.textContent = 'Invaders · Flechas/A-D + Espacio · Elimina la oleada · R reinicia';
+  arcadeScore.textContent = 'Score: 0';
+  function spawnInvaders() {
+    invaders = [];
+    invDir = 1;
+    invSpeed = 0.6 + invWave * 0.15;
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 8; c++) {
+        invaders.push({x: 40 + c*55, y: 30 + r*36, w: 28, h: 20, alive: true});
+      }
+    }
+  }
+  function loop() {
+    if (arcadeGame !== 'invaders') return;
+    // player
+    if (keys['arrowleft'] || keys['a']) player.x = Math.max(0, player.x - 5);
+    if (keys['arrowright'] || keys['d']) player.x = Math.min(arcadeCanvas.width - player.w, player.x + 5);
+    if (keys[' '] && playerBullets.length < 3) {
+      playerBullets.push({x: player.x + player.w/2 - 2, y: player.y, vy: -7});
+      keys[' '] = false;
+    }
+    // invaders move
+    let edge = false;
+    invaders.forEach(inv => {
+      if (!inv.alive) return;
+      inv.x += invDir * invSpeed;
+      if (inv.x < 10 || inv.x + inv.w > arcadeCanvas.width - 10) edge = true;
+      if (Math.random() < 0.002) invBullets.push({x: inv.x + inv.w/2, y: inv.y + inv.h, vy: 3});
+    });
+    if (edge) {
+      invDir *= -1;
+      invaders.forEach(inv => { if (inv.alive) inv.y += 12; });
+    }
+    // bullets
+    playerBullets.forEach(b => b.y += b.vy);
+    invBullets.forEach(b => b.y += b.vy);
+    playerBullets = playerBullets.filter(b => b.y > -10);
+    invBullets = invBullets.filter(b => b.y < arcadeCanvas.height + 10);
+    // collisions
+    playerBullets.forEach(b => {
+      invaders.forEach(inv => {
+        if (!inv.alive) return;
+        if (b.x > inv.x && b.x < inv.x + inv.w && b.y > inv.y && b.y < inv.y + inv.h) {
+          inv.alive = false;
+          b.y = -999;
+          invScore += 10;
+          arcadeScore.textContent = 'Score: ' + invScore;
+        }
+      });
+    });
+    invBullets.forEach(b => {
+      if (b.x > player.x && b.x < player.x + player.w && b.y > player.y && b.y < player.y + player.h) {
+        arcadeInfo.textContent = 'Game Over · R para reiniciar';
+        arcadeGame = null;
+      }
+    });
+    const alive = invaders.filter(i => i.alive).length;
+    if (alive === 0) {
+      invWave++;
+      invScore += 50;
+      arcadeScore.textContent = 'Score: ' + invScore;
+      if (invWave > 3) {
+        arcadeInfo.textContent = '¡GANASTE! · R para reiniciar';
+        return;
+      }
+      spawnInvaders();
+    }
+    if (invaders.some(i => i.alive && i.y + i.h > player.y)) {
+      arcadeInfo.textContent = 'Game Over · R para reiniciar';
+      return;
+    }
+    // draw
+    ctx.fillStyle = '#0a0a0c';
+    ctx.fillRect(0, 0, arcadeCanvas.width, arcadeCanvas.height);
+    ctx.fillStyle = '#F3F3F4';
+    ctx.fillRect(player.x, player.y, player.w, player.h);
+    invaders.forEach(inv => {
+      if (!inv.alive) return;
+      ctx.fillStyle = '#D00000';
+      ctx.fillRect(inv.x, inv.y, inv.w, inv.h);
+    });
+    ctx.fillStyle = '#ff6666';
+    playerBullets.forEach(b => ctx.fillRect(b.x, b.y, 4, 10));
+    ctx.fillStyle = '#aaa';
+    invBullets.forEach(b => ctx.fillRect(b.x-2, b.y, 4, 10));
+    arcadeLoop = requestAnimationFrame(loop);
+  }
+  arcadeLoop = requestAnimationFrame(loop);
+}
+
+// ---- ASTEROIDS (simple) ----
+let ship, asteroids, astBullets, astScore, astAngle;
+function initAsteroids() {
+  const ctx = arcadeCanvas.getContext('2d');
+  ship = {x: arcadeCanvas.width/2, y: arcadeCanvas.height/2, vx: 0, vy: 0, angle: 0};
+  asteroids = [];
+  astBullets = [];
+  astScore = 0;
+  for (let i = 0; i < 6; i++) spawnAsteroid(true);
+  arcadeInfo.textContent = 'Asteroids · Flechas rotar/avanzar · Espacio dispara · 150 pts gana · R reinicia';
+  arcadeScore.textContent = 'Score: 0';
+  function spawnAsteroid(big) {
+    const size = big ? 28 + Math.random()*16 : 14 + Math.random()*8;
+    asteroids.push({
+      x: Math.random()*arcadeCanvas.width,
+      y: Math.random()*arcadeCanvas.height,
+      vx: (Math.random()-0.5)*2.5,
+      vy: (Math.random()-0.5)*2.5,
+      r: size,
+      big
+    });
+  }
+  function loop() {
+    if (arcadeGame !== 'asteroids') return;
+    if (keys['arrowleft'] || keys['a']) ship.angle -= 0.07;
+    if (keys['arrowright'] || keys['d']) ship.angle += 0.07;
+    if (keys['arrowup'] || keys['w']) {
+      ship.vx += Math.cos(ship.angle) * 0.12;
+      ship.vy += Math.sin(ship.angle) * 0.12;
+    }
+    ship.x = (ship.x + ship.vx + arcadeCanvas.width) % arcadeCanvas.width;
+    ship.y = (ship.y + ship.vy + arcadeCanvas.height) % arcadeCanvas.height;
+    ship.vx *= 0.99;
+    ship.vy *= 0.99;
+    if (keys[' '] && astBullets.length < 5) {
+      astBullets.push({
+        x: ship.x + Math.cos(ship.angle)*18,
+        y: ship.y + Math.sin(ship.angle)*18,
+        vx: Math.cos(ship.angle)*6 + ship.vx,
+        vy: Math.sin(ship.angle)*6 + ship.vy
+      });
+      keys[' '] = false;
+    }
+    astBullets.forEach(b => { b.x += b.vx; b.y += b.vy; });
+    astBullets = astBullets.filter(b => b.x > -20 && b.x < arcadeCanvas.width+20 && b.y > -20 && b.y < arcadeCanvas.height+20);
+    asteroids.forEach(a => { a.x = (a.x + a.vx + arcadeCanvas.width) % arcadeCanvas.width; a.y = (a.y + a.vy + arcadeCanvas.height) % arcadeCanvas.height; });
+    // collisions
+    astBullets.forEach(b => {
+      asteroids.forEach(a => {
+        if (Math.hypot(b.x - a.x, b.y - a.y) < a.r) {
+          b.x = -999;
+          a.r = 0;
+          astScore += a.big ? 15 : 25;
+          arcadeScore.textContent = 'Score: ' + astScore;
+          if (!a.big && Math.random() < 0.4) spawnAsteroid(false);
+        }
+      });
+    });
+    asteroids = asteroids.filter(a => a.r > 8);
+    if (asteroids.some(a => Math.hypot(a.x - ship.x, a.y - ship.y) < a.r + 10)) {
+      arcadeInfo.textContent = 'Game Over · R para reiniciar';
+      return;
+    }
+    if (astScore >= 150) {
+      arcadeInfo.textContent = '¡GANASTE! · R para reiniciar';
+      return;
+    }
+    if (asteroids.length < 4 && Math.random() < 0.01) spawnAsteroid(true);
+    // draw
+    ctx.fillStyle = '#0a0a0c';
+    ctx.fillRect(0, 0, arcadeCanvas.width, arcadeCanvas.height);
+    ctx.save();
+    ctx.translate(ship.x, ship.y);
+    ctx.rotate(ship.angle);
+    ctx.fillStyle = '#F3F3F4';
+    ctx.beginPath();
+    ctx.moveTo(16, 0);
+    ctx.lineTo(-10, -8);
+    ctx.lineTo(-10, 8);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+    ctx.fillStyle = '#D00000';
+    asteroids.forEach(a => {
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI*2);
+      ctx.fill();
+    });
+    ctx.fillStyle = '#ff6666';
+    astBullets.forEach(b => {
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, 3, 0, Math.PI*2);
+      ctx.fill();
+    });
+    arcadeLoop = requestAnimationFrame(loop);
+  }
+  arcadeLoop = requestAnimationFrame(loop);
+}
+
+// Controles globales de reinicio y movimiento
+document.addEventListener('keydown', e => {
+  const k = e.key.toLowerCase();
+  if (k === 'r' && arcadeGame) {
+    if (arcadeGame === 'snake') initSnake();
+    else if (arcadeGame === 'pong') initPong();
+    else if (arcadeGame === 'breakout') initBreakout();
+    else if (arcadeGame === 'invaders') initInvaders();
+    else if (arcadeGame === 'asteroids') initAsteroids();
+  }
+});
+
+arcadeCanvas.addEventListener('mousemove', e => {
+  if (!arcadeGame) return;
+  const rect = arcadeCanvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  if (arcadeGame === 'breakout') {
+    paddle.x = Math.max(0, Math.min(arcadeCanvas.width - paddle.w, mx - paddle.w/2));
+  }
+  if (arcadeGame === 'pong') {
+    pongPaddle.y = Math.max(0, Math.min(arcadeCanvas.height - pongPaddle.h, my - pongPaddle.h/2));
+  }
+});
+
+function startDoom() { showMenu(); }
+function stopDoom() { showMenu(); }
+
+// ===== Boot / BIOS sequence =====
+const bootScreen = document.getElementById('boot-screen');
+const bootLog = document.getElementById('boot-log');
+const bootMessages = [
+  "APEX BIOS v0.9.5 · Copyright 2026",
+  "CPU: Intel Core i7-8565U @ 1.80GHz",
+  "Memory Test: 4096 MB OK",
+  "Detecting storage... WDC WD10SPZX 1TB",
+  "UEFI Boot Manager initialized",
+  "Loading APEX OS kernel...",
+  "Starting desktop environment"
+];
+let bootIndex = 0;
+function addBootLine() {
+  if (bootIndex >= bootMessages.length) return;
+  const div = document.createElement('div');
+  div.textContent = bootMessages[bootIndex];
+  div.style.animationDelay = '0s';
+  bootLog.appendChild(div);
+  bootIndex++;
+  if (bootIndex < bootMessages.length) {
+    setTimeout(addBootLine, 380);
+  }
+}
+addBootLine();
+
+function finishBoot() {
+  bootScreen.classList.add('hide');
+  setTimeout(() => {
+    bootScreen.style.display = 'none';
+    document.getElementById('login-screen').classList.add('show');
+    document.getElementById('login-user').focus();
+  }, 600);
+}
+
+setTimeout(finishBoot, 3200);
+document.addEventListener('keydown', finishBoot, { once: true });
+document.addEventListener('click', finishBoot, { once: true });
+
+// Login
+const VALID_USER = 'apex';
+const VALID_PASS = 'apex';
+const loginBtn = document.getElementById('login-btn');
+const loginUser = document.getElementById('login-user');
+const loginPass = document.getElementById('login-pass');
+const loginError = document.getElementById('login-error');
+const loginScreen = document.getElementById('login-screen');
+
+function tryLogin() {
+  const u = loginUser.value.trim();
+  const p = loginPass.value;
+  if (u === VALID_USER && p === VALID_PASS) {
+    loginError.textContent = '';
+    loginScreen.classList.remove('show');
+    document.getElementById('desktop').classList.remove('hidden');
+    openWin('about');
+  } else {
+    loginError.textContent = 'Usuario o contraseña incorrectos';
+    loginPass.value = '';
+    loginPass.focus();
+  }
+}
+loginBtn.onclick = tryLogin;
+loginPass.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+loginUser.addEventListener('keydown', e => { if (e.key === 'Enter') loginPass.focus(); });
+
+// openWin('about'); removed — now starts after login
 </script>
 </body>
 </html>
