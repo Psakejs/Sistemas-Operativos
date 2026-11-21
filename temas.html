@@ -34,39 +34,47 @@
           <ul>
             <li>Concepto y propósito del sistema operativo.</li>
             <li>Relación entre hardware, software, usuario y aplicaciones.</li>
-            <li>Funciones principales y el SO como administrador de recursos.</li>
-            <li>Procesos, procesador y planificación de la CPU.</li>
-            <li>Memoria RAM, memoria virtual y almacenamiento permanente.</li>
-            <li>Dispositivos de entrada y salida, y controladores (drivers).</li>
-            <li>Archivos, directorios, permisos y sistemas de archivos (NTFS, ext4, APFS).</li>
-            <li>Kernel, llamadas al sistema y el recorrido de una lectura de archivo.</li>
-            <li>Consola, shell y comandos básicos (<code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cp</code>).</li>
+            <li>Funciones principales del sistema operativo.</li>
+            <li>Administración de los recursos del sistema.</li>
+            <li>Gestión del procesador y de los procesos.</li>
+            <li>Administración de la memoria.</li>
+            <li>Gestión de dispositivos de entrada y salida.</li>
+            <li>Administración de archivos y directorios: permisos de acceso y sistemas de archivos (NTFS, ext4, APFS).</li>
+            <li>Núcleo, controladores y llamadas al sistema, con el diagrama secuencial de la pregunta 9.</li>
+            <li>Intérprete de comandos y consola: cinco comandos básicos de Linux (<code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cp</code>).</li>
           </ul>
           <p><strong>Práctica</strong></p>
           <ul>
-            <li>Diagnóstico y solución de un equipo lento: síntomas, causas, Administrador de tareas, cinco acciones de solución y un plan preventivo.</li>
+            <li>Taller práctico: computador de Soluciones Digitales S.A.S. con bajo rendimiento y bloqueos (síntomas, causas, funciones del SO, herramientas, soluciones y plan preventivo).</li>
+            <li>Parcial práctico: equipo de TecnoGestión S.A.S. con fallas de rendimiento y una impresora de red no disponible (diagnóstico, inspección de recursos, impresora y controladores, plan de solución y prevención).</li>
           </ul>
         </div>
       </article>
       <article class="card week-card">
         <h2>SEMANA 2</h2>
         <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
-          <p class="block-title">Gestión de procesos y hardware</p>
+          <p class="block-title">Gestión de procesos y recursos del sistema</p>
           <p><strong>Teoría</strong></p>
           <ul>
-            <li>Programa vs proceso, bloque de control de proceso (PCB) y estados de un proceso.</li>
-            <li>Algoritmos de planificación FCFS, SJF y Round Robin.</li>
-            <li>Condición de carrera y sección crítica.</li>
-            <li>Semáforos (wait y signal) y bloqueos.</li>
-            <li>Interbloqueos: las cuatro condiciones y cómo prevenirlos.</li>
+            <li>Diferencia entre programa y proceso, y bloque de control de procesos.</li>
+            <li>Estados de un proceso y sus transiciones.</li>
+            <li>Algoritmos de planificación FCFS y SJF.</li>
+            <li>Mecanismos de sincronización, condición de carrera y sección crítica.</li>
+            <li>Semáforos (binario y contador) con las operaciones espera y señal.</li>
+            <li>Bloqueos (deadlock) y cómo prevenirlos.</li>
           </ul>
-          <p><strong>Práctica</strong></p>
+          <p><strong>Práctica: diez problemáticas de hardware</strong></p>
           <ul>
-            <li>Procesadores multinúcleo, procesos e hilos.</li>
-            <li>Saturación de RAM y generaciones DDR.</li>
-            <li>Buses de transferencia (PCI Express, SATA, USB).</li>
-            <li>Gráficos integrados, dedicados y VRAM.</li>
-            <li>Compatibilidad de hardware, diagnóstico integral e impresora con su cola de impresión.</li>
+            <li>Bajo rendimiento de un procesador multinúcleo.</li>
+            <li>Administración de procesos e hilos por parte del kernel.</li>
+            <li>Saturación de memoria RAM.</li>
+            <li>Diferencias entre las generaciones DDR.</li>
+            <li>Problemas relacionados con los buses de transferencia (MT/s).</li>
+            <li>Gráficos integrados y tarjetas de video dedicadas.</li>
+            <li>Procesador potente con bajo rendimiento gráfico.</li>
+            <li>Memoria RAM compartida y memoria VRAM.</li>
+            <li>Compatibilidad entre componentes de hardware.</li>
+            <li>Diagnóstico integral de un computador.</li>
           </ul>
         </div>
       </article>
@@ -76,16 +84,19 @@
           <p class="block-title">Sistemas operativos distribuidos</p>
           <p><strong>Teoría</strong></p>
           <ul>
-            <li>Concepto y diferencias con un sistema centralizado.</li>
+            <li>Concepto de sistemas distribuidos y diferencias con un sistema centralizado.</li>
             <li>Arquitectura cliente-servidor de tres niveles.</li>
-            <li>Comunicación entre procesos: sockets, paso de mensajes, colas y RPC.</li>
-            <li>Comunicación síncrona, asíncrona y publicación-suscripción.</li>
-            <li>Transparencia, tolerancia a fallos, escalabilidad y disponibilidad.</li>
-            <li>Sistemas de archivos distribuidos y aplicaciones empresariales.</li>
+            <li>Comunicación entre procesos: sockets, colas de mensajes y paso de mensajes.</li>
+            <li>Modelos de comunicación síncrona y asíncrona.</li>
+            <li>Transparencia en sistemas distribuidos.</li>
+            <li>Tolerancia a fallos.</li>
+            <li>Escalabilidad y disponibilidad.</li>
+            <li>Sistemas de archivos distribuidos.</li>
+            <li>Aplicaciones empresariales de los sistemas distribuidos.</li>
           </ul>
           <p><strong>Práctica</strong></p>
           <ul>
-            <li>Caso MULTISERVICIOS S.A.: pasar de un servidor central a una arquitectura distribuida para siete sedes.</li>
+            <li>Caso MULTISERVICIOS S.A.: de un servidor central a una arquitectura distribuida para las cuatro sedes actuales y las tres nuevas (concepto, arquitectura, comunicación, modelos, tolerancia a fallos y almacenamiento distribuido).</li>
           </ul>
         </div>
       </article>
@@ -93,17 +104,22 @@
         <h2>SEMANA 4</h2>
         <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
           <p class="block-title">Booteo e instalación de un sistema operativo</p>
-          <p><strong>Teoría</strong></p>
+          <p><strong>Preguntas de inmersión</strong></p>
           <ul>
-            <li>Proceso de arranque: POST, firmware, gestor de arranque, kernel y systemd.</li>
-            <li>BIOS vs UEFI, Secure Boot y orden de arranque.</li>
-            <li>Gestor de arranque (GRUB y Windows Boot Manager) y arranque dual.</li>
-            <li>Tablas de particiones GPT y MBR.</li>
-            <li>Imágenes ISO, medios booteables (Rufus y Ventoy) y máquinas virtuales.</li>
+            <li>Qué es el proceso de booteo de una máquina o sistema.</li>
+            <li>Diferencia entre BIOS y UEFI.</li>
+            <li>Función del gestor de arranque (boot loader).</li>
+            <li>Qué es una imagen ISO.</li>
+            <li>Diferencia entre GPT y MBR.</li>
+            <li>Qué es una máquina virtual y cuáles son sus ventajas.</li>
           </ul>
           <p><strong>Práctica</strong></p>
           <ul>
-            <li>Instalación y verificación con <code>uname -a</code>, <code>hostnamectl</code>, <code>lsblk</code> y <code>systeminfo</code>.</li>
+            <li>Preparación del medio booteable con Rufus o Ventoy.</li>
+            <li>Inspección de BIOS/UEFI y configuración del orden de arranque.</li>
+            <li>Instalación del sistema operativo con sus siete evidencias.</li>
+            <li>Verificación con <code>uname -a</code>, <code>hostnamectl</code>, <code>lsblk</code> y <code>systeminfo</code>.</li>
+            <li>Video evidencia del proceso.</li>
             <li>Proyecto final: Lubuntu junto a Windows en arranque dual.</li>
           </ul>
         </div>

@@ -4,7 +4,7 @@ function toApp(){const el=document.getElementById("repaso");if(el&&el.getBoundin
 const BANK=[];
 TOPICS.forEach(t=>{(Q[t.id]||[]).forEach((x,i)=>{BANK.push(Object.assign({id:t.id+"-"+i,topic:t.id,area:t.a,u:t.u,k:x.k||"mc"},x))})});
 const TOPIC=Object.fromEntries(TOPICS.map(t=>[t.id,t]));
-const LS="parcialSO.v1";
+const LS="parcialSO.v2";
 let S={stats:{},known:{},tab:"aprender"};
 try{const raw=localStorage.getItem(LS);if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
 function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
@@ -59,6 +59,7 @@ function vAprender(){
         <ul>${t.pts.map(p=>`<li>${fmt(p)}</li>`).join("")}</ul>
         <div class="tip warn"><b>Ojo en el parcial</b>${fmt(t.ojo)}</div>
         <div class="tip ex"><b>Ejemplo</b>${fmt(t.ex)}</div>
+        ${t.src?`<p style="color:var(--muted);font-size:.85rem;margin:8px 0 0">Fuente: ${esc(t.src)}</p>`:""}
         <div class="row"><button class="btn primary" data-prac="${t.id}">Practicar este tema</button><button class="btn" data-cards="${t.id}">Ver sus tarjetas</button></div>
       </div>`:""}
     </div>`}).join("")}</div>`;
@@ -177,7 +178,7 @@ function showQ(){
   <div class="bar"><span style="width:${R.i/n*100}%"></span></div>
   <div class="panel">
     <div class="row" style="margin:0 0 10px"><span class="tag ${q.area}">${q.area==="T"?"Teórico":"Práctico"}</span><span style="color:var(--muted);font-size:14px">${esc(TOPIC[q.topic].t)}</span></div>
-    ${q.c?`<div class="case"><b>Caso Soluciones Digitales S.A.S.:</b> un equipo administrativo se pone lento y se bloquea al tener abiertos un navegador con varias pestañas, una hoja de cálculo, un programa de facturación y una videollamada.</div>`:""}
+    ${q.c?`<div class="case">${CASES[q.c]||CASES.sd}</div>`:""}
     <p class="q">${fmt(q.q)}</p>
     ${body()}
     <div id="fb"></div>
