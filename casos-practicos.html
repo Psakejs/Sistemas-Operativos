@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 </head>
 
-<body>
+<body class="casos-page">
   <header class="site-header">
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
@@ -19,416 +19,502 @@
           Video Tutorial</a></nav>
     </div>
   </header>
-  <main>
-    <section class="section-title">
-      <div class="eyebrow">Aplicación y análisis</div>
+  <main class="casos">
+    <section class="cs-hero">
+      <p class="cs-eyebrow">Aplicación y análisis</p>
       <h1>Casos prácticos</h1>
-      <p>Los casos analizados en los tres talleres prácticos de la asignatura, con la problemática planteada y la solución que desarrollé en cada uno.</p>
+      <p class="cs-lead">Los casos analizados en los tres talleres prácticos de la asignatura, con la problemática planteada y la solución que desarrollé en cada uno.</p>
     </section>
-    <section class="grid">
-      <div class="taller-head">
-        <span class="eyebrow">Taller práctico 1</span>
-        <h2>Diagnóstico y solución de problemas en sistemas operativos</h2>
-        <p>Aplicar los conceptos fundamentales de los sistemas operativos para analizar situaciones problemáticas, identificar las causas técnicas de las fallas y proponer soluciones justificadas a partir de la gestión de procesos, memoria, dispositivos, archivos, controladores y herramientas del sistema.</p>
-      </div>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 1</h2>
-        <p class="case-subtitle">SOLUCIONES DIGITALES S.A.S.: COMPUTADOR EMPRESARIAL CON BAJO RENDIMIENTO Y BLOQUEOS FRECUENTES</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+
+    <nav class="cs-index" aria-label="Índice de casos">
+      <section class="cs-taller">
+        <header class="cs-taller-head">
+          <p class="cs-eyebrow">Taller práctico 1</p>
+          <h2>Diagnóstico y solución de problemas en sistemas operativos</h2>
+          <p>Aplicar los conceptos fundamentales de los sistemas operativos para analizar situaciones problemáticas, identificar las causas técnicas de las fallas y proponer soluciones justificadas a partir de la gestión de procesos, memoria, dispositivos, archivos, controladores y herramientas del sistema.</p>
+        </header>
+        <ol class="cs-rows">
+          <li><a class="cs-row" href="#caso-1"><span class="cs-row-n">01</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 1</span><span class="cs-row-title">SOLUCIONES DIGITALES S.A.S.: COMPUTADOR EMPRESARIAL CON BAJO RENDIMIENTO Y BLOQUEOS FRECUENTES</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+        </ol>
+      </section>
+      <section class="cs-taller">
+        <header class="cs-taller-head">
+          <p class="cs-eyebrow">Taller práctico 2</p>
+          <h2>Gestión de procesos y administración de recursos del sistema</h2>
+          <p>Analizar situaciones problemáticas relacionadas con el funcionamiento del procesador, la administración de recursos por parte del kernel, la memoria RAM y los dispositivos gráficos, proponiendo soluciones técnicas fundamentadas.</p>
+        </header>
+        <ol class="cs-rows">
+          <li><a class="cs-row" href="#caso-2"><span class="cs-row-n">02</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 2</span><span class="cs-row-title">PROBLEMÁTICA 1. BAJO RENDIMIENTO DE UN PROCESADOR MULTINÚCLEO</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-3"><span class="cs-row-n">03</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 3</span><span class="cs-row-title">PROBLEMÁTICA 2. ADMINISTRACIÓN DE PROCESOS E HILOS POR PARTE DEL KERNEL</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-4"><span class="cs-row-n">04</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 4</span><span class="cs-row-title">PROBLEMÁTICA 3. SATURACIÓN DE MEMORIA RAM</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-5"><span class="cs-row-n">05</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 5</span><span class="cs-row-title">PROBLEMÁTICA 4. DIFERENCIAS ENTRE LAS GENERACIONES DDR</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-6"><span class="cs-row-n">06</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 6</span><span class="cs-row-title">PROBLEMÁTICA 5. PROBLEMAS RELACIONADOS CON LOS BUSES DE TRANSFERENCIA</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-7"><span class="cs-row-n">07</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 7</span><span class="cs-row-title">PROBLEMÁTICA 6. DIFERENCIAS ENTRE GRÁFICOS INTEGRADOS Y TARJETAS DE VIDEO DEDICADAS</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-8"><span class="cs-row-n">08</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 8</span><span class="cs-row-title">PROBLEMÁTICA 7. PROCESADOR POTENTE CON BAJO RENDIMIENTO GRÁFICO</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-9"><span class="cs-row-n">09</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 9</span><span class="cs-row-title">PROBLEMÁTICA 8. MEMORIA RAM COMPARTIDA Y MEMORIA VRAM</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-10"><span class="cs-row-n">10</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 10</span><span class="cs-row-title">PROBLEMÁTICA 9. PROBLEMAS DE COMPATIBILIDAD ENTRE COMPONENTES DE HARDWARE</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+          <li><a class="cs-row" href="#caso-11"><span class="cs-row-n">11</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 11</span><span class="cs-row-title">PROBLEMÁTICA 10. DIAGNÓSTICO INTEGRAL DE UN COMPUTADOR</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+        </ol>
+      </section>
+      <section class="cs-taller">
+        <header class="cs-taller-head">
+          <p class="cs-eyebrow">Taller práctico 3</p>
+          <h2>Análisis y diseño de una solución basada en sistemas operativos distribuidos</h2>
+          <p>Analizar una problemática tecnológica empresarial que requiera la implementación de una arquitectura distribuida, aplicando los componentes teóricos estudiados en clase para identificar problemas, evaluar alternativas y proponer una solución técnica.</p>
+        </header>
+        <ol class="cs-rows">
+          <li><a class="cs-row" href="#caso-12"><span class="cs-row-n">12</span><span class="cs-row-body"><span class="cs-row-label">CASO PRÁCTICO 12</span><span class="cs-row-title">MULTISERVICIOS S.A.: DE UN SERVIDOR CENTRALIZADO A UNA ARQUITECTURA DISTRIBUIDA</span></span><span class="cs-row-go" aria-hidden="true">→</span></a></li>
+        </ol>
+      </section>
+    </nav>
+
+    <div class="cs-layout" id="casos">
+      <nav class="cs-side" aria-label="Casos">
+        <div class="cs-side-group">
+          <p class="cs-side-title">Taller práctico 1</p>
+          <ol>
+            <li><a class="cs-side-link" href="#caso-1" data-caso="1"><span class="cs-side-n">01</span><span class="cs-side-t">SOLUCIONES DIGITALES S.A.S.: COMPUTADOR EMPRESARIAL CON BAJO RENDIMIENTO Y BLOQUEOS FRECUENTES</span></a></li>
+          </ol>
+        </div>
+        <div class="cs-side-group">
+          <p class="cs-side-title">Taller práctico 2</p>
+          <ol>
+            <li><a class="cs-side-link" href="#caso-2" data-caso="2"><span class="cs-side-n">02</span><span class="cs-side-t">PROBLEMÁTICA 1. BAJO RENDIMIENTO DE UN PROCESADOR MULTINÚCLEO</span></a></li>
+            <li><a class="cs-side-link" href="#caso-3" data-caso="3"><span class="cs-side-n">03</span><span class="cs-side-t">PROBLEMÁTICA 2. ADMINISTRACIÓN DE PROCESOS E HILOS POR PARTE DEL KERNEL</span></a></li>
+            <li><a class="cs-side-link" href="#caso-4" data-caso="4"><span class="cs-side-n">04</span><span class="cs-side-t">PROBLEMÁTICA 3. SATURACIÓN DE MEMORIA RAM</span></a></li>
+            <li><a class="cs-side-link" href="#caso-5" data-caso="5"><span class="cs-side-n">05</span><span class="cs-side-t">PROBLEMÁTICA 4. DIFERENCIAS ENTRE LAS GENERACIONES DDR</span></a></li>
+            <li><a class="cs-side-link" href="#caso-6" data-caso="6"><span class="cs-side-n">06</span><span class="cs-side-t">PROBLEMÁTICA 5. PROBLEMAS RELACIONADOS CON LOS BUSES DE TRANSFERENCIA</span></a></li>
+            <li><a class="cs-side-link" href="#caso-7" data-caso="7"><span class="cs-side-n">07</span><span class="cs-side-t">PROBLEMÁTICA 6. DIFERENCIAS ENTRE GRÁFICOS INTEGRADOS Y TARJETAS DE VIDEO DEDICADAS</span></a></li>
+            <li><a class="cs-side-link" href="#caso-8" data-caso="8"><span class="cs-side-n">08</span><span class="cs-side-t">PROBLEMÁTICA 7. PROCESADOR POTENTE CON BAJO RENDIMIENTO GRÁFICO</span></a></li>
+            <li><a class="cs-side-link" href="#caso-9" data-caso="9"><span class="cs-side-n">09</span><span class="cs-side-t">PROBLEMÁTICA 8. MEMORIA RAM COMPARTIDA Y MEMORIA VRAM</span></a></li>
+            <li><a class="cs-side-link" href="#caso-10" data-caso="10"><span class="cs-side-n">10</span><span class="cs-side-t">PROBLEMÁTICA 9. PROBLEMAS DE COMPATIBILIDAD ENTRE COMPONENTES DE HARDWARE</span></a></li>
+            <li><a class="cs-side-link" href="#caso-11" data-caso="11"><span class="cs-side-n">11</span><span class="cs-side-t">PROBLEMÁTICA 10. DIAGNÓSTICO INTEGRAL DE UN COMPUTADOR</span></a></li>
+          </ol>
+        </div>
+        <div class="cs-side-group">
+          <p class="cs-side-title">Taller práctico 3</p>
+          <ol>
+            <li><a class="cs-side-link" href="#caso-12" data-caso="12"><span class="cs-side-n">12</span><span class="cs-side-t">MULTISERVICIOS S.A.: DE UN SERVIDOR CENTRALIZADO A UNA ARQUITECTURA DISTRIBUIDA</span></a></li>
+          </ol>
+        </div>
+        <div class="cs-side-group">
+          <ol><li><a class="cs-side-link" href="#referencias"><span class="cs-side-n" aria-hidden="true">≡</span><span class="cs-side-t">Referencias</span></a></li></ol>
+        </div>
+      </nav>
+
+      <div class="cs-content">
+      <article class="cs-case" id="caso-1" data-caso="1" aria-labelledby="caso-1-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 1</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 1</span></p>
+          <h2 id="caso-1-titulo">SOLUCIONES DIGITALES S.A.S.: COMPUTADOR EMPRESARIAL CON BAJO RENDIMIENTO Y BLOQUEOS FRECUENTES</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-1-problematica">Problemática</a> <a href="#caso-1-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-1-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>La empresa <strong>Soluciones Digitales S.A.S.</strong> cuenta con un equipo de cómputo utilizado por un empleado del área administrativa. Durante las últimas semanas, el computador ha presentado un rendimiento deficiente que afecta las actividades laborales.</p>
             <p>El empleado informa que, al abrir un navegador con varias pestañas, una hoja de cálculo, un programa de facturación y una aplicación de videoconferencias, el equipo comienza a responder lentamente. En ocasiones, las aplicaciones dejan de responder y es necesario esperar varios minutos para recuperar el control.</p>
             <p>El área de soporte técnico identifica las siguientes condiciones:</p>
-<ul>
-              <li>El uso del procesador aumenta considerablemente cuando se ejecutan varias aplicaciones.</li>
-              <li>La memoria RAM permanece casi completamente ocupada.</li>
-              <li>Algunos procesos continúan ejecutándose en segundo plano, aunque el usuario ya cerró sus ventanas.</li>
-              <li>El sistema operativo muestra advertencias relacionadas con la falta de recursos.</li>
-              <li>El usuario desconoce cómo identificar los procesos que consumen más recursos.</li>
+            <ul>
+            <li>El uso del procesador aumenta considerablemente cuando se ejecutan varias aplicaciones.</li>
+            <li>La memoria RAM permanece casi completamente ocupada.</li>
+            <li>Algunos procesos continúan ejecutándose en segundo plano, aunque el usuario ya cerró sus ventanas.</li>
+            <li>El sistema operativo muestra advertencias relacionadas con la falta de recursos.</li>
+            <li>El usuario desconoce cómo identificar los procesos que consumen más recursos.</li>
             </ul>
             <h4>Síntomas principales</h4>
             <p>El más claro es el uso excesivo de recursos en el flujo normal de trabajo. El usuario tiene varias ventanas del navegador abiertas (en la imagen del taller se observan 10), una hoja de cálculo, un programa de facturación y una aplicación de videoconferencias. El uso del procesador se eleva al intentar correr tantas aplicaciones simultáneamente y la RAM se mantiene casi al límite. Los procesos continúan corriendo en segundo plano incluso si el usuario cierra la ventana, el sistema está más lento, las aplicaciones dejan de responder y se tiene que esperar para recuperar el control.</p>
             <h4>Posibles causas</h4>
-<ul>
-              <li><strong>RAM insuficiente</strong> para tanta carga de trabajo, lo que lleva a la computadora a usar la memoria virtual (el disco), que es mucho más lenta (Powell y Smalley, 2026).</li>
-              <li><strong>Planificador sobrecargado:</strong> con tantos procesos corriendo al mismo tiempo, el planificador de la CPU no es capaz de asignar de manera justa los espacios de tiempo.</li>
-              <li><strong>Procesos acumulados en segundo plano</strong> que el usuario no necesita y que le quitan recursos a las aplicaciones que sí los necesitan.</li>
-              <li><strong>Manejo ineficiente de recursos</strong> por parte de una o más aplicaciones, como la de videollamadas o la de facturación.</li>
-              <li><strong>Falta de mantenimiento:</strong> aplicaciones innecesarias o poco confiables que se inician solas al encender la pc y que se fueron acumulando con el tiempo.</li>
+            <ul>
+            <li><strong>RAM insuficiente</strong> para tanta carga de trabajo, lo que lleva a la computadora a usar la memoria virtual (el disco), que es mucho más lenta (Powell y Smalley, 2026).</li>
+            <li><strong>Planificador sobrecargado:</strong> con tantos procesos corriendo al mismo tiempo, el planificador de la CPU no es capaz de asignar de manera justa los espacios de tiempo.</li>
+            <li><strong>Procesos acumulados en segundo plano</strong> que el usuario no necesita y que le quitan recursos a las aplicaciones que sí los necesitan.</li>
+            <li><strong>Manejo ineficiente de recursos</strong> por parte de una o más aplicaciones, como la de videollamadas o la de facturación.</li>
+            <li><strong>Falta de mantenimiento:</strong> aplicaciones innecesarias o poco confiables que se inician solas al encender la pc y que se fueron acumulando con el tiempo.</li>
             </ul>
             <h4>Funciones del sistema operativo relacionadas</h4>
             <p>El manejo de recursos (cómo la CPU y la memoria alojan datos y procesos), el manejo de procesos y la planificación de la CPU, el manejo de la memoria RAM y la memoria virtual, y el kernel como intermediario entre las aplicaciones y el hardware.</p>
             <h4>Relación con los conceptos</h4>
-<ul>
-              <li><strong>Sistema operativo y administración de recursos:</strong> el SO actúa como árbitro de los escasos recursos; cuando falla al distribuir el tiempo de CPU y la RAM, se producen las ralentizaciones y los congelamientos (Moisset, s.f.; Susnjara y Smalley, 2025).</li>
-              <li><strong>Procesos y planificación del procesador:</strong> cada aplicación y cada servicio en segundo plano es un proceso más; el planificador está sobrecargado y los tiempos de espera se alargan (Silberschatz et al., 2018).</li>
-              <li><strong>Memoria RAM y memoria virtual:</strong> cuando la RAM se acerca al 100&nbsp;%, el SO mueve las páginas menos usadas al archivo de paginación en el disco, que es más lento (HP, 2026; Powell y Smalley, 2026).</li>
-              <li><strong>Aplicaciones y procesos en segundo plano:</strong> cerrar una ventana no siempre termina el proceso; esos procesos siguen siendo planificados por el kernel y consumiendo CPU y memoria (Microsoft, 2026b).</li>
-              <li><strong>Núcleo o kernel:</strong> fuerza el aislamiento de procesos, maneja el planificador y la asignación de memoria; los síntomas muestran un kernel batallando con un sistema sobrecargado (IONOS, 2021).</li>
+            <ul>
+            <li><strong>Sistema operativo y administración de recursos:</strong> el SO actúa como árbitro de los escasos recursos; cuando falla al distribuir el tiempo de CPU y la RAM, se producen las ralentizaciones y los congelamientos (Moisset, s.f.; Susnjara y Smalley, 2025).</li>
+            <li><strong>Procesos y planificación del procesador:</strong> cada aplicación y cada servicio en segundo plano es un proceso más; el planificador está sobrecargado y los tiempos de espera se alargan (Silberschatz et al., 2018).</li>
+            <li><strong>Memoria RAM y memoria virtual:</strong> cuando la RAM se acerca al 100&nbsp;%, el SO mueve las páginas menos usadas al archivo de paginación en el disco, que es más lento (HP, 2026; Powell y Smalley, 2026).</li>
+            <li><strong>Aplicaciones y procesos en segundo plano:</strong> cerrar una ventana no siempre termina el proceso; esos procesos siguen siendo planificados por el kernel y consumiendo CPU y memoria (Microsoft, 2026b).</li>
+            <li><strong>Núcleo o kernel:</strong> fuerza el aislamiento de procesos, maneja el planificador y la asignación de memoria; los síntomas muestran un kernel batallando con un sistema sobrecargado (IONOS, 2021).</li>
             </ul>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-1-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <h4>Procedimiento de diagnóstico (Administrador de tareas)</h4>
-<ul>
-              <li><strong>Consumo de CPU y RAM:</strong> abrir el Administrador de tareas con <code>Ctrl + Shift + Esc</code> o desde el buscador y revisar las gráficas en tiempo real de la pestaña Rendimiento.</li>
-              <li><strong>Procesos que más consumen:</strong> en la pestaña Procesos, ordenar por memoria y luego por CPU, y expandir las aplicaciones agrupadas (por ejemplo, las 10 pestañas de Google Chrome).</li>
-              <li><strong>Aplicaciones innecesarias en segundo plano:</strong> buscar procesos de aplicaciones que el usuario ya cerró y revisar la pestaña Aplicaciones de arranque.</li>
-              <li><strong>Antes de hacer cambios:</strong> registrar el uso total de RAM, el tamaño y uso de la memoria virtual, los 10 procesos que más consumen CPU y memoria, si alguna aplicación crítica está entre ellos, y pantallazos del panel general para comparar después.</li>
+            <ul>
+            <li><strong>Consumo de CPU y RAM:</strong> abrir el Administrador de tareas con <code>Ctrl + Shift + Esc</code> o desde el buscador y revisar las gráficas en tiempo real de la pestaña Rendimiento.</li>
+            <li><strong>Procesos que más consumen:</strong> en la pestaña Procesos, ordenar por memoria y luego por CPU, y expandir las aplicaciones agrupadas (por ejemplo, las 10 pestañas de Google Chrome).</li>
+            <li><strong>Aplicaciones innecesarias en segundo plano:</strong> buscar procesos de aplicaciones que el usuario ya cerró y revisar la pestaña Aplicaciones de arranque.</li>
+            <li><strong>Antes de hacer cambios:</strong> registrar el uso total de RAM, el tamaño y uso de la memoria virtual, los 10 procesos que más consumen CPU y memoria, si alguna aplicación crítica está entre ellos, y pantallazos del panel general para comparar después.</li>
             </ul>
             <h4>Propuesta de solución</h4>
-<ul>
-              <li><strong>Acción 1. Cerrar procesos innecesarios y en segundo plano.</strong> Clic derecho → Finalizar tarea solo en procesos que el usuario reconozca como no útiles. Se basa en el manejo de procesos y el reclamo de recursos: terminar un proceso permite al kernel liberar su memoria (Silberschatz et al., 2018). Resultado: baja la carga de RAM y CPU, comparado con los pantallazos iniciales.</li>
-              <li><strong>Acción 2. Limitar las pestañas del navegador y revisar las extensiones.</strong> Cerrar pestañas que ya no se usen y quitar extensiones sin uso. Se basa en el manejo de memoria. Resultado: baja el uso de RAM del navegador, revisado antes y después en la pestaña Procesos.</li>
-              <li><strong>Acción 3. Deshabilitar las aplicaciones de arranque innecesarias</strong> desde la pestaña Aplicaciones de arranque (ASUS, 2022). Se basa en la planificación y creación de procesos: menos procesos al inicio reducen la contención de recursos. Resultado: encendido más rápido y menos recursos usados al iniciar.</li>
-              <li><strong>Acción 4. Revisar la memoria virtual y aumentar la RAM física.</strong> Revisar la RAM instalada, confirmar que el archivo de paginación esté administrado automáticamente y en el disco más rápido (idealmente un SSD) en Configuración avanzada del sistema → Rendimiento → Configuración → Opciones avanzadas → Memoria virtual, y si no basta, instalar más RAM. Resultado: la pc se congela menos y el uso de memoria ya no está casi en el 100&nbsp;%.</li>
-              <li><strong>Acción 5. Enseñarle al usuario a monitorear los recursos</strong> con una capacitación corta y una guía: abrir el Administrador de tareas, ordenar por CPU y memoria, diferenciar aplicaciones de procesos en segundo plano y finalizar solo lo que no se necesita (Microsoft, 2026b). Resultado: el usuario actúa antes de que el equipo se bloquee.</li>
+            <ul>
+            <li><strong>Acción 1. Cerrar procesos innecesarios y en segundo plano.</strong> Clic derecho → Finalizar tarea solo en procesos que el usuario reconozca como no útiles. Se basa en el manejo de procesos y el reclamo de recursos: terminar un proceso permite al kernel liberar su memoria (Silberschatz et al., 2018). Resultado: baja la carga de RAM y CPU, comparado con los pantallazos iniciales.</li>
+            <li><strong>Acción 2. Limitar las pestañas del navegador y revisar las extensiones.</strong> Cerrar pestañas que ya no se usen y quitar extensiones sin uso. Se basa en el manejo de memoria. Resultado: baja el uso de RAM del navegador, revisado antes y después en la pestaña Procesos.</li>
+            <li><strong>Acción 3. Deshabilitar las aplicaciones de arranque innecesarias</strong> desde la pestaña Aplicaciones de arranque (ASUS, 2022). Se basa en la planificación y creación de procesos: menos procesos al inicio reducen la contención de recursos. Resultado: encendido más rápido y menos recursos usados al iniciar.</li>
+            <li><strong>Acción 4. Revisar la memoria virtual y aumentar la RAM física.</strong> Revisar la RAM instalada, confirmar que el archivo de paginación esté administrado automáticamente y en el disco más rápido (idealmente un SSD) en Configuración avanzada del sistema → Rendimiento → Configuración → Opciones avanzadas → Memoria virtual, y si no basta, instalar más RAM. Resultado: la pc se congela menos y el uso de memoria ya no está casi en el 100&nbsp;%.</li>
+            <li><strong>Acción 5. Enseñarle al usuario a monitorear los recursos</strong> con una capacitación corta y una guía: abrir el Administrador de tareas, ordenar por CPU y memoria, diferenciar aplicaciones de procesos en segundo plano y finalizar solo lo que no se necesita (Microsoft, 2026b). Resultado: el usuario actúa antes de que el equipo se bloquee.</li>
             </ul>
             <h4>Plan de mejoramiento</h4>
-<ul>
-              <li><strong>Actualización controlada de controladores y del sistema:</strong> solo desde Windows Update o la página oficial del fabricante, con punto de restauración antes de una actualización importante y la opción de revertir el controlador (Microsoft, 2026a; IONOS, 2021).</li>
-              <li><strong>Gestión de permisos:</strong> cuenta de usuario estándar y no de administrador, para que no se instalen programas sin autorización de soporte (LibreTexts, s.f.; Susnjara y Smalley, 2025).</li>
-              <li><strong>Copias de seguridad</strong> automáticas de facturas y hojas de cálculo en OneDrive o un disco externo, mínimo una vez por semana, probando de vez en cuando que se pueden restaurar.</li>
-              <li><strong>Mantenimiento del equipo:</strong> revisar cada mes el espacio libre y el estado del disco con el Sensor de almacenamiento o la Liberación de espacio, y limpiar el polvo de los ventiladores.</li>
-              <li><strong>Monitoreo de errores y del rendimiento:</strong> revisar cada mes el Visor de eventos (Registros de Windows → Sistema y Aplicación) y el Monitor de confiabilidad, y comparar con los valores iniciales.</li>
+            <ul>
+            <li><strong>Actualización controlada de controladores y del sistema:</strong> solo desde Windows Update o la página oficial del fabricante, con punto de restauración antes de una actualización importante y la opción de revertir el controlador (Microsoft, 2026a; IONOS, 2021).</li>
+            <li><strong>Gestión de permisos:</strong> cuenta de usuario estándar y no de administrador, para que no se instalen programas sin autorización de soporte (LibreTexts, s.f.; Susnjara y Smalley, 2025).</li>
+            <li><strong>Copias de seguridad</strong> automáticas de facturas y hojas de cálculo en OneDrive o un disco externo, mínimo una vez por semana, probando de vez en cuando que se pueden restaurar.</li>
+            <li><strong>Mantenimiento del equipo:</strong> revisar cada mes el espacio libre y el estado del disco con el Sensor de almacenamiento o la Liberación de espacio, y limpiar el polvo de los ventiladores.</li>
+            <li><strong>Monitoreo de errores y del rendimiento:</strong> revisar cada mes el Visor de eventos (Registros de Windows → Sistema y Aplicación) y el Monitor de confiabilidad, y comparar con los valores iniciales.</li>
             </ul>
             <h4>Conclusión</h4>
             <p>El bajo rendimiento no se debe a una sola falla, sino a la combinación de muchas aplicaciones abiertas, procesos que siguen en segundo plano y una RAM que se queda corta. Cada acción se comprueba comparando los datos del Administrador de tareas antes y después, y el plan de mejoramiento busca que el problema no se repita y que el usuario aprenda a usar estas herramientas por sí mismo.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <div class="taller-head">
-        <span class="eyebrow">Taller práctico 2</span>
-        <h2>Gestión de procesos y administración de recursos del sistema</h2>
-        <p>Analizar situaciones problemáticas relacionadas con el funcionamiento del procesador, la administración de recursos por parte del kernel, la memoria RAM y los dispositivos gráficos, proponiendo soluciones técnicas fundamentadas.</p>
-      </div>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 2</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 1. BAJO RENDIMIENTO DE UN PROCESADOR MULTINÚCLEO</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-2" data-caso="2" aria-labelledby="caso-2-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 2</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-2-titulo">PROBLEMÁTICA 1. BAJO RENDIMIENTO DE UN PROCESADOR MULTINÚCLEO</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-2-problematica">Problemática</a> <a href="#caso-2-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-2-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Una empresa adquiere computadores con procesadores de 8 núcleos y 16 hilos. Sin embargo, al ejecutar programas de edición de video y modelado 3D, los usuarios observan que algunas aplicaciones presentan lentitud y no aprovechan todos los núcleos disponibles.</p>
             <p>Se pide analizar por qué un procesador con varios núcleos no garantiza que todas las aplicaciones funcionen más rápido, explicar la diferencia entre núcleos físicos e hilos de ejecución e identificar qué factores podrían estar limitando el rendimiento.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-2-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Tener un procesador de 8 núcleos y 16 hilos no garantiza que todas las aplicaciones vayan más rápido. Muchos programas están hechos para usar solo uno o pocos hilos; si la aplicación no está diseñada para ejecutarse en paralelo, la mayoría de los núcleos quedan sin usarse.</p>
             <p>Los <strong>núcleos físicos</strong> son unidades reales de procesamiento, mientras que los <strong>hilos</strong> son unidades lógicas que el sistema operativo planifica. Con Hyper-Threading cada núcleo físico puede manejar dos hilos, pero siguen compartiendo algunos recursos.</p>
             <h4>Factores que limitan el rendimiento</h4>
-<ul>
-              <li>Aplicaciones que solo usan un hilo.</li>
-              <li>Poca memoria RAM, que obliga al sistema a usar el archivo de paginación.</li>
-              <li>El kernel debe organizar todos los hilos; como se vio en clase, es el elemento de comunicación que administra estos procesos e hilos.</li>
+            <ul>
+            <li>Aplicaciones que solo usan un hilo.</li>
+            <li>Poca memoria RAM, que obliga al sistema a usar el archivo de paginación.</li>
+            <li>El kernel debe organizar todos los hilos; como se vio en clase, es el elemento de comunicación que administra estos procesos e hilos.</li>
             </ul>
             <p>Si el software no crea suficiente trabajo en paralelo, los núcleos e hilos extra no ayudan.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 3</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 2. ADMINISTRACIÓN DE PROCESOS E HILOS POR PARTE DEL KERNEL</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-3" data-caso="3" aria-labelledby="caso-3-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 3</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-3-titulo">PROBLEMÁTICA 2. ADMINISTRACIÓN DE PROCESOS E HILOS POR PARTE DEL KERNEL</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-3-problematica">Problemática</a> <a href="#caso-3-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-3-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Un computador ejecuta simultáneamente un navegador, un programa de edición de imágenes, un reproductor multimedia y una aplicación de bases de datos. Durante el funcionamiento, varios programas presentan interrupciones y tiempos de respuesta elevados.</p>
             <p>Se pide explicar qué papel cumple el kernel en la administración de los procesos y los hilos, cómo distribuye el sistema operativo los recursos del procesador y qué consecuencias aparecen cuando demasiados procesos e hilos compiten por él.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-3-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>El kernel se encarga de <strong>crear, planificar y terminar</strong> los procesos y los hilos. Decide qué proceso o hilo recibe el procesador y por cuánto tiempo. Con el navegador, el editor de imágenes, el reproductor y la base de datos abiertos al mismo tiempo, el kernel crea varios procesos e hilos y reparte el tiempo de CPU entre ellos usando un algoritmo de planificación.</p>
             <p>Si hay demasiados procesos e hilos compitiendo por el procesador, el sistema gasta mucho tiempo cambiando de uno a otro. Este <strong>cambio de contexto</strong> reduce el tiempo disponible para el trabajo útil y produce interrupciones y tiempos de respuesta altos. El usuario nota lentitud porque el kernel no puede darle a cada aplicación suficiente tiempo continuo de CPU.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 4</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 3. SATURACIÓN DE MEMORIA RAM</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-4" data-caso="4" aria-labelledby="caso-4-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 4</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-4-titulo">PROBLEMÁTICA 3. SATURACIÓN DE MEMORIA RAM</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-4-problematica">Problemática</a> <a href="#caso-4-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-4-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Un diseñador utiliza simultáneamente programas de modelado 3D, edición de video, navegación web y herramientas de oficina. Su computador tiene 8 GB de memoria RAM y presenta bloqueos, lentitud y demoras al cambiar entre aplicaciones.</p>
             <p>Se pide identificar las causas, analizar qué sucede cuando la RAM es insuficiente, qué función cumple la memoria virtual y qué mejoras podrían implementarse.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-4-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Con solo 8 GB de RAM y varios programas pesados abiertos, la memoria física se llena rápido. Cuando la RAM no alcanza, el sistema operativo usa <strong>memoria virtual</strong>, moviendo páginas poco usadas al archivo de paginación en el disco. El acceso al disco es mucho más lento que a la RAM, por eso el equipo se pone lento y las aplicaciones se bloquean al cambiar entre ellas.</p>
             <h4>Mejoras posibles</h4>
-<ul>
-              <li>Cerrar aplicaciones y pestañas que no se estén usando.</li>
-              <li>Aumentar la RAM física si la placa lo permite.</li>
-              <li>Asegurarse de que el archivo de paginación esté en un SSD.</li>
+            <ul>
+            <li>Cerrar aplicaciones y pestañas que no se estén usando.</li>
+            <li>Aumentar la RAM física si la placa lo permite.</li>
+            <li>Asegurarse de que el archivo de paginación esté en un SSD.</li>
             </ul>
             <p>Como se explicó en clase, el bus de transferencia y la generación de la RAM también influyen en qué tan rápido se mueven los datos entre el procesador y la memoria.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 5</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 4. DIFERENCIAS ENTRE LAS GENERACIONES DDR</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-5" data-caso="5" aria-labelledby="caso-5-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 5</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-5-titulo">PROBLEMÁTICA 4. DIFERENCIAS ENTRE LAS GENERACIONES DDR</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-5-problematica">Problemática</a> <a href="#caso-5-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-5-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Una institución tiene computadores con memorias DDR3, DDR4 y DDR5. El personal técnico considera que podría mejorar todos los equipos simplemente reemplazando las memorias actuales por módulos DDR5.</p>
             <p>Se pide analizar si la propuesta es viable, explicar las diferencias entre DDR3, DDR4 y DDR5, sus características de transferencia y las condiciones de compatibilidad que deben verificarse.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-5-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Cambiar simplemente las memorias por módulos DDR5 no siempre es posible. Cada generación usa <strong>voltajes, pines y velocidades de transferencia diferentes</strong>, y la placa base debe soportar esa generación. Según lo visto en clase:</p>
-<ul>
-              <li><strong>DDR3:</strong> alrededor de 1066–1333 MHz; común con Intel Core i3, i5 e i7.</li>
-              <li><strong>DDR4:</strong> de 2666 a 3200 MHz.</li>
-              <li><strong>DDR5:</strong> de 4800 a 8600 MT/s; se usa con procesadores modernos de Apple, Intel Core i9 y AMD.</li>
+            <ul>
+            <li><strong>DDR3:</strong> alrededor de 1066–1333 MHz; común con Intel Core i3, i5 e i7.</li>
+            <li><strong>DDR4:</strong> de 2666 a 3200 MHz.</li>
+            <li><strong>DDR5:</strong> de 4800 a 8600 MT/s; se usa con procesadores modernos de Apple, Intel Core i9 y AMD.</li>
             </ul>
             <p>Antes de actualizar hay que revisar el manual de la placa para confirmar qué generación y velocidad máxima soporta; instalar DDR5 en una placa hecha para DDR4 no funciona. También hay que verificar la compatibilidad del procesador, la cantidad de ranuras y la capacidad máxima. El bus de transferencia de la memoria debe coincidir con lo que el procesador y la placa pueden manejar.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 6</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 5. PROBLEMAS RELACIONADOS CON LOS BUSES DE TRANSFERENCIA</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-6" data-caso="6" aria-labelledby="caso-6-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 6</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-6-titulo">PROBLEMÁTICA 5. PROBLEMAS RELACIONADOS CON LOS BUSES DE TRANSFERENCIA</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-6-problematica">Problemática</a> <a href="#caso-6-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-6-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Un computador cuenta con un procesador moderno y 32 GB de memoria RAM, pero presenta limitaciones al transferir grandes cantidades de información durante la ejecución de programas exigentes.</p>
             <p>Se pide explicar la función de los buses de transferencia y su relación con el procesador y la RAM, el significado de MT/s y su relación con el ancho de banda, y qué características revisar.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-6-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Los <strong>buses de transferencia</strong> son los caminos por donde se mueven los datos entre el procesador, la memoria RAM y otros componentes. Su velocidad determina qué tan rápido se puede enviar y recibir información.</p>
             <p><strong>MT/s</strong> (Mega Transfers por segundo) indica cuántas transferencias de datos puede hacer el bus por segundo. Un valor más alto generalmente significa mayor ancho de banda.</p>
             <p>Aunque el procesador sea moderno y haya 32 GB de RAM, si el bus está limitado (por ejemplo, por una generación DDR antigua o un cuello de botella en el controlador de memoria), mover grandes cantidades de datos será lento.</p>
             <h4>Qué revisar</h4>
-<ul>
-              <li>La generación de la memoria.</li>
-              <li>La frecuencia o MT/s que realmente soportan la placa y el procesador.</li>
-              <li>Si la memoria está trabajando en dual channel.</li>
+            <ul>
+            <li>La generación de la memoria.</li>
+            <li>La frecuencia o MT/s que realmente soportan la placa y el procesador.</li>
+            <li>Si la memoria está trabajando en dual channel.</li>
             </ul>
             <p>Como se vio en el tablero, cada generación DDR tiene una tasa de transferencia asociada a familias de procesadores específicas.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 7</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 6. DIFERENCIAS ENTRE GRÁFICOS INTEGRADOS Y TARJETAS DE VIDEO DEDICADAS</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-7" data-caso="7" aria-labelledby="caso-7-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 7</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-7-titulo">PROBLEMÁTICA 6. DIFERENCIAS ENTRE GRÁFICOS INTEGRADOS Y TARJETAS DE VIDEO DEDICADAS</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-7-problematica">Problemática</a> <a href="#caso-7-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-7-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Una empresa utiliza computadores con procesadores que incorporan gráficos integrados. Los equipos funcionan correctamente para tareas administrativas, pero presentan dificultades al ejecutar programas de diseño gráfico y modelado 3D.</p>
             <p>Se pide explicar qué es un chip gráfico, cómo funcionan los gráficos integrados, sus diferencias frente a una tarjeta dedicada, ventajas y limitaciones, y cuándo incorporar una GPU independiente.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-7-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Un <strong>chip gráfico (GPU)</strong> es el componente que procesa la información visual. Los <strong>gráficos integrados</strong> vienen dentro del procesador y comparten la RAM del sistema; son suficientes para tareas de oficina, pero tienen limitaciones para modelado 3D y diseño gráfico. Una <strong>tarjeta de video dedicada</strong> tiene su propio procesador y su propia memoria VRAM, por lo que no compite con el sistema por la memoria y puede manejar cargas gráficas más pesadas.</p>
-<ul>
-              <li><strong>Integrados:</strong> más económicos y consumen menos energía, pero reducen la RAM disponible y tienen menor rendimiento.</li>
-              <li><strong>Dedicada:</strong> necesaria cuando el trabajo implica renderizado 3D continuo o edición de video con efectos.</li>
+            <ul>
+            <li><strong>Integrados:</strong> más económicos y consumen menos energía, pero reducen la RAM disponible y tienen menor rendimiento.</li>
+            <li><strong>Dedicada:</strong> necesaria cuando el trabajo implica renderizado 3D continuo o edición de video con efectos.</li>
             </ul>
             <p>En las notas de clase se menciona el chip de video y la tarjeta DDR5 como algo separado del procesador principal.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 8</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 7. PROCESADOR POTENTE CON BAJO RENDIMIENTO GRÁFICO</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-8" data-caso="8" aria-labelledby="caso-8-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 8</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-8-titulo">PROBLEMÁTICA 7. PROCESADOR POTENTE CON BAJO RENDIMIENTO GRÁFICO</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-8-problematica">Problemática</a> <a href="#caso-8-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-8-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Un usuario adquiere un computador con un procesador de alto rendimiento, 16 núcleos y 32 hilos, pero utiliza únicamente los gráficos integrados del procesador. Al ejecutar videojuegos exigentes y aplicaciones de modelado tridimensional, experimenta bajos niveles de rendimiento.</p>
             <p>Se pide analizar por qué un procesador potente no garantiza buen desempeño gráfico, la relación entre CPU y GPU y por qué una tarjeta dedicada podría mejorar el rendimiento.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-8-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Un procesador de 16 núcleos y 32 hilos es muy bueno para cálculos en paralelo, pero el rendimiento gráfico depende principalmente de la GPU. Con solo los gráficos integrados, el trabajo gráfico está limitado por la memoria compartida y por el chip gráfico más débil. <strong>La CPU se encarga de las tareas generales y la GPU del renderizado</strong>; si la GPU es débil, las aplicaciones visuales van mal aunque la CPU sea potente.</p>
             <p>Una tarjeta gráfica dedicada mejora el rendimiento porque tiene su propia VRAM y núcleos especializados para gráficos. Esto libera la RAM del sistema y permite que la CPU y la GPU trabajen en paralelo. Como se anotó en clase, el chip de video o la tarjeta dedicada opera de forma independiente del procesador principal.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 9</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 8. MEMORIA RAM COMPARTIDA Y MEMORIA VRAM</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-9" data-caso="9" aria-labelledby="caso-9-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 9</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-9-titulo">PROBLEMÁTICA 8. MEMORIA RAM COMPARTIDA Y MEMORIA VRAM</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-9-problematica">Problemática</a> <a href="#caso-9-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-9-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Un computador utiliza gráficos integrados y dispone de 16 GB de memoria RAM. Otro equipo cuenta con una tarjeta gráfica dedicada que incorpora 8 GB de memoria VRAM.</p>
             <p>Se pide analizar las diferencias, cómo los gráficos integrados usan parte de la RAM, qué función cumple la VRAM y por qué la memoria dedicada ayuda en edición de video, renderizado y modelado 3D.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-9-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <p>Cuando un equipo usa gráficos integrados, <strong>parte de la RAM del sistema se reserva para la GPU</strong>, así que de los 16 GB queda menos memoria para las aplicaciones. Una tarjeta dedicada con 8 GB de VRAM guarda los datos gráficos en su propia memoria, por lo que los 16 GB de RAM quedan disponibles para los programas.</p>
             <p>La <strong>VRAM</strong> es más rápida y está optimizada para operaciones gráficas. En edición de video, renderizado y modelado 3D se manejan texturas y frames grandes que deben accederse rápido, y tener VRAM dedicada evita el cuello de botella de compartir el bus de la memoria del sistema. Las notas de clase resaltan la diferencia entre la RAM del sistema (con su bus de transferencia) y la memoria de la tarjeta de video.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 10</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 9. PROBLEMAS DE COMPATIBILIDAD ENTRE COMPONENTES DE HARDWARE</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-10" data-caso="10" aria-labelledby="caso-10-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 10</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-10-titulo">PROBLEMÁTICA 9. PROBLEMAS DE COMPATIBILIDAD ENTRE COMPONENTES DE HARDWARE</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-10-problematica">Problemática</a> <a href="#caso-10-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-10-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Una empresa desea actualizar sus computadores incorporando procesadores más modernos, memorias DDR5 y tarjetas gráficas dedicadas. Sin embargo, algunos equipos tienen placas base antiguas, fuentes de alimentación de baja capacidad y sistemas de refrigeración básicos.</p>
             <p>Se pide identificar los factores a verificar, analizar la compatibilidad entre procesador, placa base, RAM, tarjeta gráfica, fuente y refrigeración, y proponer una estrategia de actualización que evite daños y gastos innecesarios.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-10-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <h4>Factores que se deben verificar</h4>
-<ul>
-              <li>La placa base debe soportar el nuevo procesador (socket y chipset), la generación de RAM (DDR4 o DDR5) y la tarjeta gráfica (ranura PCIe y conectores de poder).</li>
-              <li>La fuente de poder debe tener suficiente capacidad y los conectores correctos para la nueva GPU.</li>
-              <li>El sistema de refrigeración debe poder manejar el mayor calor de los procesadores y tarjetas modernas.</li>
+            <ul>
+            <li>La placa base debe soportar el nuevo procesador (socket y chipset), la generación de RAM (DDR4 o DDR5) y la tarjeta gráfica (ranura PCIe y conectores de poder).</li>
+            <li>La fuente de poder debe tener suficiente capacidad y los conectores correctos para la nueva GPU.</li>
+            <li>El sistema de refrigeración debe poder manejar el mayor calor de los procesadores y tarjetas modernas.</li>
             </ul>
             <h4>Estrategia de actualización</h4>
             <ol>
-              <li>Revisar las especificaciones de la placa base.</li>
-              <li>Elegir componentes compatibles.</li>
-              <li>Confirmar que la fuente y la refrigeración del case sean adecuadas.</li>
+            <li>Revisar las especificaciones de la placa base.</li>
+            <li>Elegir componentes compatibles.</li>
+            <li>Confirmar que la fuente y la refrigeración del case sean adecuadas.</li>
             </ol>
             <p>Actualizar todo al mismo tiempo sin revisar la compatibilidad puede dañar componentes o dejar un equipo que no enciende. Tener en cuenta la información del tablero sobre buses y generaciones ayuda a no elegir memorias incompatibles.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 11</h2>
-        <p class="case-subtitle">PROBLEMÁTICA 10. DIAGNÓSTICO INTEGRAL DE UN COMPUTADOR</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-11" data-caso="11" aria-labelledby="caso-11-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 11</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 2</span></p>
+          <h2 id="caso-11-titulo">PROBLEMÁTICA 10. DIAGNÓSTICO INTEGRAL DE UN COMPUTADOR</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-11-problematica">Problemática</a> <a href="#caso-11-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-11-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p>Una empresa presenta para evaluación técnica un equipo con procesador de 4 núcleos y 8 hilos, 8 GB de RAM DDR4, gráficos integrados en el procesador con memoria gráfica compartida con la RAM y un SSD de 256 GB, usado para diseño gráfico, edición de video y ofimática.</p>
             <p>Los usuarios reportan lentitud al ejecutar varias aplicaciones, dificultades al procesar videos y bloqueos ocasionales. Se pide un diagnóstico integral: componentes que limitan, relación entre procesador, hilos, RAM y gráficos integrados, qué actualizar primero, y una configuración recomendada.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-11-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <h4>Componentes que limitan el rendimiento</h4>
             <p>Los 8 GB de RAM DDR4 (muy poca para diseño y video), los gráficos integrados que comparten la memoria del sistema y el procesador de 4 núcleos y 8 hilos, que puede quedarse corto en tareas pesadas en paralelo. La relación es clara: los hilos del procesador necesitan RAM para trabajar bien y los gráficos integrados reducen aún más la RAM disponible; cuando se abren varias aplicaciones, el sistema empieza a paginar y el rendimiento gráfico baja.</p>
             <h4>Orden de actualización</h4>
             <ol>
-              <li><strong>RAM</strong> (mínimo 16 GB o 32 GB de DDR4 compatible), porque reduce inmediatamente el uso de paginación.</li>
-              <li><strong>Tarjeta gráfica dedicada</strong>, para que el trabajo de video y 3D no comparta la memoria del sistema.</li>
-              <li><strong>Procesador</strong> al final: cambiarlo en la mayoría de los casos requiere una placa nueva y sale más caro.</li>
+            <li><strong>RAM</strong> (mínimo 16 GB o 32 GB de DDR4 compatible), porque reduce inmediatamente el uso de paginación.</li>
+            <li><strong>Tarjeta gráfica dedicada</strong>, para que el trabajo de video y 3D no comparta la memoria del sistema.</li>
+            <li><strong>Procesador</strong> al final: cambiarlo en la mayoría de los casos requiere una placa nueva y sale más caro.</li>
             </ol>
             <h4>Configuración recomendada</h4>
-<ul>
-              <li>Mantener o mejorar el procesador si es posible.</li>
-              <li>32 GB de DDR4.</li>
-              <li>GPU dedicada con al menos 6–8 GB de VRAM.</li>
-              <li>El SSD que ya tiene (o uno más grande).</li>
+            <ul>
+            <li>Mantener o mejorar el procesador si es posible.</li>
+            <li>32 GB de DDR4.</li>
+            <li>GPU dedicada con al menos 6–8 GB de VRAM.</li>
+            <li>El SSD que ya tiene (o uno más grande).</li>
             </ul>
             <p>Esta combinación atiende los cuellos de botella que se mencionaron en clase sobre buses de memoria y gráficos.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <div class="taller-head">
-        <span class="eyebrow">Taller práctico 3</span>
-        <h2>Análisis y diseño de una solución basada en sistemas operativos distribuidos</h2>
-        <p>Analizar una problemática tecnológica empresarial que requiera la implementación de una arquitectura distribuida, aplicando los componentes teóricos estudiados en clase para identificar problemas, evaluar alternativas y proponer una solución técnica.</p>
-      </div>
-      <article class="card case-card">
-        <h2>CASO PRÁCTICO 12</h2>
-        <p class="case-subtitle">MULTISERVICIOS S.A.: DE UN SERVIDOR CENTRALIZADO A UNA ARQUITECTURA DISTRIBUIDA</p>
-        <div class="case-parts">
-          <section class="case-part">
-            <h3>Problemática</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Describe la problemática...">
+      <article class="cs-case" id="caso-12" data-caso="12" aria-labelledby="caso-12-titulo">
+        <header class="cs-case-head">
+          <p class="cs-kicker"><span>CASO PRÁCTICO 12</span><span class="cs-kicker-sep" aria-hidden="true">·</span><span>Taller práctico 3</span></p>
+          <h2 id="caso-12-titulo">MULTISERVICIOS S.A.: DE UN SERVIDOR CENTRALIZADO A UNA ARQUITECTURA DISTRIBUIDA</h2>
+          <nav class="cs-jumps" aria-label="Secciones del caso"><a href="#caso-12-problematica">Problemática</a> <a href="#caso-12-solucion">Solución</a></nav>
+        </header>
+        <section class="cs-part" id="caso-12-problematica">
+          <h3>Problemática</h3>
+          <div class="cs-body">
             <p><strong>MULTISERVICIOS S.A.</strong> es una organización dedicada a la comercialización y distribución de productos tecnológicos. Cuenta con cuatro sedes ubicadas en diferentes ciudades del país y aproximadamente 350 empleados.</p>
             <p>Utiliza un sistema informático centralizado instalado en un único servidor en su sede principal, que administra los procesos de inventario, facturación, ventas, clientes y almacenamiento de documentos corporativos. Durante los últimos meses ha tenido estas dificultades:</p>
             <ol>
-              <li><strong>Saturación del servidor:</strong> cuando los empleados de las cuatro sedes ingresan simultáneamente, el sistema presenta lentitud y bloqueos.</li>
-              <li><strong>Interrupción de servicios:</strong> cuando el servidor principal falla, todas las sedes pierden acceso a las aplicaciones empresariales.</li>
-              <li><strong>Problemas de comunicación:</strong> las actualizaciones de inventario realizadas en una sede no siempre se reflejan oportunamente en las demás.</li>
-              <li><strong>Duplicidad de información:</strong> diferentes empleados modifican simultáneamente registros de productos, generando inconsistencias.</li>
-              <li><strong>Almacenamiento limitado:</strong> los documentos corporativos están concentrados en un único servidor y no existe una estrategia adecuada de replicación.</li>
-              <li><strong>Problemas de seguridad:</strong> no existen mecanismos suficientemente robustos para controlar los accesos de los empleados según sus cargos y responsabilidades.</li>
-              <li><strong>Crecimiento empresarial:</strong> la organización proyecta abrir tres nuevas sedes y aumentar considerablemente el número de usuarios.</li>
+            <li><strong>Saturación del servidor:</strong> cuando los empleados de las cuatro sedes ingresan simultáneamente, el sistema presenta lentitud y bloqueos.</li>
+            <li><strong>Interrupción de servicios:</strong> cuando el servidor principal falla, todas las sedes pierden acceso a las aplicaciones empresariales.</li>
+            <li><strong>Problemas de comunicación:</strong> las actualizaciones de inventario realizadas en una sede no siempre se reflejan oportunamente en las demás.</li>
+            <li><strong>Duplicidad de información:</strong> diferentes empleados modifican simultáneamente registros de productos, generando inconsistencias.</li>
+            <li><strong>Almacenamiento limitado:</strong> los documentos corporativos están concentrados en un único servidor y no existe una estrategia adecuada de replicación.</li>
+            <li><strong>Problemas de seguridad:</strong> no existen mecanismos suficientemente robustos para controlar los accesos de los empleados según sus cargos y responsabilidades.</li>
+            <li><strong>Crecimiento empresarial:</strong> la organización proyecta abrir tres nuevas sedes y aumentar considerablemente el número de usuarios.</li>
             </ol>
             <p>La gerencia solicitó al departamento de tecnología una propuesta para transformar la infraestructura centralizada en una arquitectura de sistemas distribuidos que integre las sedes, comparta recursos y garantice la continuidad de los servicios.</p>
             <h4>Por qué el modelo centralizado es insuficiente</h4>
             <p>Un solo servidor maneja inventario, facturación, ventas, clientes y documentos para las cuatro sedes. Cuando entran varios empleados al mismo tiempo el servidor se satura y el sistema se pone lento o se bloquea; si ese servidor se cae, todas las sedes pierden el acceso; las actualizaciones de inventario de una sede no siempre se ven rápido en las otras, y no hay una buena replicación de los documentos.</p>
-            </div>
-          </section>
-          <section class="case-part">
-            <h3>Solución</h3>
-            <div class="edit-area" contenteditable="true" data-placeholder="Explica la solución propuesta...">
+          </div>
+        </section>
+        <section class="cs-part" id="caso-12-solucion">
+          <h3>Solución</h3>
+          <div class="cs-body">
             <h4>1. Concepto de sistemas distribuidos</h4>
             <p>La nueva arquitectura debería tener varios nodos que se repartan el trabajo, repliquen los datos importantes y sigan funcionando aunque uno se caiga, de forma que los usuarios accedan a un servicio unificado sin saber qué servidor les está respondiendo, y así pueda soportar las tres sedes nuevas y el aumento de usuarios.</p>
             <h4>2. Arquitectura cliente-servidor</h4>
-<ul>
-              <li><strong>Clientes:</strong> las computadoras o aplicaciones web que usan los empleados en cada sede para registrar ventas, consultar inventario o ver documentos.</li>
-              <li><strong>Servidores de aplicaciones:</strong> reciben las peticiones, aplican las reglas del negocio y coordinan las operaciones.</li>
-              <li><strong>Servidores de bases de datos:</strong> guardan la información compartida de inventario, clientes y facturas, y pueden estar replicados entre sedes.</li>
-              <li><strong>Balanceadores de carga:</strong> reparten las peticiones entre varios servidores de aplicaciones.</li>
+            <ul>
+            <li><strong>Clientes:</strong> las computadoras o aplicaciones web que usan los empleados en cada sede para registrar ventas, consultar inventario o ver documentos.</li>
+            <li><strong>Servidores de aplicaciones:</strong> reciben las peticiones, aplican las reglas del negocio y coordinan las operaciones.</li>
+            <li><strong>Servidores de bases de datos:</strong> guardan la información compartida de inventario, clientes y facturas, y pueden estar replicados entre sedes.</li>
+            <li><strong>Balanceadores de carga:</strong> reparten las peticiones entre varios servidores de aplicaciones.</li>
             </ul>
             <p>Los clientes solo se comunican con los servidores de aplicaciones, que consultan las bases de datos y devuelven los resultados. Cuando abran nuevas sedes se pueden agregar más servidores de aplicaciones sin cambiar las aplicaciones de los clientes ni la estructura principal de la base de datos.</p>
             <h4>3. Comunicación entre procesos</h4>
             <p>Cuando se registra una venta en una ciudad, el inventario de las otras sedes tiene que actualizarse. Para eso se usan <strong>paso de mensajes y colas de mensajes</strong>: el proceso de venta manda un mensaje al proceso de inventario y ese mensaje se queda en una cola hasta que el servicio de inventario lo procesa. También se pueden usar <strong>sockets</strong> para la comunicación directa cuando se necesita una respuesta inmediata, y con <strong>confirmaciones y reintentos</strong> se asegura que los mensajes no se pierdan si hay un problema temporal en la red entre ciudades.</p>
             <h4>4. Modelos de comunicación</h4>
-<ul>
-              <li><strong>Facturación y confirmación de pagos: síncrona</strong>, para que el empleado reciba de inmediato la confirmación de que la factura se registró bien.</li>
-              <li><strong>Actualización de inventarios entre sedes: asíncrona</strong>, porque el sistema local registra la venta y sigue trabajando mientras la actualización se manda en segundo plano.</li>
-              <li><strong>Notificaciones (alertas de stock bajo, reportes diarios): asíncronas</strong>, con un modelo de publicación-suscripción.</li>
+            <ul>
+            <li><strong>Facturación y confirmación de pagos: síncrona</strong>, para que el empleado reciba de inmediato la confirmación de que la factura se registró bien.</li>
+            <li><strong>Actualización de inventarios entre sedes: asíncrona</strong>, porque el sistema local registra la venta y sigue trabajando mientras la actualización se manda en segundo plano.</li>
+            <li><strong>Notificaciones (alertas de stock bajo, reportes diarios): asíncronas</strong>, con un modelo de publicación-suscripción.</li>
             </ul>
             <p>La síncrona sirve cuando el usuario necesita saber el resultado en el momento, y la asíncrona cuando la operación se puede terminar después sin detener el proceso; así mejora la respuesta del sistema y se toleran mejor las demoras de la red entre ciudades.</p>
             <h4>5. Tolerancia a fallos</h4>
             <p>Redundancia y replicación: los datos críticos como inventario y registros de clientes se copian en al menos dos servidores de sedes diferentes. Si se cae el servidor principal de una ciudad, un servidor de respaldo o uno de otra sede toma el control de forma automática, y con copias de seguridad regulares y un procedimiento de recuperación se restaura la información si pasa algo más grave. Los balanceadores de carga redirigen el tráfico lejos del nodo que falla, así las otras sedes siguen operando.</p>
             <h4>6. Sistemas de archivos distribuidos</h4>
             <p>Para compartir los documentos entre las cuatro sedes actuales y las tres nuevas se propone un almacenamiento distribuido con replicación, donde los documentos se guardan en varios servidores y se acceden a través de una sola interfaz.</p>
-<ul>
-              <li><strong>Acceso controlado:</strong> control de acceso basado en roles, según el cargo de cada persona.</li>
-              <li><strong>Consistencia:</strong> bloqueos o versiones cuando dos empleados modifican lo mismo al tiempo.</li>
-              <li><strong>Disponibilidad:</strong> si un servidor está offline, los documentos se abren desde otra copia.</li>
-              <li><strong>Protección:</strong> cifrado y backups.</li>
+            <ul>
+            <li><strong>Acceso controlado:</strong> control de acceso basado en roles, según el cargo de cada persona.</li>
+            <li><strong>Consistencia:</strong> bloqueos o versiones cuando dos empleados modifican lo mismo al tiempo.</li>
+            <li><strong>Disponibilidad:</strong> si un servidor está offline, los documentos se abren desde otra copia.</li>
+            <li><strong>Protección:</strong> cifrado y backups.</li>
             </ul>
             <p>Así se soluciona el problema actual de tener todos los documentos concentrados en un solo servidor.</p>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
+        <nav class="cs-pager" aria-label="Cambiar de caso"></nav>
       </article>
-      <article class="card case-card">
-        <h2>Referencias</h2>
+      <section class="cs-refs" id="referencias" aria-labelledby="referencias-titulo">
+        <h2 id="referencias-titulo">Referencias</h2>
         <p>Fuentes citadas en el caso práctico 1 (taller práctico de diagnóstico y solución de problemas).</p>
         <ul class="sources">
           <li>ASUS. (2022, 1 de septiembre). <em>[Windows 11/10] Cambiar las aplicaciones de inicio</em>. <a href="https://www.asus.com/es/support/faq/1044726/">www.asus.com</a></li>
@@ -442,10 +528,12 @@
           <li>Silberschatz, A., Galvin, P. B., y Gagne, G. (2018). <em>Operating system concepts</em> (10.ª ed.). Wiley.</li>
           <li>Susnjara, S., y Smalley, I. (2025, 5 de marzo). <em>¿Qué es un sistema operativo?</em> IBM. <a href="https://www.ibm.com/mx-es/think/topics/operating-systems">www.ibm.com</a></li>
         </ul>
-      </article>
-    </section>
+      </section>
+      </div>
+    </div>
   </main>
   <footer class="footer">Sistemas Operativos · Espacio académico de aprendizaje</footer>
+  <script src="js/casos.js"></script>
 </body>
 
 </html>
