@@ -13,6 +13,22 @@ Página web del proyecto final de la asignatura Sistemas Operativos (Corporació
 
 - **APEX OS** (`apex-os-mejorado.html`): simulación de un PC en el navegador, con arranque, login (`apex` / `apex`), ventanas, terminal, navegador y Arcade.
 
+### Archivos de APEX OS
+
+`apex-os-mejorado.html` solo tiene la estructura de la página. Los estilos y la lógica están separados:
+
+| Archivo | Contenido |
+|---|---|
+| `css/apex-os.css` | Estilos del escritorio, ventanas, arranque, login y efectos CRT |
+| `js/apex-os/ventanas.js` | Ventanas (mover, minimizar, maximizar, cerrar), barra de tareas, menú Inicio y reloj |
+| `js/apex-os/terminal.js` | Terminal: sistema de archivos simulado y comandos |
+| `js/apex-os/navegador.js` | Navegador APEX: páginas internas, historial e iframes |
+| `js/apex-os/arcade.js` | Menú del Arcade y juegos retro de la carpeta `juegos/` |
+| `js/apex-os/arcade-clasicos.js` | Snake, Pong, Breakout, Space Invaders y Asteroids |
+| `js/apex-os/arranque.js` | Pantalla de arranque (BIOS) e inicio de sesión |
+
+Los scripts se cargan en ese orden al final de la página; `arranque.js` debe ir al final porque inicia todo.
+
 ## Juegos del Arcade de APEX OS
 
 Además de los clásicos propios (Snake, Pong, Breakout, Invaders, Asteroids), el Arcade abre juegos retro guardados en la carpeta `juegos/`. Se cargan dentro de la ventana y no dependen de ningún servidor externo.

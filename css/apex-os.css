@@ -1,0 +1,142 @@
+/* APEX OS: estilos del escritorio simulado (apex-os-mejorado.html) */
+:root{
+  --bg:#0E0E10;
+  --panel:#2A2A2F;
+  --panel2:#1a1a1e;
+  --line:#6A040F;
+  --text:#F3F3F4;
+  --muted:#a0a0a8;
+  --accent:#D00000;
+  --accent-dark:#6A040F;
+  --shadow:0 18px 55px #000c;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);overflow:hidden}
+body{background:var(--bg)}
+.desktop{height:100%;position:relative;overflow:hidden;background:
+  radial-gradient(ellipse at 70% 25%,#3a1010 0,transparent 42%),
+  radial-gradient(ellipse at 20% 80%,#2A2A2F 0,transparent 40%),
+  linear-gradient(135deg,#0E0E10,#1a0e10 60%,#0E0E10)}
+.desktop:before{content:"";position:absolute;inset:0;opacity:.08;background-image:linear-gradient(#6A040F22 1px,transparent 1px),linear-gradient(90deg,#6A040F22 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.brand{position:absolute;right:34px;top:30px;text-align:right;pointer-events:none}
+.brand strong{font-size:clamp(28px,5vw,58px);letter-spacing:.18em;font-weight:800;color:#D0000018}
+.brand span{display:block;font-size:10px;letter-spacing:.28em;color:#F3F3F430;margin-top:5px}
+.desktop-icons{position:absolute;top:24px;left:22px;display:grid;gap:17px;z-index:1}
+.icon{width:78px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--text);display:flex;flex-direction:column;align-items:center;gap:7px;padding:9px 4px;cursor:pointer;font-size:11px;text-shadow:0 1px 4px #000}
+.icon:hover,.icon:focus{background:#D0000018;border-color:#D0000044;outline:none}
+.glyph{width:38px;height:38px;display:grid;place-items:center;font-size:26px;filter:drop-shadow(0 5px 5px #0008)}
+.taskbar{position:absolute;z-index:1000;bottom:0;left:0;right:0;height:54px;background:#0E0E10ee;border-top:1px solid #6A040F66;backdrop-filter:blur(18px);display:flex;align-items:center;padding:0 12px;gap:9px}
+.start{height:38px;padding:0 15px;border:1px solid #D0000066;border-radius:7px;background:linear-gradient(#6A040F,#3a0206);color:#F3F3F4;font-weight:700;letter-spacing:.08em;cursor:pointer}
+.start:hover,.task:hover{background:#D0000033}
+.task-list{display:flex;gap:5px;flex:1;min-width:0}
+.task{height:36px;max-width:190px;min-width:90px;padding:0 12px;border:1px solid transparent;border-radius:6px;background:#ffffff0b;color:#d0d0d4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;text-align:left}
+.task.active{background:#D0000028;border-color:#D0000066;color:white}
+.status{font-size:11px;color:#b0b0b8;display:flex;gap:13px;align-items:center;padding:0 7px}
+.window{position:absolute;z-index:10;width:min(650px,calc(100vw - 28px));height:min(440px,calc(100vh - 90px));min-width:280px;min-height:190px;background:var(--panel);border:1px solid #6A040F88;border-radius:10px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.window.hidden{display:none}.window.max{left:8px!important;top:8px!important;width:calc(100vw - 16px)!important;height:calc(100vh - 70px)!important}
+.titlebar{height:39px;flex:0 0 39px;display:flex;align-items:center;gap:9px;padding:0 9px 0 13px;background:linear-gradient(90deg,#6A040F,#3a0206);border-bottom:1px solid #D0000044;cursor:move;user-select:none}
+.title-icon{font-size:15px}.title{font-size:12px;font-weight:650;letter-spacing:.03em;flex:1}
+.controls{display:flex;gap:5px}.winbtn{width:25px;height:23px;border:0;border-radius:4px;background:#ffffff18;color:#F3F3F4;cursor:pointer}.winbtn:hover{background:#ffffff30}.winbtn.close:hover{background:#D00000}
+.content{flex:1;min-height:0;overflow:auto;background:var(--panel2)}
+.toolbar{height:36px;padding:0 12px;display:flex;align-items:center;gap:15px;background:#1a1a1e;border-bottom:1px solid #6A040F44;color:#a0a0a8;font-size:11px}
+.explorer{display:grid;grid-template-columns:145px 1fr;height:100%}.side{padding:14px 10px;background:#1e1e22;border-right:1px solid #6A040F33;color:#a0a0a8;font-size:12px}.side div{padding:8px;border-radius:5px}.side div:first-child{background:#D0000018;color:#fff}.files{padding:18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));align-content:start;gap:14px}.file{border:1px solid transparent;border-radius:7px;padding:12px 5px;text-align:center;font-size:11px;color:#d0d0d4}.file:hover{background:#D0000010;border-color:#D0000030}.file b{display:block;font-size:27px;margin-bottom:7px}
+.terminal{height:100%;padding:17px;font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;color:#e0c0c0;background:#0a0a0c}.terminal .dim{color:#888}.terminal form{display:flex;gap:8px;margin-top:7px}.terminal input{flex:1;background:transparent;border:0;outline:0;color:#F3F3F4;font:inherit;min-width:0}
+.doom{height:100%;display:flex;flex-direction:column;background:#080808}
+.doom-screen{flex:1;position:relative;overflow:hidden;background:#111}
+.doom-screen canvas{width:100%;height:100%;display:block;background:#0a0a0a;cursor:crosshair}
+.doom-foot{padding:10px 15px;color:#aaa;font-size:11px;display:flex;justify-content:space-between;background:#111;border-top:1px solid #6A040F44}
+.start-menu{position:absolute;z-index:999;left:12px;bottom:61px;width:270px;background:#1a1a1ef5;border:1px solid #6A040F88;border-radius:10px;box-shadow:var(--shadow);padding:14px;backdrop-filter:blur(18px);display:none}
+.start-menu.open{display:block}.user{font-weight:700;padding:7px 8px 14px;border-bottom:1px solid #D0000033;margin-bottom:8px}.menu-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:6px;color:#F3F3F4;font-size:13px;cursor:pointer}.menu-item:hover{background:#D0000020}
+.note{padding:22px;color:#c0c0c4;font-size:13px;line-height:1.6}.note h2{color:#F3F3F4;font-size:19px;margin:0 0 9px}.pill{display:inline-block;border:1px solid #D00000;border-radius:20px;padding:4px 9px;color:#D00000;font-size:10px;letter-spacing:.08em}
+/* Browser */
+.browser{height:100%;display:flex;flex-direction:column;background:#111}
+.browser-bar{height:42px;background:#1a1a1e;border-bottom:1px solid #6A040F44;display:flex;align-items:center;gap:8px;padding:0 10px}
+.browser-bar button{background:#2A2A2F;border:1px solid #6A040F44;color:#F3F3F4;border-radius:4px;padding:4px 8px;cursor:pointer;font-size:12px}
+.browser-bar button:hover{background:#D0000022}
+.browser-bar input{flex:1;background:#0E0E10;border:1px solid #6A040F55;color:#F3F3F4;border-radius:4px;padding:6px 10px;font-size:12px;outline:none}
+.browser-content{flex:1;overflow:auto;background:#0E0E10}
+.browser-page{padding:24px;max-width:800px;margin:0 auto;line-height:1.6}
+.browser-page h1{color:#D00000;margin-top:0}
+.browser-page a{color:#D00000}
+.browser-page table{width:100%;border-collapse:collapse;margin:16px 0}
+.browser-page th,.browser-page td{border:1px solid #6A040F44;padding:8px;text-align:left}
+.browser-page th{background:#2A2A2F}
+@media(max-width:520px){.desktop-icons{grid-template-columns:repeat(2,78px);gap:5px;top:15px;left:10px}.brand{top:15px;right:15px}.status .date{display:none}.explorer{grid-template-columns:100px 1fr}.task{min-width:55px;padding:0 7px;font-size:10px}}
+
+.arcade-btn{background:#2A2A2F;border:1px solid #D00000;color:#F3F3F4;padding:12px 24px;border-radius:6px;cursor:pointer;font-size:16px;font-weight:600}
+.arcade-btn:hover{background:#D0000022}
+/* Arcade: secciones y juegos retro */
+.arcade-section{width:100%;max-width:560px;margin:0 auto;text-align:left}
+.arcade-section h3{font-size:10px;letter-spacing:.22em;color:#a0a0a8;margin:14px 0 8px;font-weight:600;border-bottom:1px solid #6A040F55;padding-bottom:6px}
+.arcade-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.arcade-grid .arcade-btn{font-size:14px;padding:10px 12px;text-align:left}
+.retro-btn{display:flex;flex-direction:column;gap:3px;background:#1e1e22;border:1px solid #6A040F88;color:#F3F3F4;padding:10px 12px;border-radius:6px;cursor:pointer;text-align:left;font:inherit}
+.retro-btn:hover,.retro-btn:focus{background:#D0000022;border-color:#D00000;outline:none}
+.retro-btn b{font-size:14px}
+.retro-btn small{font-size:10.5px;color:#a0a0a8;line-height:1.35}
+.retro-btn .tag{font-size:9px;letter-spacing:.14em;color:#D00000}
+#retro-frame{display:none;flex:1;width:100%;border:0;background:#000;min-height:0}
+.arcade-back{background:#2A2A2F;border:1px solid #6A040F88;color:#F3F3F4;border-radius:4px;padding:2px 9px;cursor:pointer;font-size:11px;margin-right:8px}
+.arcade-back:hover{background:#D0000033}
+.doom-foot .left{display:flex;align-items:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Boot / BIOS screen - estilo terminal retro */
+.boot-screen{position:fixed;inset:0;z-index:10000;background:#0c0c0e;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
+.boot-screen.hide{opacity:0;pointer-events:none}
+.login-screen{position:fixed;inset:0;z-index:9999;background:#0c0c0e;display:none;align-items:center;justify-content:center}
+.login-screen.show{display:flex}
+.desktop.hidden{visibility:hidden;pointer-events:none}
+.term-window{background:#1c1c1f;border-radius:12px;width:min(920px,96vw);height:min(640px,92vh);box-shadow:0 20px 70px #000c;display:flex;flex-direction:column;padding:28px 32px;position:relative}
+.term-prompt{font-family:ui-monospace,Consolas,monospace;font-size:22px;font-weight:700;color:#D00000;letter-spacing:.05em;margin-bottom:18px}
+.term-body{flex:1;font-family:ui-monospace,Consolas,monospace;font-size:14px;line-height:1.65;color:#c8c8cc;overflow:hidden}
+.term-body div{opacity:0;animation:bootIn .25s forwards}
+@keyframes bootIn{to{opacity:1}}
+.boot-logo-small{position:absolute;bottom:18px;right:22px;width:48px;height:48px;opacity:.7;filter:drop-shadow(0 0 6px #D0000044)}
+
+/* Login screen - estilo terminal */
+.login-term{background:#1c1c1f;border-radius:12px;width:min(520px,94vw);padding:32px 36px 36px;box-shadow:0 20px 70px #000c;text-align:left}
+.login-term .prompt{font-family:ui-monospace,Consolas,monospace;font-size:20px;color:#D00000;font-weight:700;margin-bottom:22px}
+.login-field{background:#b8f07a;color:#1a1a1e;font-family:ui-monospace,Consolas,monospace;font-size:18px;padding:14px 16px;border-radius:4px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.login-field label{font-weight:600;min-width:110px}
+.login-field input{flex:1;background:transparent;border:0;outline:0;font:inherit;color:#1a1a1e;padding:0}
+.login-field input::placeholder{color:#3a3a3a80}
+.login-actions{margin-top:16px;display:flex;justify-content:flex-end}
+.login-actions button{background:#D00000;border:0;color:#fff;font-family:ui-monospace,Consolas,monospace;padding:8px 18px;border-radius:4px;cursor:pointer;font-weight:600}
+.login-actions button:hover{background:#ff2222}
+.login-error{color:#D00000;font-family:ui-monospace,Consolas,monospace;font-size:13px;margin-top:10px;min-height:16px}
+/* CRT Effects + Aberración cromática */
+.crt{position:relative}
+.crt::before{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:10;
+  background:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0px,rgba(0,0,0,.18) 1px,transparent 1px,transparent 3px),
+    radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.4) 100%);
+  border-radius:inherit;
+  mix-blend-mode:multiply;
+}
+.crt::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;z-index:11;
+  background:linear-gradient(180deg,rgba(208,0,0,.04) 0%,transparent 35%,rgba(0,0,0,.1) 100%);
+  border-radius:inherit;
+  animation:crtFlicker 7s infinite;
+}
+@keyframes crtFlicker{
+  0%,100%{opacity:1}
+  48%{opacity:.98}
+  50%{opacity:1}
+  52%{opacity:.96}
+}
+/* Aberración cromática */
+.chroma{filter:contrast(1.06) brightness(1.03) saturate(1.15);
+  text-shadow: 
+    -1px 0 1px rgba(208,0,0,.4),
+     1px 0 1px rgba(0,180,255,.25);
+}
+.chroma-strong{
+  filter:
+    drop-shadow(-1.5px 0 0 rgba(208,0,0,.35))
+    drop-shadow(1.5px 0 0 rgba(0,180,255,.25))
+    contrast(1.08) brightness(1.04) saturate(1.2);
+}
+.crt-screen{filter:contrast(1.06) brightness(1.03) saturate(1.12)}
