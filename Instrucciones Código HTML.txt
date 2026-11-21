@@ -13,6 +13,7 @@ ESTRUCTURA DE ARCHIVOS
 - js/repaso-datos.js: temas, tarjetas y preguntas del repaso.
 - js/repaso.js: funcionamiento de la página de repaso.
 - js/conceptos.js: buscador e índice lateral del glosario de conceptos.
+- js/casos.js: muestra un caso práctico a la vez, con índice lateral y anterior / siguiente.
 
 
 CÓMO ABRIR EL SITIO
