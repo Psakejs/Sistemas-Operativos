@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 </head>
 
-<body>
+<body class="portada-page">
   <header class="site-header">
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="active">Presentación</a><a
@@ -19,31 +19,33 @@
           Tutorial</a></nav>
     </div>
   </header>
-  <main>
-    <section class="hero">
-      <div class="eyebrow">Espacio académico</div>
+  <main class="portada">
+    <section class="pt-hero">
+      <p class="pt-eyebrow">Espacio académico</p>
       <h1>Bienvenidos a Sistemas Operativos</h1>
-      <p>Este es un espacio para compartir, organizar y presentar el proceso de aprendizaje desarrollado durante la
-        asignatura.</p>
+      <p class="pt-lead">Este es un espacio para compartir, organizar y presentar el proceso de aprendizaje desarrollado durante la asignatura.</p>
     </section>
-    <section class="card" style="max-width:850px;margin:0 auto">
-      <h2>Presentación del estudiante</h2>
-      <p>En este espacio, cada estudiante puede presentarse y describir brevemente el propósito de su página.</p>
-      <div class="edit-area" contenteditable="true" data-placeholder="Escribe aquí tu presentación personal...">
-          <p>Hola, soy <strong>Alejandro Pérez Restrepo</strong>, estudiante de Ingeniería en Sistemas de la
-            Corporación Universitaria Remington. Esta página reúne lo que trabajé en la asignatura Sistemas Operativos
-            (grupo 2610B16G1) con el docente Oscar Fernando Mahecha Camargo.</p>
-          <p>Aquí organicé lo que aprendí a lo largo del curso:</p>
-          <ul>
-            <li><strong>Temas:</strong> los cuatro bloques de la asignatura, desde la introducción a los sistemas
-              operativos hasta el booteo y la instalación.</li>
-            <li><strong>Conceptos:</strong> un glosario de hardware, software, redes y seguridad.</li>
-            <li><strong>Casos prácticos:</strong> los problemas que analicé en los talleres y cómo los resolví.</li>
-            <li><strong>Repaso del parcial:</strong> preguntas, tarjetas y simulacros para estudiar cada tema.</li>
-            <li><strong>Proyecto final:</strong> la instalación de Lubuntu junto a Windows en arranque dual, en mi
-              propio portátil.</li>
+
+    <section class="pt-term" aria-labelledby="pt-titulo">
+      <div class="pt-bar" aria-hidden="true"><span>alejandro@sistemas-operativos: ~</span><span>bash</span></div>
+      <div class="pt-screen">
+        <p class="pt-cmd" aria-hidden="true"><span class="pt-prompt">$</span> cat presentacion.txt</p>
+        <h2 id="pt-titulo">Presentación del estudiante</h2>
+        <p class="pt-note">En este espacio, cada estudiante puede presentarse y describir brevemente el propósito de su página.</p>
+        <p class="pt-intro">Hola, soy <strong>Alejandro Pérez Restrepo</strong>, estudiante de Ingeniería en Sistemas de la Corporación Universitaria Remington. Esta página reúne lo que trabajé en la asignatura Sistemas Operativos (grupo 2610B16G1) con el docente Oscar Fernando Mahecha Camargo.</p>
+        <p class="pt-cmd" aria-hidden="true"><span class="pt-prompt">$</span> ls ~/curso</p>
+        <p class="pt-listlead">Aquí organicé lo que aprendí a lo largo del curso:</p>
+        <nav aria-label="Secciones del sitio">
+          <ul class="pt-list">
+            <li><a href="temas.html"><span class="pt-perm" aria-hidden="true">drwx</span><span class="pt-item"><strong>Temas:</strong> los cuatro bloques de la asignatura, desde la introducción a los sistemas operativos hasta el booteo y la instalación.</span></a></li>
+            <li><a href="conceptos.html"><span class="pt-perm" aria-hidden="true">drwx</span><span class="pt-item"><strong>Conceptos:</strong> un glosario de hardware, software, redes y seguridad.</span></a></li>
+            <li><a href="casos-practicos.html"><span class="pt-perm" aria-hidden="true">drwx</span><span class="pt-item"><strong>Casos prácticos:</strong> los problemas que analicé en los talleres y cómo los resolví.</span></a></li>
+            <li><a href="repaso.html"><span class="pt-perm" aria-hidden="true">drwx</span><span class="pt-item"><strong>Repaso del parcial:</strong> preguntas, tarjetas y simulacros para estudiar cada tema.</span></a></li>
+            <li><a href="proyecto.html"><span class="pt-perm" aria-hidden="true">drwx</span><span class="pt-item"><strong>Proyecto final:</strong> la instalación de Lubuntu junto a Windows en arranque dual, en mi propio portátil.</span></a></li>
           </ul>
-        </div>
+        </nav>
+        <p class="pt-cmd pt-end" aria-hidden="true"><span class="pt-prompt">$</span> <span class="pt-cursor"></span></p>
+      </div>
     </section>
   </main>
   <footer class="footer">Sistemas Operativos · Espacio académico de aprendizaje</footer>
