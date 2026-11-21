@@ -23,69 +23,285 @@
     <section class="section-title">
       <div class="eyebrow">Glosario colaborativo</div>
       <h1>Conceptos</h1>
-      <p>Completa los recuadros con conceptos relevantes y sus respectivas definiciones.</p>
+      <p>Los conceptos trabajados en los talleres teóricos y prácticos, el parcial, el taller de booteo y el proyecto final, organizados por tema.</p>
     </section>
-    <section class="grid">
+    <div class="concept-search">
+      <label for="cBuscar">Buscar un concepto</label>
+      <input id="cBuscar" type="search" placeholder="Ej.: semáforo, VRAM, GPT, socket..." autocomplete="off">
+      <p id="cCuenta" aria-live="polite"></p>
+    </div>
+    <section class="grid concept-grid">
       <article class="card concept-card">
         <h2><span class="concept-icon">▣</span>HARDWARE</h2>
+        <p class="concept-src">Taller teórico 1 y taller práctico 2 (gestión de recursos del sistema).</p>
         <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <p><strong>Procesador (CPU):</strong> se encarga de las tareas generales del equipo. Un procesador multinúcleo solo rinde más si los programas están hechos para ejecutarse en paralelo.</p>
-          <p><strong>Núcleo e hilo:</strong> los núcleos son unidades reales de procesamiento; los hilos son unidades lógicas que el sistema operativo planifica. Con Hyper-Threading cada núcleo físico maneja dos hilos.</p>
-          <p><strong>Memoria RAM:</strong> memoria volátil diseñada para acceso rápido durante la ejecución; pierde su contenido cuando el equipo se apaga.</p>
-          <p><strong>Almacenamiento permanente:</strong> SSD o disco duro: no es volátil, tiene mayor capacidad y es más lento que la RAM; guarda la información de forma permanente.</p>
-          <p><strong>Generaciones DDR:</strong> DDR3 trabaja alrededor de 1066–1333 MHz, DDR4 de 2666 a 3200 MHz y DDR5 de 4800 a 8600 MT/s. Cada generación usa voltajes, pines y velocidades diferentes, así que la placa base debe soportarla.</p>
-          <p><strong>Buses de transferencia:</strong> caminos por donde se mueven los datos entre el procesador, la memoria RAM y otros componentes.</p>
-          <p><strong>MT/s:</strong> megatransferencias por segundo: cuántas transferencias de datos puede hacer el bus por segundo. Un valor más alto generalmente significa mayor ancho de banda.</p>
-          <p><strong>Chip gráfico (GPU):</strong> componente que procesa la información visual. Los gráficos integrados vienen dentro del procesador y comparten la RAM del sistema; una tarjeta dedicada tiene su propio procesador y su propia VRAM.</p>
-          <p><strong>Compatibilidad:</strong> la placa base debe soportar el procesador (socket y chipset), la generación de RAM y la tarjeta gráfica (ranura PCIe y conectores de poder); la fuente y la refrigeración también deben ser adecuadas.</p>
+          <h4>Procesamiento</h4>
+          <p><strong>Procesador (CPU):</strong> pieza de hardware responsable de ejecutar las instrucciones de la computadora. Se encarga de las tareas generales del equipo.</p>
+          <p><strong>Núcleo físico:</strong> unidad real de procesamiento dentro del procesador.</p>
+          <p><strong>Hilo de ejecución:</strong> unidad lógica que el sistema operativo planifica sobre los núcleos.</p>
+          <p><strong>Hyper-Threading:</strong> tecnología con la que cada núcleo físico puede manejar dos hilos, aunque siguen compartiendo algunos recursos.</p>
+          <p><strong>Procesador multinúcleo:</strong> procesador con varios núcleos (por ejemplo, 8 núcleos y 16 hilos). No garantiza que todo vaya más rápido: si la aplicación no está hecha para ejecutarse en paralelo, la mayoría de los núcleos quedan sin usarse.</p>
+          <p><strong>Aplicación de un solo hilo:</strong> programa que usa solo uno o pocos hilos; es uno de los factores que limitan el rendimiento de un procesador multinúcleo.</p>
+          <h4>Memoria</h4>
+          <p><strong>Memoria RAM:</strong> memoria volátil y de acceso rápido donde se cargan los programas y datos en uso; es el espacio de trabajo activo del sistema.</p>
+          <p><strong>Volátil:</strong> que pierde su contenido en el momento en que la computadora se apaga, como la RAM.</p>
+          <p><strong>Almacenamiento permanente:</strong> SSD o disco duro: no es volátil, tiene mayor capacidad y es más lento que la RAM. Guarda el sistema operativo, las aplicaciones instaladas y los archivos del usuario.</p>
+          <p><strong>DDR3:</strong> generación de RAM que trabaja alrededor de 1066–1333 MHz; era común con Intel Core i3, i5 e i7.</p>
+          <p><strong>DDR4:</strong> generación de RAM que va de 2666 a 3200 MHz.</p>
+          <p><strong>DDR5:</strong> generación de RAM que llega a 4800–8600 MT/s; se usa con procesadores modernos de Apple, Intel Core i9 y AMD.</p>
+          <p><strong>Compatibilidad entre generaciones DDR:</strong> cada generación usa voltajes, pines y velocidades de transferencia diferentes; instalar DDR5 en una placa hecha para DDR4 no funciona.</p>
+          <p><strong>Dual channel:</strong> modo en que la memoria trabaja en dos canales; es una de las cosas que se revisan cuando hay limitaciones en la transferencia de datos.</p>
+          <h4>Buses y transferencia</h4>
+          <p><strong>Bus de transferencia:</strong> camino por donde se mueven los datos entre el procesador, la memoria RAM y otros componentes. Su velocidad determina qué tan rápido se envía y recibe información.</p>
+          <p><strong>MT/s:</strong> Mega Transfers por segundo: cuántas transferencias de datos puede hacer el bus por segundo.</p>
+          <p><strong>Ancho de banda:</strong> cantidad de datos que se pueden mover; un valor de MT/s más alto generalmente significa mayor ancho de banda.</p>
+          <p><strong>Controlador de memoria:</strong> componente que puede convertirse en cuello de botella y limitar el movimiento de grandes cantidades de datos.</p>
+          <p><strong>Cuello de botella:</strong> componente que limita el rendimiento de todo el equipo aunque los demás sean más rápidos.</p>
+          <h4>Gráficos</h4>
+          <p><strong>Chip gráfico (GPU):</strong> componente que procesa la información visual y se encarga del renderizado.</p>
+          <p><strong>Gráficos integrados:</strong> vienen dentro del procesador y comparten la RAM del sistema. Son más económicos y consumen menos energía, pero reducen la RAM disponible y rinden menos en 3D y diseño.</p>
+          <p><strong>Tarjeta de video dedicada:</strong> tiene su propio procesador y su propia memoria VRAM, así que no compite con el sistema por la memoria. Es necesaria para renderizado 3D continuo o edición de video con efectos.</p>
+          <p><strong>VRAM:</strong> memoria propia de la tarjeta de video; es más rápida, está optimizada para operaciones gráficas y evita compartir el bus de la memoria del sistema.</p>
+          <p><strong>Memoria compartida:</strong> parte de la RAM del sistema que se reserva para los gráficos integrados, por lo que a las aplicaciones les queda menos.</p>
+          <h4>Compatibilidad</h4>
+          <p><strong>Placa base:</strong> debe soportar el procesador (socket y chipset), la generación de RAM y la tarjeta gráfica. Su manual dice qué generación y velocidad máxima de memoria soporta.</p>
+          <p><strong>Socket y chipset:</strong> características de la placa base que determinan qué procesadores se pueden instalar.</p>
+          <p><strong>Ranura PCIe:</strong> ranura de la placa base donde se instala la tarjeta gráfica.</p>
+          <p><strong>Fuente de poder:</strong> debe tener capacidad suficiente y los conectores correctos para la nueva GPU.</p>
+          <p><strong>Sistema de refrigeración:</strong> debe manejar el mayor calor de los procesadores y tarjetas modernas.</p>
+          <h4>Dispositivos</h4>
+          <p><strong>Dispositivos de entrada y salida:</strong> teclados, mouses, impresoras, memorias USB y cámaras, que el SO maneja por medio de controladores.</p>
+          <p><strong>Periféricos:</strong> dispositivos externos como teclados y mouses, que también son recursos que el SO administra.</p>
         </div>
       </article>
       <article class="card concept-card">
         <h2><span class="concept-icon">⌘</span>SOFTWARE</h2>
+        <p class="concept-src">Taller teórico 1 (introducción a los sistemas operativos) y taller práctico 1.</p>
         <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <p><strong>Sistema operativo:</strong> software que administra los recursos del equipo y sirve de intermediario entre el usuario, las aplicaciones y el hardware.</p>
-          <p><strong>Kernel:</strong> parte central del sistema operativo; corre en modo privilegiado y maneja el procesador, la memoria y los dispositivos.</p>
-          <p><strong>Controlador (driver):</strong> software que permite al kernel comunicarse con una pieza específica de hardware, como una impresora.</p>
-          <p><strong>Llamada al sistema:</strong> mecanismo controlado con el que una aplicación en modo usuario hace peticiones al kernel; es la única forma segura de acceder a recursos protegidos.</p>
-          <p><strong>Programa y proceso:</strong> el programa son instrucciones guardadas en el disco; el proceso es una instancia en ejecución con CPU y memoria asignadas.</p>
+          <h4>Sistema operativo</h4>
+          <p><strong>Sistema operativo:</strong> software que actúa como intermediario entre una persona y el hardware, maneja los recursos y crea un ambiente en el que las aplicaciones se ejecutan de manera segura y eficiente.</p>
+          <p><strong>Propósito del SO:</strong> facilitar el uso del sistema para el usuario y optimizar el uso de los recursos limitados: procesador, memoria y almacenamiento.</p>
+          <p><strong>Relación en capas:</strong> el hardware es la base física; el SO y su kernel abstraen y manejan esos recursos; las aplicaciones usan los servicios del SO; y el usuario interactúa con las aplicaciones o la interfaz. Cada nivel se concentra en su función.</p>
+          <p><strong>Aplicación:</strong> programa que hace uso de los servicios del sistema operativo bajo mecanismos controlados.</p>
+          <p><strong>Administrador de recursos:</strong> el SO controla, aloja y libera el tiempo de procesamiento, la RAM, el espacio en disco y los periféricos, para que varios programas se ejecuten de forma simultánea, justa y eficiente.</p>
+          <p><strong>Multiplexación:</strong> compartir un solo recurso físico entre muchos programas: en tiempo (alternando el uso de la CPU) y en espacio (dividiendo la memoria y el almacenamiento).</p>
+          <p><strong>Sin sistema operativo:</strong> cada aplicación tendría que manejar el hardware por su cuenta, no habría protección entre programas y no se podrían correr varios programas a la vez de forma segura.</p>
+          <h4>Núcleo y controladores</h4>
+          <p><strong>Kernel (núcleo):</strong> parte central del sistema operativo; corre en modo privilegiado y maneja el procesador, la memoria y los dispositivos. También fuerza el aislamiento de procesos.</p>
+          <p><strong>Modo privilegiado:</strong> modo en el que corre el kernel, con acceso a los recursos protegidos.</p>
+          <p><strong>Modo usuario:</strong> modo en el que corren las aplicaciones; para usar recursos protegidos deben pedírselo al kernel.</p>
+          <p><strong>Controlador (driver):</strong> módulo de software que permite al kernel comunicarse con el hardware específico de cada dispositivo, traduciendo las operaciones del sistema en instrucciones que el dispositivo entiende.</p>
+          <p><strong>Controlador incompatible:</strong> puede hacer que el dispositivo no sea reconocido, funcione de forma intermitente, cause inestabilidad, pantallas de error o conflictos de recursos.</p>
+          <p><strong>Llamada al sistema:</strong> mecanismo controlado con el que una aplicación en modo usuario pide un servicio al kernel; es la única forma segura de acceder a recursos protegidos.</p>
+          <p><strong>Lectura de un archivo:</strong> la aplicación ejecuta una llamada al sistema (leer), el kernel valida los permisos y argumentos, usa el sistema de archivos y el controlador para acceder al almacenamiento y devuelve los datos.</p>
+          <p><strong>Subsistema de entrada y salida:</strong> capa que organiza y coordina la comunicación de las peticiones entre los dispositivos y las aplicaciones.</p>
+          <h4>Interfaz</h4>
+          <p><strong>Consola o terminal:</strong> interfaz, física o emulada, que permite ingresar comandos de texto y ver las respuestas del sistema.</p>
+          <p><strong>Intérprete de comandos (shell):</strong> programa que lee, interpreta y ejecuta los comandos, como interfaz entre el usuario y el kernel. Ejemplos: Bash en Linux y PowerShell en Windows.</p>
+          <p><strong>GUI:</strong> interfaz gráfica con iconos, ventanas y mouse; más intuitiva para quien empieza.</p>
+          <p><strong>CLI:</strong> interfaz por línea de comandos; más precisa, eficiente para tareas repetitivas, permite automatizar con scripts y consume menos recursos.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">▤</span>MEMORIA Y ARCHIVOS</h2>
+        <p class="concept-src">Talleres teórico 1, práctico 1 y práctico 2.</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Gestión de memoria</h4>
+          <p><strong>Administración de memoria:</strong> el SO aloja bloques de memoria para cada proceso, evita que se interfieran entre ellos y libera el espacio cuando ya no se necesita.</p>
+          <p><strong>Memoria virtual:</strong> técnica de usar parte del disco duro o SSD como si fuera RAM cuando la RAM no es suficiente.</p>
+          <p><strong>Archivo de paginación:</strong> archivo en el disco al que el SO mueve las páginas menos usadas cuando la RAM se acerca al 100&nbsp;%. Conviene que esté administrado automáticamente y en el disco más rápido, idealmente un SSD.</p>
+          <p><strong>Página:</strong> bloque de memoria que el SO puede mover entre la RAM y el archivo de paginación.</p>
+          <p><strong>Paginación:</strong> mover páginas al disco; como el disco es mucho más lento que la RAM, el equipo se pone lento y las aplicaciones se bloquean.</p>
+          <p><strong>Saturación de RAM:</strong> cuando varios programas pesados llenan la memoria física (por ejemplo, 8 GB con modelado 3D, video, navegador y oficina) y el sistema empieza a paginar.</p>
+          <h4>Archivos y almacenamiento</h4>
+          <p><strong>Archivo:</strong> unidad de almacenamiento que tiene un nombre, atributos y un contenido.</p>
+          <p><strong>Directorio o carpeta:</strong> estructura que organiza archivos y otras carpetas de forma jerárquica.</p>
+          <p><strong>Administración de archivos:</strong> el SO permite crear, organizar, leer, modificar y eliminar archivos y carpetas por medio del sistema de archivos, manteniendo la consistencia y la integridad.</p>
+          <p><strong>Sistema de archivos:</strong> define cómo se organiza la información en el almacenamiento y lleva un registro; influye en la eficiencia, la recuperación ante fallos y la seguridad.</p>
+          <p><strong>NTFS:</strong> sistema de archivos de Windows (las particiones de Windows del proyecto).</p>
+          <p><strong>ext4:</strong> sistema de archivos de Linux (la partición raíz de Lubuntu del proyecto).</p>
+          <p><strong>APFS:</strong> sistema de archivos de Mac.</p>
+          <p><strong>FAT32:</strong> formato de la partición EFI, que guarda los archivos de arranque.</p>
+          <p><strong>Espacio de almacenamiento:</strong> si el disco se llena, la memoria virtual no tiene espacio para trabajar y los documentos tardan en abrirse.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">↻</span>PROCESOS Y SINCRONIZACIÓN</h2>
+        <p class="concept-src">Talleres teóricos 1 y 2, y taller práctico 2.</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Procesos</h4>
+          <p><strong>Programa:</strong> conjunto de instrucciones guardadas en el disco; no usa CPU, memoria ni otro recurso hasta que se carga.</p>
+          <p><strong>Proceso:</strong> instancia de un programa en ejecución, con su código, datos, estado y recursos asignados por el SO. Un mismo programa puede generar varios procesos.</p>
           <p><strong>Bloque de control de procesos:</strong> estructura donde el SO guarda el estado del proceso, el contador del proceso, los registros y los límites de memoria.</p>
-          <p><strong>Planificador:</strong> decide qué proceso corre y por cuánto tiempo, con algoritmos como FCFS (orden de llegada) y SJF (primero el más corto).</p>
-          <p><strong>Memoria virtual:</strong> cuando la RAM no alcanza, el SO mueve páginas poco usadas al archivo de paginación en el disco, que es mucho más lento.</p>
-          <p><strong>Shell:</strong> intérprete que lee y ejecuta los comandos, como interfaz entre el usuario y el kernel; por ejemplo Bash en Linux o PowerShell en Windows.</p>
-          <p><strong>Gestor de arranque:</strong> programa que muestra el menú de sistemas y arranca el que se elija; en el proyecto, GRUB (GNU GRand Unified Bootloader).</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">⌁</span>REDES</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <p><strong>Sistema distribuido:</strong> colección de computadores conectados por una red que coordinan sus acciones mandándose mensajes y aparecen como un único sistema coherente.</p>
-          <p><strong>Cliente-servidor de tres niveles:</strong> el cliente hace la presentación y envía peticiones; el servidor de aplicaciones aplica la lógica del negocio; la base de datos guarda los datos de forma persistente.</p>
-          <p><strong>Socket:</strong> punto de comunicación entre procesos identificado por la dirección IP y el puerto.</p>
-          <p><strong>Cola de mensajes:</strong> el mensaje espera en la cola hasta que el receptor lo procesa, así el emisor sigue trabajando aunque el otro proceso esté ocupado.</p>
-          <p><strong>Síncrona y asíncrona:</strong> en la síncrona el emisor espera la respuesta antes de continuar; en la asíncrona sigue trabajando y recibe la respuesta después.</p>
-          <p><strong>Publicación-suscripción:</strong> modelo asíncrono para notificaciones como alertas de stock bajo o reportes diarios.</p>
-          <p><strong>Transparencia:</strong> permite acceder a recursos en distintos servidores sin conocer su ubicación física.</p>
-          <p><strong>Balanceador de carga:</strong> reparte las peticiones entre varios servidores y redirige el tráfico lejos de un nodo que falló.</p>
-          <p><strong>Sistema de archivos distribuido:</strong> los archivos se replican en varios servidores y el usuario accede sin saber en cuál están.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">◇</span>SEGURIDAD</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <p><strong>Permisos de acceso:</strong> controlan qué usuarios o procesos pueden leer, escribir, eliminar o ejecutar un archivo, protegiendo la información sensible.</p>
-          <p><strong>Cuenta de usuario estándar:</strong> usar una cuenta estándar y no de administrador para el trabajo diario evita instalar programas sin autorización del área de soporte.</p>
-          <p><strong>Control de acceso basado en roles:</strong> limita quién puede ver o modificar cada carpeta o archivo según el cargo de la persona.</p>
-          <p><strong>Sección crítica:</strong> parte del código que accede a un recurso compartido y que no puede ejecutar más de un proceso a la vez.</p>
+          <p><strong>Gestión de procesos:</strong> crear, planificar y finalizar los programas en ejecución, permitiendo la multitarea.</p>
+          <p><strong>Multitarea:</strong> ejecutar varias aplicaciones a la vez; el SO reparte el procesador en turnos cortos para dar la ilusión de que corren al mismo tiempo.</p>
+          <p><strong>Procesos en segundo plano:</strong> procesos que siguen activos aunque el usuario haya cerrado la ventana; siguen siendo planificados por el kernel y consumiendo CPU y memoria.</p>
+          <p><strong>Aplicaciones de arranque:</strong> programas que se inician solos al encender el equipo y a veces se quedan en segundo plano.</p>
+          <h4>Estados de un proceso</h4>
+          <p><strong>Nuevo:</strong> el proceso acaba de ser creado.</p>
+          <p><strong>Listo:</strong> está cargado en memoria y espera tiempo de CPU.</p>
+          <p><strong>En ejecución:</strong> el planificador le asignó el procesador.</p>
+          <p><strong>En espera (bloqueado):</strong> espera un evento, como la entrada del teclado o leer un archivo; cuando el evento ocurre, vuelve a listo.</p>
+          <p><strong>Terminado:</strong> el proceso terminó su trabajo.</p>
+          <p><strong>Transición:</strong> cambio de estado provocado por un evento específico controlado por el SO.</p>
+          <h4>Planificación</h4>
+          <p><strong>Planificador de CPU:</strong> decide qué proceso recibe el procesador y por cuánto tiempo.</p>
+          <p><strong>Algoritmo de planificación:</strong> criterio para decidir el orden y el tiempo de cada proceso; sin él, unos procesos esperarían indefinidamente mientras otros se ejecutan de forma continua.</p>
+          <p><strong>FCFS:</strong> First Come, First Served: ejecuta los procesos en el orden en que llegan. Es simple, pero los procesos largos pueden hacer esperar a los pequeños.</p>
+          <p><strong>SJF:</strong> Shortest Job First: ejecuta primero los que necesitan menos tiempo de CPU y reduce la espera promedio, pero los largos pueden quedarse esperando.</p>
+          <p><strong>Round-Robin:</strong> técnica en la que cada proceso recibe una porción de tiempo equitativa (mencionada en el taller teórico 1, junto con las políticas de prioridades).</p>
+          <p><strong>Colas de espera:</strong> listas donde el SO pone los procesos o peticiones que esperan un recurso, como dos documentos enviados a imprimir al mismo tiempo.</p>
+          <p><strong>Cambio de contexto:</strong> pasar el procesador de un proceso o hilo a otro; si hay demasiados compitiendo, el sistema gasta mucho tiempo en esto y sube el tiempo de respuesta.</p>
+          <h4>Sincronización</h4>
+          <p><strong>Mecanismo de sincronización:</strong> garantiza que solo un proceso modifique una sección crítica a la vez; sin él se pierde la integridad de los datos.</p>
           <p><strong>Condición de carrera:</strong> situación en la que el resultado final depende del tiempo de las operaciones; en un banco puede producir saldos incorrectos.</p>
-          <p><strong>Semáforo:</strong> contador entero con las operaciones espera (wait) y señal (signal). El binario (0 y 1) protege un archivo compartido; el contador permite, por ejemplo, máximo tres conexiones a una base de datos.</p>
-          <p><strong>Bloqueo (deadlock):</strong> varios procesos esperan indefinidamente por recursos que tienen otros; se previene tomando los bloqueos siempre en el mismo orden y usando tiempos de espera.</p>
-          <p><strong>Tolerancia a fallos:</strong> redundancia, copia de datos, conmutación por error automática y protocolos de confirmación para que el sistema siga operando y los datos queden íntegros.</p>
-          <p><strong>Copias de seguridad:</strong> respaldo regular para restaurar la información; si el disco presenta errores, se copian los archivos en vez de moverlos y se verifican las copias.</p>
+          <p><strong>Sección crítica:</strong> parte del código donde un proceso accede a un recurso compartido y que no puede ejecutar más de un proceso al mismo tiempo.</p>
+          <p><strong>Operación atómica:</strong> leer, modificar y escribir como una sola operación que no se interrumpe.</p>
+          <p><strong>Semáforo:</strong> herramienta de sincronización con un contador entero y dos operaciones: espera (wait) y señal (signal).</p>
+          <p><strong>Espera (wait):</strong> si el contador es mayor que cero, lo disminuye y el proceso continúa; si es cero, el proceso se bloquea.</p>
+          <p><strong>Señal (signal):</strong> aumenta el contador y puede despertar a un proceso que estaba esperando.</p>
+          <p><strong>Semáforo binario:</strong> solo toma los valores 0 y 1 y funciona como un bloqueo para exclusión mutua; por ejemplo, proteger un archivo compartido.</p>
+          <p><strong>Semáforo contador:</strong> puede tener valores mayores que 1; por ejemplo, permitir máximo tres usuarios conectados a una base de datos.</p>
+          <p><strong>Exclusión mutua:</strong> garantía de que un solo proceso use el recurso a la vez.</p>
+          <p><strong>Bloqueo (deadlock):</strong> varios procesos esperan indefinidamente por recursos que tienen otros; suele pasar cuando toman los bloqueos en distinto orden o retienen un recurso mientras esperan otro.</p>
+          <p><strong>Espera circular:</strong> ciclo de procesos que se esperan entre sí; se reduce tomando los bloqueos siempre en el mismo orden y usando tiempos de espera.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">⌁</span>REDES Y SISTEMAS DISTRIBUIDOS</h2>
+        <p class="concept-src">Taller teórico 3 y taller práctico 3 (caso MULTISERVICIOS S.A.).</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Conceptos base</h4>
+          <p><strong>Sistema distribuido:</strong> colección de computadores conectados por una red que coordinan sus acciones y aparecen al usuario como un único sistema coherente.</p>
+          <p><strong>Nodo:</strong> cada computador del sistema distribuido, con su propia CPU, memoria y almacenamiento.</p>
+          <p><strong>Sistema centralizado:</strong> el procesamiento, el manejo de recursos y el control dependen de una única máquina; si falla, todo se detiene.</p>
+          <p><strong>Procesamiento distribuido:</strong> la carga se divide entre varios nodos en lugar de ejecutarse toda en un servidor.</p>
+          <h4>Arquitectura</h4>
+          <p><strong>Arquitectura cliente-servidor de tres niveles:</strong> separa la presentación, la lógica del negocio y los datos; así el sistema es más sencillo de mantener y escalar.</p>
+          <p><strong>Cliente:</strong> navegador, app móvil o computador de cada sede; se encarga de la presentación y de enviar las peticiones.</p>
+          <p><strong>Servidor de aplicaciones:</strong> recibe las peticiones, aplica la lógica del negocio (por ejemplo, validar notas y fechas) y coordina las operaciones. Protege la base de datos.</p>
+          <p><strong>Servidor de base de datos:</strong> guarda y devuelve los datos de forma persistente; puede estar replicado entre sedes.</p>
+          <p><strong>Lógica del negocio:</strong> reglas de la organización que se aplican en el servidor de aplicaciones.</p>
+          <h4>Comunicación</h4>
+          <p><strong>Comunicación entre procesos:</strong> intercambio de datos y coordinación entre procesos que corren en distintos computadores; sin ella el sistema no funciona como uno solo.</p>
+          <p><strong>Socket:</strong> punto de comunicación identificado por la dirección IP y el puerto; útil cuando se necesita una respuesta inmediata.</p>
+          <p><strong>Paso de mensajes:</strong> los procesos se comunican enviándose mensajes por la red, en lugar de llamadas locales.</p>
+          <p><strong>Cola de mensajes:</strong> el mensaje espera en la cola hasta que el receptor lo procesa; desacopla al emisor del receptor.</p>
+          <p><strong>Confirmaciones y reintentos:</strong> protocolos que aseguran que los mensajes no se pierdan si falla la red.</p>
+          <p><strong>Comunicación síncrona:</strong> el emisor espera la respuesta antes de continuar; por ejemplo, validar un pago o confirmar una factura.</p>
+          <p><strong>Comunicación asíncrona:</strong> el emisor sigue trabajando y recibe la respuesta después; por ejemplo, notificaciones o actualizar el inventario entre sedes.</p>
+          <p><strong>Publicación-suscripción:</strong> modelo asíncrono para notificaciones como alertas de stock bajo o reportes diarios.</p>
+          <h4>Propiedades</h4>
+          <p><strong>Transparencia:</strong> acceder a recursos en distintos servidores sin conocer su ubicación física ni qué máquina procesa la petición. Requiere capas de software para la asignación de nombres, la replicación y la recuperación.</p>
+          <p><strong>Escalabilidad:</strong> capacidad de crecer agregando más servidores a medida que aumentan los usuarios, en vez de solo mejorar uno.</p>
+          <p><strong>Disponibilidad:</strong> que el servicio siga atendiendo, por ejemplo en el pico de matrículas o cuando un servidor se cae.</p>
+          <p><strong>Balanceador de carga:</strong> reparte las peticiones entre varios servidores y redirige el tráfico lejos de un nodo que falla.</p>
+          <p><strong>Base de datos replicada:</strong> copia de la base de datos en varios nodos para repartir la carga y no perder los datos.</p>
+          <p><strong>Sistema de archivos distribuido:</strong> los archivos se replican en varios servidores y el usuario accede a ellos desde una sola interfaz, sin saber en cuál están.</p>
+          <p><strong>Aplicaciones empresariales:</strong> por ejemplo, una empresa de retail que distribuye inventario, pedidos, clientes y pagos entre sus tiendas.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">◇</span>SEGURIDAD Y CONFIABILIDAD</h2>
+        <p class="concept-src">Talleres teóricos 1 y 3, talleres prácticos 1 y 3, y parcial práctico.</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Control de acceso</h4>
+          <p><strong>Permisos de acceso:</strong> controlan qué usuarios o procesos pueden leer, escribir, eliminar o ejecutar un archivo, protegiendo la información sensible.</p>
+          <p><strong>Cuenta de usuario estándar:</strong> cuenta sin privilegios de administrador para el trabajo diario; evita que se instalen programas sin autorización de soporte.</p>
+          <p><strong>Control de acceso basado en roles:</strong> limita quién puede ver o modificar cada carpeta o archivo según el cargo de la persona.</p>
+          <p><strong>Aislamiento de procesos:</strong> protección que impide que un error en una aplicación dañe la memoria de otra.</p>
+          <p><strong>Cifrado:</strong> protege la información para que no la vea alguien que no debe.</p>
+          <h4>Protección de la información</h4>
+          <p><strong>Copias de seguridad:</strong> respaldo regular de los archivos importantes (por ejemplo, en OneDrive o un disco externo), probando de vez en cuando que se pueden restaurar.</p>
+          <p><strong>Copiar en lugar de mover:</strong> si el disco presenta errores de lectura, se copian los archivos y se verifican las copias, para que el original siga existiendo.</p>
+          <p><strong>Punto de restauración:</strong> se crea antes de una actualización importante para poder volver atrás.</p>
+          <p><strong>Actualización controlada:</strong> instalar controladores y actualizaciones solo desde Windows Update o la página oficial del fabricante, preferiblemente fuera del horario laboral.</p>
+          <p><strong>Revertir el controlador:</strong> volver a la versión anterior desde el Administrador de dispositivos si un controlador nuevo da problemas.</p>
+          <p><strong>Integridad de los datos:</strong> que la información sea correcta y consistente aunque varios procesos la usen o falle un componente.</p>
+          <p><strong>Consistencia de archivos:</strong> cuando dos personas modifican lo mismo, se usan bloqueos o se guardan versiones.</p>
+          <h4>Tolerancia a fallos</h4>
+          <p><strong>Tolerancia a fallos:</strong> que el sistema siga operando y proteja la integridad de los datos cuando falla un componente.</p>
+          <p><strong>Redundancia:</strong> tener servidores de respaldo listos para tomar el control.</p>
+          <p><strong>Replicación (copia de datos):</strong> mantener copias de la base de datos en varios nodos, por ejemplo en al menos dos servidores de sedes diferentes.</p>
+          <p><strong>Conmutación por error automática:</strong> transferir el control a un sistema de respaldo de forma inmediata.</p>
+          <p><strong>Protocolos de confirmación:</strong> en una transacción se aplican todos los cambios o ninguno, evitando actualizaciones parciales.</p>
+          <p><strong>Recuperación:</strong> restablecer el último estado consistente con las copias de seguridad si ocurre un daño mayor.</p>
+          <h4>Prevención</h4>
+          <p><strong>Plan de mejoramiento:</strong> acciones preventivas para que las fallas no se repitan: controladores actualizados, permisos, copias de seguridad, mantenimiento y monitoreo.</p>
+          <p><strong>Registro de incidentes:</strong> informe donde se anotan congelamientos, problemas al imprimir o al conectar dispositivos y las acciones tomadas, para identificar problemas frecuentes.</p>
+          <p><strong>Síntoma, causa y evidencia:</strong> el síntoma es lo que se observa, la causa probable es lo que lo produce y la evidencia es el dato que permite confirmarla.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">⏻</span>BOOTEO E INSTALACIÓN</h2>
+        <p class="concept-src">Taller práctico de booteo e instalación de un S.O. y proyecto final de Lubuntu.</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Arranque</h4>
+          <p><strong>Booteo (boot):</strong> proceso de arranque de un computador: desde que se enciende hasta que el sistema operativo queda cargado y listo para usarse.</p>
+          <p><strong>Firmware:</strong> programa grabado en la placa base que se ejecuta primero al encender el equipo e inicializa el hardware.</p>
+          <p><strong>BIOS:</strong> firmware tradicional de los computadores; arranca desde discos con esquema MBR (modo antiguo o legacy/CSM).</p>
+          <p><strong>UEFI:</strong> firmware moderno que reemplaza al BIOS: inicializa el hardware y arranca una entrada EFI guardada en la partición EFI. Trabaja con discos GPT.</p>
+          <p><strong>Secure Boot:</strong> opción de UEFI que solo permite arrancar gestores de arranque firmados; es uno de los datos que se registran al inspeccionar el BIOS/UEFI.</p>
+          <p><strong>Orden de arranque:</strong> lista que indica desde qué dispositivo intenta arrancar primero el equipo; se cambia para iniciar desde el USB.</p>
+          <p><strong>Gestor de arranque (boot loader):</strong> programa que carga el sistema operativo; si hay varios, muestra un menú para elegir. Si falla, el equipo no sabe qué sistema cargar.</p>
+          <p><strong>GRUB:</strong> GNU GRand Unified Bootloader, el gestor de arranque de Lubuntu; en el proyecto muestra Lubuntu y Windows Boot Manager.</p>
+          <p><strong>Windows Boot Manager:</strong> gestor de arranque de Windows.</p>
+          <p><strong>Arranque dual:</strong> tener dos sistemas operativos instalados en el mismo equipo y elegir cuál iniciar desde el menú del gestor de arranque.</p>
+          <p><strong>Cadena de arranque del proyecto:</strong> UEFI → entrada EFI → GRUB → montaje de la partición raíz → Lubuntu.</p>
+          <h4>Medios de instalación</h4>
+          <p><strong>Imagen ISO:</strong> archivo que contiene una copia completa del disco de instalación de un sistema operativo; se registra el sistema, la versión y el tamaño.</p>
+          <p><strong>USB booteable:</strong> memoria USB (mínimo 8 GB, recomendable 16 GB) preparada para arrancar el equipo e instalar el sistema.</p>
+          <p><strong>Rufus y Ventoy:</strong> herramientas para crear el USB booteable a partir de la ISO.</p>
+          <p><strong>Sesión en vivo:</strong> arrancar el sistema desde el USB sin instalarlo, para probar el Wi-Fi y el audio antes de instalar.</p>
+          <p><strong>Inicio avanzado de Windows:</strong> opción de Windows (Usar un dispositivo) para arrancar desde el USB cuando F12 no abre bien el menú de arranque.</p>
+          <h4>Discos y particiones</h4>
+          <p><strong>Partición:</strong> división lógica de un disco con su propio formato y uso.</p>
+          <p><strong>Tabla de particiones:</strong> estructura que describe cómo está dividido el disco; los dos esquemas vistos son MBR y GPT.</p>
+          <p><strong>MBR:</strong> esquema de particiones antiguo, usado con BIOS; admite pocas particiones primarias y discos más pequeños.</p>
+          <p><strong>GPT:</strong> esquema de particiones moderno, usado con UEFI; admite más particiones y discos más grandes. En el proyecto el USB se creó con GPT para UEFI.</p>
+          <p><strong>Partición EFI:</strong> partición en FAT32 que guarda los archivos de arranque que el firmware puede lanzar; en el proyecto, sda7 de 512 MiB montada en /boot/efi.</p>
+          <p><strong>Partición raíz (/):</strong> contiene el sistema, las aplicaciones, la configuración y los archivos del usuario; en el proyecto, sda8 de unos 99,5 GiB en ext4.</p>
+          <p><strong>Punto de montaje:</strong> carpeta donde se conecta una partición dentro del sistema de archivos de Linux, como / o /boot/efi.</p>
+          <p><strong>Particionado manual:</strong> elegir a mano qué espacio usar; en el proyecto solo el espacio liberado, sin tocar las particiones NTFS de Windows.</p>
+          <p><strong>MB y MiB, GB y GiB:</strong> unidades que los instaladores mezclan; por eso se confirman el tamaño, el formato y el punto de montaje antes de aplicar cambios.</p>
+          <h4>Máquinas virtuales</h4>
+          <p><strong>Máquina virtual:</strong> computador simulado por software dentro del equipo real, en el que se puede instalar un sistema operativo sin tocar el disco físico.</p>
+          <p><strong>VirtualBox y VMware:</strong> programas para crear máquinas virtuales; al instalar se registran la RAM, el disco, los procesadores asignados y el nombre del equipo.</p>
+        </div>
+      </article>
+      <article class="card concept-card">
+        <h2><span class="concept-icon">⌨</span>HERRAMIENTAS Y COMANDOS</h2>
+        <p class="concept-src">Talleres teórico 1 y práctico 1, parcial práctico, taller de booteo y proyecto final.</p>
+        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
+          <h4>Herramientas de Windows</h4>
+          <p><strong>Administrador de tareas:</strong> se abre con <code>Ctrl + Shift + Esc</code>. La pestaña Rendimiento muestra las gráficas de CPU y memoria; Procesos permite ordenar por CPU o memoria y finalizar tareas; Aplicaciones de arranque permite deshabilitar programas que inician solos.</p>
+          <p><strong>Monitor de recursos:</strong> herramienta de Windows que se usa junto al Administrador de tareas para revisar el uso de los recursos del equipo.</p>
+          <p><strong>Visor de eventos:</strong> se revisa en Registros de Windows → Sistema y Aplicación para encontrar errores o advertencias que se repiten.</p>
+          <p><strong>Monitor de confiabilidad:</strong> muestra en una gráfica los errores que ha tenido el equipo día por día (se busca como “confiabilidad”).</p>
+          <p><strong>Administrador de dispositivos:</strong> permite revisar el estado de los dispositivos, actualizar o revertir controladores.</p>
+          <p><strong>services.msc:</strong> consola de servicios; desde ahí se reinicia el servicio de cola de impresión.</p>
+          <p><strong>Cola de impresión:</strong> lista de documentos pendientes de imprimir; si se atora, se vacía y se reinicia el servicio.</p>
+          <p><strong>Configuración de memoria virtual:</strong> Configuración avanzada del sistema → Rendimiento → Configuración → Opciones avanzadas → Memoria virtual.</p>
+          <p><strong>Sensor de almacenamiento y Liberación de espacio:</strong> herramientas de Windows para borrar archivos temporales y liberar espacio sin tocar los documentos del usuario.</p>
+          <h4>Comandos de Windows</h4>
+          <p><strong><code>tasklist /svc</code>:</strong> en PowerShell, lista los procesos y los servicios asociados a cada uno.</p>
+          <p><strong><code>Get-CimInstance -ClassName Win32_LogicalDisk | Where-Object -Property DriveType -EQ -Value 3</code>:</strong> en PowerShell, muestra cuánto espacio libre queda en los discos locales.</p>
+          <p><strong><code>systeminfo</code>:</strong> desde cmd, muestra la información del sistema instalado (verificación del taller de booteo).</p>
+          <h4>Comandos de Linux</h4>
+          <p><strong><code>pwd</code>:</strong> muestra la carpeta actual en forma de ruta, por ejemplo /home/documents/spanish.</p>
+          <p><strong><code>ls</code>:</strong> lista el contenido de una carpeta.</p>
+          <p><strong><code>cd</code>:</strong> permite moverse entre carpetas, por ejemplo <code>cd spanish</code>.</p>
+          <p><strong><code>mkdir</code>:</strong> crea carpetas, por ejemplo <code>mkdir Alejandro</code>.</p>
+          <p><strong><code>cp</code>:</strong> copia archivos y carpetas, por ejemplo <code>cp file.txt copy.txt</code>.</p>
+          <p><strong><code>uname -a</code>, <code>hostnamectl</code> y <code>lsblk</code>:</strong> comandos de verificación de Linux del taller de booteo.</p>
+          <p><strong><code>sudo apt update</code> y <code>sudo apt upgrade</code>:</strong> comandos con los que se actualizó Lubuntu después de instalarlo.</p>
+          <p><strong>Herramientas del proyecto:</strong> se usó <code>inxi</code> y se instalaron <code>htop</code>, smartmontools, lm-sensors, sysstat e <code>iotop</code>.</p>
         </div>
       </article>
     </section>
   </main>
   <footer class="footer">Sistemas Operativos · Espacio académico de aprendizaje</footer>
+  <script src="js/conceptos.js"></script>
 </body>
 
 </html>

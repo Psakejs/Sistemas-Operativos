@@ -838,3 +838,60 @@ html.video-open {
 .case-part:hover {
   transform: none
 }
+
+/* Glosario: buscador y fuente de cada categoría */
+.concept-search {
+  max-width: 620px;
+  margin: 0 auto 26px;
+  display: grid;
+  gap: 8px
+}
+
+.concept-search label {
+  font-family: var(--font-title);
+  font-weight: 600;
+  color: var(--text)
+}
+
+.concept-search input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(14, 14, 16, .6);
+  color: var(--text);
+  font: inherit
+}
+
+.concept-search input:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(208, 0, 0, .18)
+}
+
+.concept-search p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem
+}
+
+.concept-grid {
+  align-items: start
+}
+
+.concept-card .concept-src {
+  margin: -6px 0 0;
+  font-size: .85rem
+}
+
+.concept-card:hover {
+  transform: none
+}
+
+.concept-card [hidden] {
+  display: none
+}
+
+.concept-card[hidden] {
+  display: none
+}
