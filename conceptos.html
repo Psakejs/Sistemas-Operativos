@@ -10,295 +10,1184 @@
   <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 </head>
 
-<body>
+<body class="glosario-page">
   <header class="site-header">
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
-          href="temas.html" class="">Temas</a><a href="conceptos.html" class="active">Conceptos</a><a
+          href="temas.html" class="">Temas</a><a href="conceptos.html" class="active" aria-current="page">Conceptos</a><a
           href="casos-practicos.html" class="">Casos prácticos</a><a href="repaso.html" class="">Repaso del parcial</a><a href="proyecto.html" class="">Proyecto - Video
           Tutorial</a></nav>
     </div>
   </header>
-  <main>
-    <section class="section-title">
-      <div class="eyebrow">Glosario colaborativo</div>
-      <h1>Conceptos</h1>
-      <p>Los conceptos trabajados en los talleres teóricos y prácticos, el parcial, el taller de booteo y el proyecto final, organizados por tema.</p>
+  <main class="glosario">
+    <section class="gl-hero">
+      <div class="gl-hero-text">
+        <p class="gl-path">~/sistemas-operativos/glosario</p>
+        <h1>Conceptos</h1>
+        <p class="gl-lead">Los términos que trabajamos en los talleres teóricos y prácticos, el parcial, el taller de booteo y el proyecto final. Búscalos, o recórrelos por tema como un manual.</p>
+      </div>
+      <dl class="gl-stats">
+        <div><dt>Términos</dt><dd id="glTotal">189</dd></div>
+        <div><dt>Temas</dt><dd>8</dd></div>
+        <div><dt>Subtemas</dt><dd>30</dd></div>
+      </dl>
     </section>
-    <div class="concept-search">
+
+    <div class="gl-search">
       <label for="cBuscar">Buscar un concepto</label>
-      <input id="cBuscar" type="search" placeholder="Ej.: semáforo, VRAM, GPT, socket..." autocomplete="off">
-      <p id="cCuenta" aria-live="polite"></p>
+      <div class="gl-search-box">
+        <span class="gl-prompt" aria-hidden="true">$ grep</span>
+        <input id="cBuscar" type="search" placeholder="semáforo, VRAM, GPT, socket…" autocomplete="off" aria-describedby="cCuenta">
+        <kbd title="Presiona / para buscar">/</kbd>
+      </div>
+      <p id="cCuenta" class="gl-count" aria-live="polite">189 conceptos</p>
     </div>
-    <section class="grid concept-grid">
-      <article class="card concept-card">
-        <h2><span class="concept-icon">▣</span>HARDWARE</h2>
-        <p class="concept-src">Taller teórico 1 y taller práctico 2 (gestión de recursos del sistema).</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Procesamiento</h4>
-          <p><strong>Procesador (CPU):</strong> pieza de hardware responsable de ejecutar las instrucciones de la computadora. Se encarga de las tareas generales del equipo.</p>
-          <p><strong>Núcleo físico:</strong> unidad real de procesamiento dentro del procesador.</p>
-          <p><strong>Hilo de ejecución:</strong> unidad lógica que el sistema operativo planifica sobre los núcleos.</p>
-          <p><strong>Hyper-Threading:</strong> tecnología con la que cada núcleo físico puede manejar dos hilos, aunque siguen compartiendo algunos recursos.</p>
-          <p><strong>Procesador multinúcleo:</strong> procesador con varios núcleos (por ejemplo, 8 núcleos y 16 hilos). No garantiza que todo vaya más rápido: si la aplicación no está hecha para ejecutarse en paralelo, la mayoría de los núcleos quedan sin usarse.</p>
-          <p><strong>Aplicación de un solo hilo:</strong> programa que usa solo uno o pocos hilos; es uno de los factores que limitan el rendimiento de un procesador multinúcleo.</p>
-          <h4>Memoria</h4>
-          <p><strong>Memoria RAM:</strong> memoria volátil y de acceso rápido donde se cargan los programas y datos en uso; es el espacio de trabajo activo del sistema.</p>
-          <p><strong>Volátil:</strong> que pierde su contenido en el momento en que la computadora se apaga, como la RAM.</p>
-          <p><strong>Almacenamiento permanente:</strong> SSD o disco duro: no es volátil, tiene mayor capacidad y es más lento que la RAM. Guarda el sistema operativo, las aplicaciones instaladas y los archivos del usuario.</p>
-          <p><strong>DDR3:</strong> generación de RAM que trabaja alrededor de 1066–1333 MHz; era común con Intel Core i3, i5 e i7.</p>
-          <p><strong>DDR4:</strong> generación de RAM que va de 2666 a 3200 MHz.</p>
-          <p><strong>DDR5:</strong> generación de RAM que llega a 4800–8600 MT/s; se usa con procesadores modernos de Apple, Intel Core i9 y AMD.</p>
-          <p><strong>Compatibilidad entre generaciones DDR:</strong> cada generación usa voltajes, pines y velocidades de transferencia diferentes; instalar DDR5 en una placa hecha para DDR4 no funciona.</p>
-          <p><strong>Dual channel:</strong> modo en que la memoria trabaja en dos canales; es una de las cosas que se revisan cuando hay limitaciones en la transferencia de datos.</p>
-          <h4>Buses y transferencia</h4>
-          <p><strong>Bus de transferencia:</strong> camino por donde se mueven los datos entre el procesador, la memoria RAM y otros componentes. Su velocidad determina qué tan rápido se envía y recibe información.</p>
-          <p><strong>MT/s:</strong> Mega Transfers por segundo: cuántas transferencias de datos puede hacer el bus por segundo.</p>
-          <p><strong>Ancho de banda:</strong> cantidad de datos que se pueden mover; un valor de MT/s más alto generalmente significa mayor ancho de banda.</p>
-          <p><strong>Controlador de memoria:</strong> componente que puede convertirse en cuello de botella y limitar el movimiento de grandes cantidades de datos.</p>
-          <p><strong>Cuello de botella:</strong> componente que limita el rendimiento de todo el equipo aunque los demás sean más rápidos.</p>
-          <h4>Gráficos</h4>
-          <p><strong>Chip gráfico (GPU):</strong> componente que procesa la información visual y se encarga del renderizado.</p>
-          <p><strong>Gráficos integrados:</strong> vienen dentro del procesador y comparten la RAM del sistema. Son más económicos y consumen menos energía, pero reducen la RAM disponible y rinden menos en 3D y diseño.</p>
-          <p><strong>Tarjeta de video dedicada:</strong> tiene su propio procesador y su propia memoria VRAM, así que no compite con el sistema por la memoria. Es necesaria para renderizado 3D continuo o edición de video con efectos.</p>
-          <p><strong>VRAM:</strong> memoria propia de la tarjeta de video; es más rápida, está optimizada para operaciones gráficas y evita compartir el bus de la memoria del sistema.</p>
-          <p><strong>Memoria compartida:</strong> parte de la RAM del sistema que se reserva para los gráficos integrados, por lo que a las aplicaciones les queda menos.</p>
-          <h4>Compatibilidad</h4>
-          <p><strong>Placa base:</strong> debe soportar el procesador (socket y chipset), la generación de RAM y la tarjeta gráfica. Su manual dice qué generación y velocidad máxima de memoria soporta.</p>
-          <p><strong>Socket y chipset:</strong> características de la placa base que determinan qué procesadores se pueden instalar.</p>
-          <p><strong>Ranura PCIe:</strong> ranura de la placa base donde se instala la tarjeta gráfica.</p>
-          <p><strong>Fuente de poder:</strong> debe tener capacidad suficiente y los conectores correctos para la nueva GPU.</p>
-          <p><strong>Sistema de refrigeración:</strong> debe manejar el mayor calor de los procesadores y tarjetas modernas.</p>
-          <h4>Dispositivos</h4>
-          <p><strong>Dispositivos de entrada y salida:</strong> teclados, mouses, impresoras, memorias USB y cámaras, que el SO maneja por medio de controladores.</p>
-          <p><strong>Periféricos:</strong> dispositivos externos como teclados y mouses, que también son recursos que el SO administra.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">⌘</span>SOFTWARE</h2>
-        <p class="concept-src">Taller teórico 1 (introducción a los sistemas operativos) y taller práctico 1.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Sistema operativo</h4>
-          <p><strong>Sistema operativo:</strong> software que actúa como intermediario entre una persona y el hardware, maneja los recursos y crea un ambiente en el que las aplicaciones se ejecutan de manera segura y eficiente.</p>
-          <p><strong>Propósito del SO:</strong> facilitar el uso del sistema para el usuario y optimizar el uso de los recursos limitados: procesador, memoria y almacenamiento.</p>
-          <p><strong>Relación en capas:</strong> el hardware es la base física; el SO y su kernel abstraen y manejan esos recursos; las aplicaciones usan los servicios del SO; y el usuario interactúa con las aplicaciones o la interfaz. Cada nivel se concentra en su función.</p>
-          <p><strong>Aplicación:</strong> programa que hace uso de los servicios del sistema operativo bajo mecanismos controlados.</p>
-          <p><strong>Administrador de recursos:</strong> el SO controla, aloja y libera el tiempo de procesamiento, la RAM, el espacio en disco y los periféricos, para que varios programas se ejecuten de forma simultánea, justa y eficiente.</p>
-          <p><strong>Multiplexación:</strong> compartir un solo recurso físico entre muchos programas: en tiempo (alternando el uso de la CPU) y en espacio (dividiendo la memoria y el almacenamiento).</p>
-          <p><strong>Sin sistema operativo:</strong> cada aplicación tendría que manejar el hardware por su cuenta, no habría protección entre programas y no se podrían correr varios programas a la vez de forma segura.</p>
-          <h4>Núcleo y controladores</h4>
-          <p><strong>Kernel (núcleo):</strong> parte central del sistema operativo; corre en modo privilegiado y maneja el procesador, la memoria y los dispositivos. También fuerza el aislamiento de procesos.</p>
-          <p><strong>Modo privilegiado:</strong> modo en el que corre el kernel, con acceso a los recursos protegidos.</p>
-          <p><strong>Modo usuario:</strong> modo en el que corren las aplicaciones; para usar recursos protegidos deben pedírselo al kernel.</p>
-          <p><strong>Controlador (driver):</strong> módulo de software que permite al kernel comunicarse con el hardware específico de cada dispositivo, traduciendo las operaciones del sistema en instrucciones que el dispositivo entiende.</p>
-          <p><strong>Controlador incompatible:</strong> puede hacer que el dispositivo no sea reconocido, funcione de forma intermitente, cause inestabilidad, pantallas de error o conflictos de recursos.</p>
-          <p><strong>Llamada al sistema:</strong> mecanismo controlado con el que una aplicación en modo usuario pide un servicio al kernel; es la única forma segura de acceder a recursos protegidos.</p>
-          <p><strong>Lectura de un archivo:</strong> la aplicación ejecuta una llamada al sistema (leer), el kernel valida los permisos y argumentos, usa el sistema de archivos y el controlador para acceder al almacenamiento y devuelve los datos.</p>
-          <p><strong>Subsistema de entrada y salida:</strong> capa que organiza y coordina la comunicación de las peticiones entre los dispositivos y las aplicaciones.</p>
-          <h4>Interfaz</h4>
-          <p><strong>Consola o terminal:</strong> interfaz, física o emulada, que permite ingresar comandos de texto y ver las respuestas del sistema.</p>
-          <p><strong>Intérprete de comandos (shell):</strong> programa que lee, interpreta y ejecuta los comandos, como interfaz entre el usuario y el kernel. Ejemplos: Bash en Linux y PowerShell en Windows.</p>
-          <p><strong>GUI:</strong> interfaz gráfica con iconos, ventanas y mouse; más intuitiva para quien empieza.</p>
-          <p><strong>CLI:</strong> interfaz por línea de comandos; más precisa, eficiente para tareas repetitivas, permite automatizar con scripts y consume menos recursos.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">▤</span>MEMORIA Y ARCHIVOS</h2>
-        <p class="concept-src">Talleres teórico 1, práctico 1 y práctico 2.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Gestión de memoria</h4>
-          <p><strong>Administración de memoria:</strong> el SO aloja bloques de memoria para cada proceso, evita que se interfieran entre ellos y libera el espacio cuando ya no se necesita.</p>
-          <p><strong>Memoria virtual:</strong> técnica de usar parte del disco duro o SSD como si fuera RAM cuando la RAM no es suficiente.</p>
-          <p><strong>Archivo de paginación:</strong> archivo en el disco al que el SO mueve las páginas menos usadas cuando la RAM se acerca al 100&nbsp;%. Conviene que esté administrado automáticamente y en el disco más rápido, idealmente un SSD.</p>
-          <p><strong>Página:</strong> bloque de memoria que el SO puede mover entre la RAM y el archivo de paginación.</p>
-          <p><strong>Paginación:</strong> mover páginas al disco; como el disco es mucho más lento que la RAM, el equipo se pone lento y las aplicaciones se bloquean.</p>
-          <p><strong>Saturación de RAM:</strong> cuando varios programas pesados llenan la memoria física (por ejemplo, 8 GB con modelado 3D, video, navegador y oficina) y el sistema empieza a paginar.</p>
-          <h4>Archivos y almacenamiento</h4>
-          <p><strong>Archivo:</strong> unidad de almacenamiento que tiene un nombre, atributos y un contenido.</p>
-          <p><strong>Directorio o carpeta:</strong> estructura que organiza archivos y otras carpetas de forma jerárquica.</p>
-          <p><strong>Administración de archivos:</strong> el SO permite crear, organizar, leer, modificar y eliminar archivos y carpetas por medio del sistema de archivos, manteniendo la consistencia y la integridad.</p>
-          <p><strong>Sistema de archivos:</strong> define cómo se organiza la información en el almacenamiento y lleva un registro; influye en la eficiencia, la recuperación ante fallos y la seguridad.</p>
-          <p><strong>NTFS:</strong> sistema de archivos de Windows (las particiones de Windows del proyecto).</p>
-          <p><strong>ext4:</strong> sistema de archivos de Linux (la partición raíz de Lubuntu del proyecto).</p>
-          <p><strong>APFS:</strong> sistema de archivos de Mac.</p>
-          <p><strong>FAT32:</strong> formato de la partición EFI, que guarda los archivos de arranque.</p>
-          <p><strong>Espacio de almacenamiento:</strong> si el disco se llena, la memoria virtual no tiene espacio para trabajar y los documentos tardan en abrirse.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">↻</span>PROCESOS Y SINCRONIZACIÓN</h2>
-        <p class="concept-src">Talleres teóricos 1 y 2, y taller práctico 2.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Procesos</h4>
-          <p><strong>Programa:</strong> conjunto de instrucciones guardadas en el disco; no usa CPU, memoria ni otro recurso hasta que se carga.</p>
-          <p><strong>Proceso:</strong> instancia de un programa en ejecución, con su código, datos, estado y recursos asignados por el SO. Un mismo programa puede generar varios procesos.</p>
-          <p><strong>Bloque de control de procesos:</strong> estructura donde el SO guarda el estado del proceso, el contador del proceso, los registros y los límites de memoria.</p>
-          <p><strong>Gestión de procesos:</strong> crear, planificar y finalizar los programas en ejecución, permitiendo la multitarea.</p>
-          <p><strong>Multitarea:</strong> ejecutar varias aplicaciones a la vez; el SO reparte el procesador en turnos cortos para dar la ilusión de que corren al mismo tiempo.</p>
-          <p><strong>Procesos en segundo plano:</strong> procesos que siguen activos aunque el usuario haya cerrado la ventana; siguen siendo planificados por el kernel y consumiendo CPU y memoria.</p>
-          <p><strong>Aplicaciones de arranque:</strong> programas que se inician solos al encender el equipo y a veces se quedan en segundo plano.</p>
-          <h4>Estados de un proceso</h4>
-          <p><strong>Nuevo:</strong> el proceso acaba de ser creado.</p>
-          <p><strong>Listo:</strong> está cargado en memoria y espera tiempo de CPU.</p>
-          <p><strong>En ejecución:</strong> el planificador le asignó el procesador.</p>
-          <p><strong>En espera (bloqueado):</strong> espera un evento, como la entrada del teclado o leer un archivo; cuando el evento ocurre, vuelve a listo.</p>
-          <p><strong>Terminado:</strong> el proceso terminó su trabajo.</p>
-          <p><strong>Transición:</strong> cambio de estado provocado por un evento específico controlado por el SO.</p>
-          <h4>Planificación</h4>
-          <p><strong>Planificador de CPU:</strong> decide qué proceso recibe el procesador y por cuánto tiempo.</p>
-          <p><strong>Algoritmo de planificación:</strong> criterio para decidir el orden y el tiempo de cada proceso; sin él, unos procesos esperarían indefinidamente mientras otros se ejecutan de forma continua.</p>
-          <p><strong>FCFS:</strong> First Come, First Served: ejecuta los procesos en el orden en que llegan. Es simple, pero los procesos largos pueden hacer esperar a los pequeños.</p>
-          <p><strong>SJF:</strong> Shortest Job First: ejecuta primero los que necesitan menos tiempo de CPU y reduce la espera promedio, pero los largos pueden quedarse esperando.</p>
-          <p><strong>Round-Robin:</strong> técnica en la que cada proceso recibe una porción de tiempo equitativa (mencionada en el taller teórico 1, junto con las políticas de prioridades).</p>
-          <p><strong>Colas de espera:</strong> listas donde el SO pone los procesos o peticiones que esperan un recurso, como dos documentos enviados a imprimir al mismo tiempo.</p>
-          <p><strong>Cambio de contexto:</strong> pasar el procesador de un proceso o hilo a otro; si hay demasiados compitiendo, el sistema gasta mucho tiempo en esto y sube el tiempo de respuesta.</p>
-          <h4>Sincronización</h4>
-          <p><strong>Mecanismo de sincronización:</strong> garantiza que solo un proceso modifique una sección crítica a la vez; sin él se pierde la integridad de los datos.</p>
-          <p><strong>Condición de carrera:</strong> situación en la que el resultado final depende del tiempo de las operaciones; en un banco puede producir saldos incorrectos.</p>
-          <p><strong>Sección crítica:</strong> parte del código donde un proceso accede a un recurso compartido y que no puede ejecutar más de un proceso al mismo tiempo.</p>
-          <p><strong>Operación atómica:</strong> leer, modificar y escribir como una sola operación que no se interrumpe.</p>
-          <p><strong>Semáforo:</strong> herramienta de sincronización con un contador entero y dos operaciones: espera (wait) y señal (signal).</p>
-          <p><strong>Espera (wait):</strong> si el contador es mayor que cero, lo disminuye y el proceso continúa; si es cero, el proceso se bloquea.</p>
-          <p><strong>Señal (signal):</strong> aumenta el contador y puede despertar a un proceso que estaba esperando.</p>
-          <p><strong>Semáforo binario:</strong> solo toma los valores 0 y 1 y funciona como un bloqueo para exclusión mutua; por ejemplo, proteger un archivo compartido.</p>
-          <p><strong>Semáforo contador:</strong> puede tener valores mayores que 1; por ejemplo, permitir máximo tres usuarios conectados a una base de datos.</p>
-          <p><strong>Exclusión mutua:</strong> garantía de que un solo proceso use el recurso a la vez.</p>
-          <p><strong>Bloqueo (deadlock):</strong> varios procesos esperan indefinidamente por recursos que tienen otros; suele pasar cuando toman los bloqueos en distinto orden o retienen un recurso mientras esperan otro.</p>
-          <p><strong>Espera circular:</strong> ciclo de procesos que se esperan entre sí; se reduce tomando los bloqueos siempre en el mismo orden y usando tiempos de espera.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">⌁</span>REDES Y SISTEMAS DISTRIBUIDOS</h2>
-        <p class="concept-src">Taller teórico 3 y taller práctico 3 (caso MULTISERVICIOS S.A.).</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Conceptos base</h4>
-          <p><strong>Sistema distribuido:</strong> colección de computadores conectados por una red que coordinan sus acciones y aparecen al usuario como un único sistema coherente.</p>
-          <p><strong>Nodo:</strong> cada computador del sistema distribuido, con su propia CPU, memoria y almacenamiento.</p>
-          <p><strong>Sistema centralizado:</strong> el procesamiento, el manejo de recursos y el control dependen de una única máquina; si falla, todo se detiene.</p>
-          <p><strong>Procesamiento distribuido:</strong> la carga se divide entre varios nodos en lugar de ejecutarse toda en un servidor.</p>
-          <h4>Arquitectura</h4>
-          <p><strong>Arquitectura cliente-servidor de tres niveles:</strong> separa la presentación, la lógica del negocio y los datos; así el sistema es más sencillo de mantener y escalar.</p>
-          <p><strong>Cliente:</strong> navegador, app móvil o computador de cada sede; se encarga de la presentación y de enviar las peticiones.</p>
-          <p><strong>Servidor de aplicaciones:</strong> recibe las peticiones, aplica la lógica del negocio (por ejemplo, validar notas y fechas) y coordina las operaciones. Protege la base de datos.</p>
-          <p><strong>Servidor de base de datos:</strong> guarda y devuelve los datos de forma persistente; puede estar replicado entre sedes.</p>
-          <p><strong>Lógica del negocio:</strong> reglas de la organización que se aplican en el servidor de aplicaciones.</p>
-          <h4>Comunicación</h4>
-          <p><strong>Comunicación entre procesos:</strong> intercambio de datos y coordinación entre procesos que corren en distintos computadores; sin ella el sistema no funciona como uno solo.</p>
-          <p><strong>Socket:</strong> punto de comunicación identificado por la dirección IP y el puerto; útil cuando se necesita una respuesta inmediata.</p>
-          <p><strong>Paso de mensajes:</strong> los procesos se comunican enviándose mensajes por la red, en lugar de llamadas locales.</p>
-          <p><strong>Cola de mensajes:</strong> el mensaje espera en la cola hasta que el receptor lo procesa; desacopla al emisor del receptor.</p>
-          <p><strong>Confirmaciones y reintentos:</strong> protocolos que aseguran que los mensajes no se pierdan si falla la red.</p>
-          <p><strong>Comunicación síncrona:</strong> el emisor espera la respuesta antes de continuar; por ejemplo, validar un pago o confirmar una factura.</p>
-          <p><strong>Comunicación asíncrona:</strong> el emisor sigue trabajando y recibe la respuesta después; por ejemplo, notificaciones o actualizar el inventario entre sedes.</p>
-          <p><strong>Publicación-suscripción:</strong> modelo asíncrono para notificaciones como alertas de stock bajo o reportes diarios.</p>
-          <h4>Propiedades</h4>
-          <p><strong>Transparencia:</strong> acceder a recursos en distintos servidores sin conocer su ubicación física ni qué máquina procesa la petición. Requiere capas de software para la asignación de nombres, la replicación y la recuperación.</p>
-          <p><strong>Escalabilidad:</strong> capacidad de crecer agregando más servidores a medida que aumentan los usuarios, en vez de solo mejorar uno.</p>
-          <p><strong>Disponibilidad:</strong> que el servicio siga atendiendo, por ejemplo en el pico de matrículas o cuando un servidor se cae.</p>
-          <p><strong>Balanceador de carga:</strong> reparte las peticiones entre varios servidores y redirige el tráfico lejos de un nodo que falla.</p>
-          <p><strong>Base de datos replicada:</strong> copia de la base de datos en varios nodos para repartir la carga y no perder los datos.</p>
-          <p><strong>Sistema de archivos distribuido:</strong> los archivos se replican en varios servidores y el usuario accede a ellos desde una sola interfaz, sin saber en cuál están.</p>
-          <p><strong>Aplicaciones empresariales:</strong> por ejemplo, una empresa de retail que distribuye inventario, pedidos, clientes y pagos entre sus tiendas.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">◇</span>SEGURIDAD Y CONFIABILIDAD</h2>
-        <p class="concept-src">Talleres teóricos 1 y 3, talleres prácticos 1 y 3, y parcial práctico.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Control de acceso</h4>
-          <p><strong>Permisos de acceso:</strong> controlan qué usuarios o procesos pueden leer, escribir, eliminar o ejecutar un archivo, protegiendo la información sensible.</p>
-          <p><strong>Cuenta de usuario estándar:</strong> cuenta sin privilegios de administrador para el trabajo diario; evita que se instalen programas sin autorización de soporte.</p>
-          <p><strong>Control de acceso basado en roles:</strong> limita quién puede ver o modificar cada carpeta o archivo según el cargo de la persona.</p>
-          <p><strong>Aislamiento de procesos:</strong> protección que impide que un error en una aplicación dañe la memoria de otra.</p>
-          <p><strong>Cifrado:</strong> protege la información para que no la vea alguien que no debe.</p>
-          <h4>Protección de la información</h4>
-          <p><strong>Copias de seguridad:</strong> respaldo regular de los archivos importantes (por ejemplo, en OneDrive o un disco externo), probando de vez en cuando que se pueden restaurar.</p>
-          <p><strong>Copiar en lugar de mover:</strong> si el disco presenta errores de lectura, se copian los archivos y se verifican las copias, para que el original siga existiendo.</p>
-          <p><strong>Punto de restauración:</strong> se crea antes de una actualización importante para poder volver atrás.</p>
-          <p><strong>Actualización controlada:</strong> instalar controladores y actualizaciones solo desde Windows Update o la página oficial del fabricante, preferiblemente fuera del horario laboral.</p>
-          <p><strong>Revertir el controlador:</strong> volver a la versión anterior desde el Administrador de dispositivos si un controlador nuevo da problemas.</p>
-          <p><strong>Integridad de los datos:</strong> que la información sea correcta y consistente aunque varios procesos la usen o falle un componente.</p>
-          <p><strong>Consistencia de archivos:</strong> cuando dos personas modifican lo mismo, se usan bloqueos o se guardan versiones.</p>
-          <h4>Tolerancia a fallos</h4>
-          <p><strong>Tolerancia a fallos:</strong> que el sistema siga operando y proteja la integridad de los datos cuando falla un componente.</p>
-          <p><strong>Redundancia:</strong> tener servidores de respaldo listos para tomar el control.</p>
-          <p><strong>Replicación (copia de datos):</strong> mantener copias de la base de datos en varios nodos, por ejemplo en al menos dos servidores de sedes diferentes.</p>
-          <p><strong>Conmutación por error automática:</strong> transferir el control a un sistema de respaldo de forma inmediata.</p>
-          <p><strong>Protocolos de confirmación:</strong> en una transacción se aplican todos los cambios o ninguno, evitando actualizaciones parciales.</p>
-          <p><strong>Recuperación:</strong> restablecer el último estado consistente con las copias de seguridad si ocurre un daño mayor.</p>
-          <h4>Prevención</h4>
-          <p><strong>Plan de mejoramiento:</strong> acciones preventivas para que las fallas no se repitan: controladores actualizados, permisos, copias de seguridad, mantenimiento y monitoreo.</p>
-          <p><strong>Registro de incidentes:</strong> informe donde se anotan congelamientos, problemas al imprimir o al conectar dispositivos y las acciones tomadas, para identificar problemas frecuentes.</p>
-          <p><strong>Síntoma, causa y evidencia:</strong> el síntoma es lo que se observa, la causa probable es lo que lo produce y la evidencia es el dato que permite confirmarla.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">⏻</span>BOOTEO E INSTALACIÓN</h2>
-        <p class="concept-src">Taller práctico de booteo e instalación de un S.O. y proyecto final de Lubuntu.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Arranque</h4>
-          <p><strong>Booteo (boot):</strong> proceso de arranque de un computador: desde que se enciende hasta que el sistema operativo queda cargado y listo para usarse.</p>
-          <p><strong>Firmware:</strong> programa grabado en la placa base que se ejecuta primero al encender el equipo e inicializa el hardware.</p>
-          <p><strong>BIOS:</strong> firmware tradicional de los computadores; arranca desde discos con esquema MBR (modo antiguo o legacy/CSM).</p>
-          <p><strong>UEFI:</strong> firmware moderno que reemplaza al BIOS: inicializa el hardware y arranca una entrada EFI guardada en la partición EFI. Trabaja con discos GPT.</p>
-          <p><strong>Secure Boot:</strong> opción de UEFI que solo permite arrancar gestores de arranque firmados; es uno de los datos que se registran al inspeccionar el BIOS/UEFI.</p>
-          <p><strong>Orden de arranque:</strong> lista que indica desde qué dispositivo intenta arrancar primero el equipo; se cambia para iniciar desde el USB.</p>
-          <p><strong>Gestor de arranque (boot loader):</strong> programa que carga el sistema operativo; si hay varios, muestra un menú para elegir. Si falla, el equipo no sabe qué sistema cargar.</p>
-          <p><strong>GRUB:</strong> GNU GRand Unified Bootloader, el gestor de arranque de Lubuntu; en el proyecto muestra Lubuntu y Windows Boot Manager.</p>
-          <p><strong>Windows Boot Manager:</strong> gestor de arranque de Windows.</p>
-          <p><strong>Arranque dual:</strong> tener dos sistemas operativos instalados en el mismo equipo y elegir cuál iniciar desde el menú del gestor de arranque.</p>
-          <p><strong>Cadena de arranque del proyecto:</strong> UEFI → entrada EFI → GRUB → montaje de la partición raíz → Lubuntu.</p>
-          <h4>Medios de instalación</h4>
-          <p><strong>Imagen ISO:</strong> archivo que contiene una copia completa del disco de instalación de un sistema operativo; se registra el sistema, la versión y el tamaño.</p>
-          <p><strong>USB booteable:</strong> memoria USB (mínimo 8 GB, recomendable 16 GB) preparada para arrancar el equipo e instalar el sistema.</p>
-          <p><strong>Rufus y Ventoy:</strong> herramientas para crear el USB booteable a partir de la ISO.</p>
-          <p><strong>Sesión en vivo:</strong> arrancar el sistema desde el USB sin instalarlo, para probar el Wi-Fi y el audio antes de instalar.</p>
-          <p><strong>Inicio avanzado de Windows:</strong> opción de Windows (Usar un dispositivo) para arrancar desde el USB cuando F12 no abre bien el menú de arranque.</p>
-          <h4>Discos y particiones</h4>
-          <p><strong>Partición:</strong> división lógica de un disco con su propio formato y uso.</p>
-          <p><strong>Tabla de particiones:</strong> estructura que describe cómo está dividido el disco; los dos esquemas vistos son MBR y GPT.</p>
-          <p><strong>MBR:</strong> esquema de particiones antiguo, usado con BIOS; admite pocas particiones primarias y discos más pequeños.</p>
-          <p><strong>GPT:</strong> esquema de particiones moderno, usado con UEFI; admite más particiones y discos más grandes. En el proyecto el USB se creó con GPT para UEFI.</p>
-          <p><strong>Partición EFI:</strong> partición en FAT32 que guarda los archivos de arranque que el firmware puede lanzar; en el proyecto, sda7 de 512 MiB montada en /boot/efi.</p>
-          <p><strong>Partición raíz (/):</strong> contiene el sistema, las aplicaciones, la configuración y los archivos del usuario; en el proyecto, sda8 de unos 99,5 GiB en ext4.</p>
-          <p><strong>Punto de montaje:</strong> carpeta donde se conecta una partición dentro del sistema de archivos de Linux, como / o /boot/efi.</p>
-          <p><strong>Particionado manual:</strong> elegir a mano qué espacio usar; en el proyecto solo el espacio liberado, sin tocar las particiones NTFS de Windows.</p>
-          <p><strong>MB y MiB, GB y GiB:</strong> unidades que los instaladores mezclan; por eso se confirman el tamaño, el formato y el punto de montaje antes de aplicar cambios.</p>
-          <h4>Máquinas virtuales</h4>
-          <p><strong>Máquina virtual:</strong> computador simulado por software dentro del equipo real, en el que se puede instalar un sistema operativo sin tocar el disco físico.</p>
-          <p><strong>VirtualBox y VMware:</strong> programas para crear máquinas virtuales; al instalar se registran la RAM, el disco, los procesadores asignados y el nombre del equipo.</p>
-        </div>
-      </article>
-      <article class="card concept-card">
-        <h2><span class="concept-icon">⌨</span>HERRAMIENTAS Y COMANDOS</h2>
-        <p class="concept-src">Talleres teórico 1 y práctico 1, parcial práctico, taller de booteo y proyecto final.</p>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega conceptos y sus definiciones...">
-          <h4>Herramientas de Windows</h4>
-          <p><strong>Administrador de tareas:</strong> se abre con <code>Ctrl + Shift + Esc</code>. La pestaña Rendimiento muestra las gráficas de CPU y memoria; Procesos permite ordenar por CPU o memoria y finalizar tareas; Aplicaciones de arranque permite deshabilitar programas que inician solos.</p>
-          <p><strong>Monitor de recursos:</strong> herramienta de Windows que se usa junto al Administrador de tareas para revisar el uso de los recursos del equipo.</p>
-          <p><strong>Visor de eventos:</strong> se revisa en Registros de Windows → Sistema y Aplicación para encontrar errores o advertencias que se repiten.</p>
-          <p><strong>Monitor de confiabilidad:</strong> muestra en una gráfica los errores que ha tenido el equipo día por día (se busca como “confiabilidad”).</p>
-          <p><strong>Administrador de dispositivos:</strong> permite revisar el estado de los dispositivos, actualizar o revertir controladores.</p>
-          <p><strong>services.msc:</strong> consola de servicios; desde ahí se reinicia el servicio de cola de impresión.</p>
-          <p><strong>Cola de impresión:</strong> lista de documentos pendientes de imprimir; si se atora, se vacía y se reinicia el servicio.</p>
-          <p><strong>Configuración de memoria virtual:</strong> Configuración avanzada del sistema → Rendimiento → Configuración → Opciones avanzadas → Memoria virtual.</p>
-          <p><strong>Sensor de almacenamiento y Liberación de espacio:</strong> herramientas de Windows para borrar archivos temporales y liberar espacio sin tocar los documentos del usuario.</p>
-          <h4>Comandos de Windows</h4>
-          <p><strong><code>tasklist /svc</code>:</strong> en PowerShell, lista los procesos y los servicios asociados a cada uno.</p>
-          <p><strong><code>Get-CimInstance -ClassName Win32_LogicalDisk | Where-Object -Property DriveType -EQ -Value 3</code>:</strong> en PowerShell, muestra cuánto espacio libre queda en los discos locales.</p>
-          <p><strong><code>systeminfo</code>:</strong> desde cmd, muestra la información del sistema instalado (verificación del taller de booteo).</p>
-          <h4>Comandos de Linux</h4>
-          <p><strong><code>pwd</code>:</strong> muestra la carpeta actual en forma de ruta, por ejemplo /home/documents/spanish.</p>
-          <p><strong><code>ls</code>:</strong> lista el contenido de una carpeta.</p>
-          <p><strong><code>cd</code>:</strong> permite moverse entre carpetas, por ejemplo <code>cd spanish</code>.</p>
-          <p><strong><code>mkdir</code>:</strong> crea carpetas, por ejemplo <code>mkdir Alejandro</code>.</p>
-          <p><strong><code>cp</code>:</strong> copia archivos y carpetas, por ejemplo <code>cp file.txt copy.txt</code>.</p>
-          <p><strong><code>uname -a</code>, <code>hostnamectl</code> y <code>lsblk</code>:</strong> comandos de verificación de Linux del taller de booteo.</p>
-          <p><strong><code>sudo apt update</code> y <code>sudo apt upgrade</code>:</strong> comandos con los que se actualizó Lubuntu después de instalarlo.</p>
-          <p><strong>Herramientas del proyecto:</strong> se usó <code>inxi</code> y se instalaron <code>htop</code>, smartmontools, lm-sensors, sysstat e <code>iotop</code>.</p>
-        </div>
-      </article>
-    </section>
+
+    <div class="gl-layout">
+      <nav class="gl-toc" aria-label="Temas del glosario">
+        <p class="gl-toc-title">Temas</p>
+        <ol>
+          <li class="gl-toc-item" data-tema="hardware">
+            <a class="gl-toc-link" href="#hardware"><span class="gl-num">01</span><span class="gl-toc-name">Hardware</span><span class="gl-num">31</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#hardware-procesamiento"><span>Procesamiento</span><span class="gl-num">6</span></a></li>
+              <li><a href="#hardware-memoria"><span>Memoria</span><span class="gl-num">8</span></a></li>
+              <li><a href="#hardware-buses-y-transferencia"><span>Buses y transferencia</span><span class="gl-num">5</span></a></li>
+              <li><a href="#hardware-graficos"><span>Gráficos</span><span class="gl-num">5</span></a></li>
+              <li><a href="#hardware-compatibilidad"><span>Compatibilidad</span><span class="gl-num">5</span></a></li>
+              <li><a href="#hardware-dispositivos"><span>Dispositivos</span><span class="gl-num">2</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="software">
+            <a class="gl-toc-link" href="#software"><span class="gl-num">02</span><span class="gl-toc-name">Software</span><span class="gl-num">19</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#software-sistema-operativo"><span>Sistema operativo</span><span class="gl-num">7</span></a></li>
+              <li><a href="#software-nucleo-y-controladores"><span>Núcleo y controladores</span><span class="gl-num">8</span></a></li>
+              <li><a href="#software-interfaz"><span>Interfaz</span><span class="gl-num">4</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="memoria-y-archivos">
+            <a class="gl-toc-link" href="#memoria-y-archivos"><span class="gl-num">03</span><span class="gl-toc-name">Memoria y archivos</span><span class="gl-num">15</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#memoria-y-archivos-gestion-de-memoria"><span>Gestión de memoria</span><span class="gl-num">6</span></a></li>
+              <li><a href="#memoria-y-archivos-archivos-y-almacenamiento"><span>Archivos y almacenamiento</span><span class="gl-num">9</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="procesos-y-sincronizacion">
+            <a class="gl-toc-link" href="#procesos-y-sincronizacion"><span class="gl-num">04</span><span class="gl-toc-name">Procesos y sincronización</span><span class="gl-num">32</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#procesos-y-sincronizacion-procesos"><span>Procesos</span><span class="gl-num">7</span></a></li>
+              <li><a href="#procesos-y-sincronizacion-estados-de-un-proceso"><span>Estados de un proceso</span><span class="gl-num">6</span></a></li>
+              <li><a href="#procesos-y-sincronizacion-planificacion"><span>Planificación</span><span class="gl-num">7</span></a></li>
+              <li><a href="#procesos-y-sincronizacion-sincronizacion"><span>Sincronización</span><span class="gl-num">12</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="redes-y-sistemas-distribuidos">
+            <a class="gl-toc-link" href="#redes-y-sistemas-distribuidos"><span class="gl-num">05</span><span class="gl-toc-name">Redes y sistemas distribuidos</span><span class="gl-num">24</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#redes-y-sistemas-distribuidos-conceptos-base"><span>Conceptos base</span><span class="gl-num">4</span></a></li>
+              <li><a href="#redes-y-sistemas-distribuidos-arquitectura"><span>Arquitectura</span><span class="gl-num">5</span></a></li>
+              <li><a href="#redes-y-sistemas-distribuidos-comunicacion"><span>Comunicación</span><span class="gl-num">8</span></a></li>
+              <li><a href="#redes-y-sistemas-distribuidos-propiedades"><span>Propiedades</span><span class="gl-num">7</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="seguridad-y-confiabilidad">
+            <a class="gl-toc-link" href="#seguridad-y-confiabilidad"><span class="gl-num">06</span><span class="gl-toc-name">Seguridad y confiabilidad</span><span class="gl-num">21</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#seguridad-y-confiabilidad-control-de-acceso"><span>Control de acceso</span><span class="gl-num">5</span></a></li>
+              <li><a href="#seguridad-y-confiabilidad-proteccion-de-la-informacion"><span>Protección de la información</span><span class="gl-num">7</span></a></li>
+              <li><a href="#seguridad-y-confiabilidad-tolerancia-a-fallos"><span>Tolerancia a fallos</span><span class="gl-num">6</span></a></li>
+              <li><a href="#seguridad-y-confiabilidad-prevencion"><span>Prevención</span><span class="gl-num">3</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="booteo-e-instalacion">
+            <a class="gl-toc-link" href="#booteo-e-instalacion"><span class="gl-num">07</span><span class="gl-toc-name">Booteo e instalación</span><span class="gl-num">27</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#booteo-e-instalacion-arranque"><span>Arranque</span><span class="gl-num">11</span></a></li>
+              <li><a href="#booteo-e-instalacion-medios-de-instalacion"><span>Medios de instalación</span><span class="gl-num">5</span></a></li>
+              <li><a href="#booteo-e-instalacion-discos-y-particiones"><span>Discos y particiones</span><span class="gl-num">9</span></a></li>
+              <li><a href="#booteo-e-instalacion-maquinas-virtuales"><span>Máquinas virtuales</span><span class="gl-num">2</span></a></li>
+            </ul>
+          </li>
+          <li class="gl-toc-item" data-tema="herramientas-y-comandos">
+            <a class="gl-toc-link" href="#herramientas-y-comandos"><span class="gl-num">08</span><span class="gl-toc-name">Herramientas y comandos</span><span class="gl-num">20</span></a>
+            <ul class="gl-toc-subs">
+              <li><a href="#herramientas-y-comandos-herramientas-de-windows"><span>Herramientas de Windows</span><span class="gl-num">9</span></a></li>
+              <li><a href="#herramientas-y-comandos-comandos-de-windows"><span>Comandos de Windows</span><span class="gl-num">3</span></a></li>
+              <li><a href="#herramientas-y-comandos-comandos-de-linux"><span>Comandos de Linux</span><span class="gl-num">8</span></a></li>
+            </ul>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="gl-content">
+      <section class="gl-tema" id="hardware" aria-labelledby="hardware-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">01 / 08</p>
+          <h2 id="hardware-titulo">Hardware</h2>
+          <p class="gl-tema-meta">Fuente: taller teórico 1 y taller práctico 2 (gestión de recursos del sistema). · 31 términos</p>
+        </header>
+        <section class="gl-sub" id="hardware-procesamiento">
+          <div class="gl-sub-head">
+            <h3>Procesamiento</h3>
+            <span class="gl-num">6 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Procesador (CPU)</dt>
+              <dd>Pieza de hardware responsable de ejecutar las instrucciones de la computadora. Se encarga de las tareas generales del equipo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Núcleo físico</dt>
+              <dd>Unidad real de procesamiento dentro del procesador.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Hilo de ejecución</dt>
+              <dd>Unidad lógica que el sistema operativo planifica sobre los núcleos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Hyper-Threading</dt>
+              <dd>Tecnología con la que cada núcleo físico puede manejar dos hilos, aunque siguen compartiendo algunos recursos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Procesador multinúcleo</dt>
+              <dd>Procesador con varios núcleos (por ejemplo, 8 núcleos y 16 hilos). No garantiza que todo vaya más rápido: si la aplicación no está hecha para ejecutarse en paralelo, la mayoría de los núcleos quedan sin usarse.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Aplicación de un solo hilo</dt>
+              <dd>Programa que usa solo uno o pocos hilos; es uno de los factores que limitan el rendimiento de un procesador multinúcleo.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="hardware-memoria">
+          <div class="gl-sub-head">
+            <h3>Memoria</h3>
+            <span class="gl-num">8 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Memoria RAM</dt>
+              <dd>Memoria volátil y de acceso rápido donde se cargan los programas y datos en uso; es el espacio de trabajo activo del sistema.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Volátil</dt>
+              <dd>Que pierde su contenido en el momento en que la computadora se apaga, como la RAM.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Almacenamiento permanente</dt>
+              <dd>SSD o disco duro: no es volátil, tiene mayor capacidad y es más lento que la RAM. Guarda el sistema operativo, las aplicaciones instaladas y los archivos del usuario.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>DDR3</dt>
+              <dd>Generación de RAM que trabaja alrededor de 1066–1333 MHz; era común con Intel Core i3, i5 e i7.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>DDR4</dt>
+              <dd>Generación de RAM que va de 2666 a 3200 MHz.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>DDR5</dt>
+              <dd>Generación de RAM que llega a 4800–8600 MT/s; se usa con procesadores modernos de Apple, Intel Core i9 y AMD.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Compatibilidad entre generaciones DDR</dt>
+              <dd>Cada generación usa voltajes, pines y velocidades de transferencia diferentes; instalar DDR5 en una placa hecha para DDR4 no funciona.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Dual channel</dt>
+              <dd>Modo en que la memoria trabaja en dos canales; es una de las cosas que se revisan cuando hay limitaciones en la transferencia de datos.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="hardware-buses-y-transferencia">
+          <div class="gl-sub-head">
+            <h3>Buses y transferencia</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Bus de transferencia</dt>
+              <dd>Camino por donde se mueven los datos entre el procesador, la memoria RAM y otros componentes. Su velocidad determina qué tan rápido se envía y recibe información.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>MT/s</dt>
+              <dd>Mega Transfers por segundo: cuántas transferencias de datos puede hacer el bus por segundo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Ancho de banda</dt>
+              <dd>Cantidad de datos que se pueden mover; un valor de MT/s más alto generalmente significa mayor ancho de banda.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Controlador de memoria</dt>
+              <dd>Componente que puede convertirse en cuello de botella y limitar el movimiento de grandes cantidades de datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cuello de botella</dt>
+              <dd>Componente que limita el rendimiento de todo el equipo aunque los demás sean más rápidos.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="hardware-graficos">
+          <div class="gl-sub-head">
+            <h3>Gráficos</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Chip gráfico (GPU)</dt>
+              <dd>Componente que procesa la información visual y se encarga del renderizado.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Gráficos integrados</dt>
+              <dd>Vienen dentro del procesador y comparten la RAM del sistema. Son más económicos y consumen menos energía, pero reducen la RAM disponible y rinden menos en 3D y diseño.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Tarjeta de video dedicada</dt>
+              <dd>Tiene su propio procesador y su propia memoria VRAM, así que no compite con el sistema por la memoria. Es necesaria para renderizado 3D continuo o edición de video con efectos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>VRAM</dt>
+              <dd>Memoria propia de la tarjeta de video; es más rápida, está optimizada para operaciones gráficas y evita compartir el bus de la memoria del sistema.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Memoria compartida</dt>
+              <dd>Parte de la RAM del sistema que se reserva para los gráficos integrados, por lo que a las aplicaciones les queda menos.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="hardware-compatibilidad">
+          <div class="gl-sub-head">
+            <h3>Compatibilidad</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Placa base</dt>
+              <dd>Debe soportar el procesador (socket y chipset), la generación de RAM y la tarjeta gráfica. Su manual dice qué generación y velocidad máxima de memoria soporta.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Socket y chipset</dt>
+              <dd>Características de la placa base que determinan qué procesadores se pueden instalar.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Ranura PCIe</dt>
+              <dd>Ranura de la placa base donde se instala la tarjeta gráfica.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Fuente de poder</dt>
+              <dd>Debe tener capacidad suficiente y los conectores correctos para la nueva GPU.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sistema de refrigeración</dt>
+              <dd>Debe manejar el mayor calor de los procesadores y tarjetas modernas.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="hardware-dispositivos">
+          <div class="gl-sub-head">
+            <h3>Dispositivos</h3>
+            <span class="gl-num">2 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Dispositivos de entrada y salida</dt>
+              <dd>Teclados, mouses, impresoras, memorias USB y cámaras, que el SO maneja por medio de controladores.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Periféricos</dt>
+              <dd>Dispositivos externos como teclados y mouses, que también son recursos que el SO administra.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="software" aria-labelledby="software-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">02 / 08</p>
+          <h2 id="software-titulo">Software</h2>
+          <p class="gl-tema-meta">Fuente: taller teórico 1 (introducción a los sistemas operativos) y taller práctico 1. · 19 términos</p>
+        </header>
+        <section class="gl-sub" id="software-sistema-operativo">
+          <div class="gl-sub-head">
+            <h3>Sistema operativo</h3>
+            <span class="gl-num">7 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Sistema operativo</dt>
+              <dd>Software que actúa como intermediario entre una persona y el hardware, maneja los recursos y crea un ambiente en el que las aplicaciones se ejecutan de manera segura y eficiente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Propósito del SO</dt>
+              <dd>Facilitar el uso del sistema para el usuario y optimizar el uso de los recursos limitados: procesador, memoria y almacenamiento.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Relación en capas</dt>
+              <dd>El hardware es la base física; el SO y su kernel abstraen y manejan esos recursos; las aplicaciones usan los servicios del SO; y el usuario interactúa con las aplicaciones o la interfaz. Cada nivel se concentra en su función.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Aplicación</dt>
+              <dd>Programa que hace uso de los servicios del sistema operativo bajo mecanismos controlados.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Administrador de recursos</dt>
+              <dd>El SO controla, aloja y libera el tiempo de procesamiento, la RAM, el espacio en disco y los periféricos, para que varios programas se ejecuten de forma simultánea, justa y eficiente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Multiplexación</dt>
+              <dd>Compartir un solo recurso físico entre muchos programas: en tiempo (alternando el uso de la CPU) y en espacio (dividiendo la memoria y el almacenamiento).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sin sistema operativo</dt>
+              <dd>Cada aplicación tendría que manejar el hardware por su cuenta, no habría protección entre programas y no se podrían correr varios programas a la vez de forma segura.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="software-nucleo-y-controladores">
+          <div class="gl-sub-head">
+            <h3>Núcleo y controladores</h3>
+            <span class="gl-num">8 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Kernel (núcleo)</dt>
+              <dd>Parte central del sistema operativo; corre en modo privilegiado y maneja el procesador, la memoria y los dispositivos. También fuerza el aislamiento de procesos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Modo privilegiado</dt>
+              <dd>Modo en el que corre el kernel, con acceso a los recursos protegidos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Modo usuario</dt>
+              <dd>Modo en el que corren las aplicaciones; para usar recursos protegidos deben pedírselo al kernel.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Controlador (driver)</dt>
+              <dd>Módulo de software que permite al kernel comunicarse con el hardware específico de cada dispositivo, traduciendo las operaciones del sistema en instrucciones que el dispositivo entiende.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Controlador incompatible</dt>
+              <dd>Puede hacer que el dispositivo no sea reconocido, funcione de forma intermitente, cause inestabilidad, pantallas de error o conflictos de recursos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Llamada al sistema</dt>
+              <dd>Mecanismo controlado con el que una aplicación en modo usuario pide un servicio al kernel; es la única forma segura de acceder a recursos protegidos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Lectura de un archivo</dt>
+              <dd>La aplicación ejecuta una llamada al sistema (leer), el kernel valida los permisos y argumentos, usa el sistema de archivos y el controlador para acceder al almacenamiento y devuelve los datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Subsistema de entrada y salida</dt>
+              <dd>Capa que organiza y coordina la comunicación de las peticiones entre los dispositivos y las aplicaciones.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="software-interfaz">
+          <div class="gl-sub-head">
+            <h3>Interfaz</h3>
+            <span class="gl-num">4 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Consola o terminal</dt>
+              <dd>Interfaz, física o emulada, que permite ingresar comandos de texto y ver las respuestas del sistema.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Intérprete de comandos (shell)</dt>
+              <dd>Programa que lee, interpreta y ejecuta los comandos, como interfaz entre el usuario y el kernel. Ejemplos: Bash en Linux y PowerShell en Windows.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>GUI</dt>
+              <dd>Interfaz gráfica con iconos, ventanas y mouse; más intuitiva para quien empieza.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>CLI</dt>
+              <dd>Interfaz por línea de comandos; más precisa, eficiente para tareas repetitivas, permite automatizar con scripts y consume menos recursos.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="memoria-y-archivos" aria-labelledby="memoria-y-archivos-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">03 / 08</p>
+          <h2 id="memoria-y-archivos-titulo">Memoria y archivos</h2>
+          <p class="gl-tema-meta">Fuente: talleres teórico 1, práctico 1 y práctico 2. · 15 términos</p>
+        </header>
+        <section class="gl-sub" id="memoria-y-archivos-gestion-de-memoria">
+          <div class="gl-sub-head">
+            <h3>Gestión de memoria</h3>
+            <span class="gl-num">6 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Administración de memoria</dt>
+              <dd>El SO aloja bloques de memoria para cada proceso, evita que se interfieran entre ellos y libera el espacio cuando ya no se necesita.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Memoria virtual</dt>
+              <dd>Técnica de usar parte del disco duro o SSD como si fuera RAM cuando la RAM no es suficiente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Archivo de paginación</dt>
+              <dd>Archivo en el disco al que el SO mueve las páginas menos usadas cuando la RAM se acerca al 100&nbsp;%. Conviene que esté administrado automáticamente y en el disco más rápido, idealmente un SSD.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Página</dt>
+              <dd>Bloque de memoria que el SO puede mover entre la RAM y el archivo de paginación.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Paginación</dt>
+              <dd>Mover páginas al disco; como el disco es mucho más lento que la RAM, el equipo se pone lento y las aplicaciones se bloquean.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Saturación de RAM</dt>
+              <dd>Cuando varios programas pesados llenan la memoria física (por ejemplo, 8 GB con modelado 3D, video, navegador y oficina) y el sistema empieza a paginar.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="memoria-y-archivos-archivos-y-almacenamiento">
+          <div class="gl-sub-head">
+            <h3>Archivos y almacenamiento</h3>
+            <span class="gl-num">9 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Archivo</dt>
+              <dd>Unidad de almacenamiento que tiene un nombre, atributos y un contenido.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Directorio o carpeta</dt>
+              <dd>Estructura que organiza archivos y otras carpetas de forma jerárquica.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Administración de archivos</dt>
+              <dd>El SO permite crear, organizar, leer, modificar y eliminar archivos y carpetas por medio del sistema de archivos, manteniendo la consistencia y la integridad.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sistema de archivos</dt>
+              <dd>Define cómo se organiza la información en el almacenamiento y lleva un registro; influye en la eficiencia, la recuperación ante fallos y la seguridad.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>NTFS</dt>
+              <dd>Sistema de archivos de Windows (las particiones de Windows del proyecto).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>ext4</dt>
+              <dd>Sistema de archivos de Linux (la partición raíz de Lubuntu del proyecto).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>APFS</dt>
+              <dd>Sistema de archivos de Mac.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>FAT32</dt>
+              <dd>Formato de la partición EFI, que guarda los archivos de arranque.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Espacio de almacenamiento</dt>
+              <dd>Si el disco se llena, la memoria virtual no tiene espacio para trabajar y los documentos tardan en abrirse.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="procesos-y-sincronizacion" aria-labelledby="procesos-y-sincronizacion-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">04 / 08</p>
+          <h2 id="procesos-y-sincronizacion-titulo">Procesos y sincronización</h2>
+          <p class="gl-tema-meta">Fuente: talleres teóricos 1 y 2, y taller práctico 2. · 32 términos</p>
+        </header>
+        <section class="gl-sub" id="procesos-y-sincronizacion-procesos">
+          <div class="gl-sub-head">
+            <h3>Procesos</h3>
+            <span class="gl-num">7 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Programa</dt>
+              <dd>Conjunto de instrucciones guardadas en el disco; no usa CPU, memoria ni otro recurso hasta que se carga.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Proceso</dt>
+              <dd>Instancia de un programa en ejecución, con su código, datos, estado y recursos asignados por el SO. Un mismo programa puede generar varios procesos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Bloque de control de procesos</dt>
+              <dd>Estructura donde el SO guarda el estado del proceso, el contador del proceso, los registros y los límites de memoria.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Gestión de procesos</dt>
+              <dd>Crear, planificar y finalizar los programas en ejecución, permitiendo la multitarea.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Multitarea</dt>
+              <dd>Ejecutar varias aplicaciones a la vez; el SO reparte el procesador en turnos cortos para dar la ilusión de que corren al mismo tiempo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Procesos en segundo plano</dt>
+              <dd>Procesos que siguen activos aunque el usuario haya cerrado la ventana; siguen siendo planificados por el kernel y consumiendo CPU y memoria.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Aplicaciones de arranque</dt>
+              <dd>Programas que se inician solos al encender el equipo y a veces se quedan en segundo plano.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="procesos-y-sincronizacion-estados-de-un-proceso">
+          <div class="gl-sub-head">
+            <h3>Estados de un proceso</h3>
+            <span class="gl-num">6 términos</span>
+          </div>
+          <figure class="gl-diagram">
+            <ol class="gl-flow" aria-label="Ciclo de vida de un proceso">
+              <li>Nuevo</li>
+              <li aria-hidden="true" class="gl-arrow">→</li>
+              <li>Listo</li>
+              <li aria-hidden="true" class="gl-arrow">⇄</li>
+              <li class="is-key">En ejecución</li>
+              <li aria-hidden="true" class="gl-arrow">→</li>
+              <li>Terminado</li>
+            </ol>
+            <figcaption>Si espera un evento pasa a <strong>En espera (bloqueado)</strong> y, cuando ocurre, vuelve a Listo.</figcaption>
+          </figure>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Nuevo</dt>
+              <dd>El proceso acaba de ser creado.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Listo</dt>
+              <dd>Está cargado en memoria y espera tiempo de CPU.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>En ejecución</dt>
+              <dd>El planificador le asignó el procesador.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>En espera (bloqueado)</dt>
+              <dd>Espera un evento, como la entrada del teclado o leer un archivo; cuando el evento ocurre, vuelve a listo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Terminado</dt>
+              <dd>El proceso terminó su trabajo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Transición</dt>
+              <dd>Cambio de estado provocado por un evento específico controlado por el SO.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="procesos-y-sincronizacion-planificacion">
+          <div class="gl-sub-head">
+            <h3>Planificación</h3>
+            <span class="gl-num">7 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Planificador de CPU</dt>
+              <dd>Decide qué proceso recibe el procesador y por cuánto tiempo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Algoritmo de planificación</dt>
+              <dd>Criterio para decidir el orden y el tiempo de cada proceso; sin él, unos procesos esperarían indefinidamente mientras otros se ejecutan de forma continua.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>FCFS</dt>
+              <dd>First Come, First Served: ejecuta los procesos en el orden en que llegan. Es simple, pero los procesos largos pueden hacer esperar a los pequeños.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>SJF</dt>
+              <dd>Shortest Job First: ejecuta primero los que necesitan menos tiempo de CPU y reduce la espera promedio, pero los largos pueden quedarse esperando.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Round-Robin</dt>
+              <dd>Técnica en la que cada proceso recibe una porción de tiempo equitativa (mencionada en el taller teórico 1, junto con las políticas de prioridades).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Colas de espera</dt>
+              <dd>Listas donde el SO pone los procesos o peticiones que esperan un recurso, como dos documentos enviados a imprimir al mismo tiempo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cambio de contexto</dt>
+              <dd>Pasar el procesador de un proceso o hilo a otro; si hay demasiados compitiendo, el sistema gasta mucho tiempo en esto y sube el tiempo de respuesta.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="procesos-y-sincronizacion-sincronizacion">
+          <div class="gl-sub-head">
+            <h3>Sincronización</h3>
+            <span class="gl-num">12 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Mecanismo de sincronización</dt>
+              <dd>Garantiza que solo un proceso modifique una sección crítica a la vez; sin él se pierde la integridad de los datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Condición de carrera</dt>
+              <dd>Situación en la que el resultado final depende del tiempo de las operaciones; en un banco puede producir saldos incorrectos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sección crítica</dt>
+              <dd>Parte del código donde un proceso accede a un recurso compartido y que no puede ejecutar más de un proceso al mismo tiempo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Operación atómica</dt>
+              <dd>Leer, modificar y escribir como una sola operación que no se interrumpe.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Semáforo</dt>
+              <dd>Herramienta de sincronización con un contador entero y dos operaciones: espera (wait) y señal (signal).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Espera (wait)</dt>
+              <dd>Si el contador es mayor que cero, lo disminuye y el proceso continúa; si es cero, el proceso se bloquea.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Señal (signal)</dt>
+              <dd>Aumenta el contador y puede despertar a un proceso que estaba esperando.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Semáforo binario</dt>
+              <dd>Solo toma los valores 0 y 1 y funciona como un bloqueo para exclusión mutua; por ejemplo, proteger un archivo compartido.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Semáforo contador</dt>
+              <dd>Puede tener valores mayores que 1; por ejemplo, permitir máximo tres usuarios conectados a una base de datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Exclusión mutua</dt>
+              <dd>Garantía de que un solo proceso use el recurso a la vez.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Bloqueo (deadlock)</dt>
+              <dd>Varios procesos esperan indefinidamente por recursos que tienen otros; suele pasar cuando toman los bloqueos en distinto orden o retienen un recurso mientras esperan otro.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Espera circular</dt>
+              <dd>Ciclo de procesos que se esperan entre sí; se reduce tomando los bloqueos siempre en el mismo orden y usando tiempos de espera.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="redes-y-sistemas-distribuidos" aria-labelledby="redes-y-sistemas-distribuidos-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">05 / 08</p>
+          <h2 id="redes-y-sistemas-distribuidos-titulo">Redes y sistemas distribuidos</h2>
+          <p class="gl-tema-meta">Fuente: taller teórico 3 y taller práctico 3 (caso MULTISERVICIOS S.A.). · 24 términos</p>
+        </header>
+        <section class="gl-sub" id="redes-y-sistemas-distribuidos-conceptos-base">
+          <div class="gl-sub-head">
+            <h3>Conceptos base</h3>
+            <span class="gl-num">4 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Sistema distribuido</dt>
+              <dd>Colección de computadores conectados por una red que coordinan sus acciones y aparecen al usuario como un único sistema coherente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Nodo</dt>
+              <dd>Cada computador del sistema distribuido, con su propia CPU, memoria y almacenamiento.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sistema centralizado</dt>
+              <dd>El procesamiento, el manejo de recursos y el control dependen de una única máquina; si falla, todo se detiene.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Procesamiento distribuido</dt>
+              <dd>La carga se divide entre varios nodos en lugar de ejecutarse toda en un servidor.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="redes-y-sistemas-distribuidos-arquitectura">
+          <div class="gl-sub-head">
+            <h3>Arquitectura</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Arquitectura cliente-servidor de tres niveles</dt>
+              <dd>Separa la presentación, la lógica del negocio y los datos; así el sistema es más sencillo de mantener y escalar.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cliente</dt>
+              <dd>Navegador, app móvil o computador de cada sede; se encarga de la presentación y de enviar las peticiones.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Servidor de aplicaciones</dt>
+              <dd>Recibe las peticiones, aplica la lógica del negocio (por ejemplo, validar notas y fechas) y coordina las operaciones. Protege la base de datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Servidor de base de datos</dt>
+              <dd>Guarda y devuelve los datos de forma persistente; puede estar replicado entre sedes.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Lógica del negocio</dt>
+              <dd>Reglas de la organización que se aplican en el servidor de aplicaciones.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="redes-y-sistemas-distribuidos-comunicacion">
+          <div class="gl-sub-head">
+            <h3>Comunicación</h3>
+            <span class="gl-num">8 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Comunicación entre procesos</dt>
+              <dd>Intercambio de datos y coordinación entre procesos que corren en distintos computadores; sin ella el sistema no funciona como uno solo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Socket</dt>
+              <dd>Punto de comunicación identificado por la dirección IP y el puerto; útil cuando se necesita una respuesta inmediata.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Paso de mensajes</dt>
+              <dd>Los procesos se comunican enviándose mensajes por la red, en lugar de llamadas locales.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cola de mensajes</dt>
+              <dd>El mensaje espera en la cola hasta que el receptor lo procesa; desacopla al emisor del receptor.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Confirmaciones y reintentos</dt>
+              <dd>Protocolos que aseguran que los mensajes no se pierdan si falla la red.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Comunicación síncrona</dt>
+              <dd>El emisor espera la respuesta antes de continuar; por ejemplo, validar un pago o confirmar una factura.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Comunicación asíncrona</dt>
+              <dd>El emisor sigue trabajando y recibe la respuesta después; por ejemplo, notificaciones o actualizar el inventario entre sedes.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Publicación-suscripción</dt>
+              <dd>Modelo asíncrono para notificaciones como alertas de stock bajo o reportes diarios.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="redes-y-sistemas-distribuidos-propiedades">
+          <div class="gl-sub-head">
+            <h3>Propiedades</h3>
+            <span class="gl-num">7 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Transparencia</dt>
+              <dd>Acceder a recursos en distintos servidores sin conocer su ubicación física ni qué máquina procesa la petición. Requiere capas de software para la asignación de nombres, la replicación y la recuperación.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Escalabilidad</dt>
+              <dd>Capacidad de crecer agregando más servidores a medida que aumentan los usuarios, en vez de solo mejorar uno.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Disponibilidad</dt>
+              <dd>Que el servicio siga atendiendo, por ejemplo en el pico de matrículas o cuando un servidor se cae.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Balanceador de carga</dt>
+              <dd>Reparte las peticiones entre varios servidores y redirige el tráfico lejos de un nodo que falla.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Base de datos replicada</dt>
+              <dd>Copia de la base de datos en varios nodos para repartir la carga y no perder los datos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sistema de archivos distribuido</dt>
+              <dd>Los archivos se replican en varios servidores y el usuario accede a ellos desde una sola interfaz, sin saber en cuál están.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Aplicaciones empresariales</dt>
+              <dd>Por ejemplo, una empresa de retail que distribuye inventario, pedidos, clientes y pagos entre sus tiendas.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="seguridad-y-confiabilidad" aria-labelledby="seguridad-y-confiabilidad-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">06 / 08</p>
+          <h2 id="seguridad-y-confiabilidad-titulo">Seguridad y confiabilidad</h2>
+          <p class="gl-tema-meta">Fuente: talleres teóricos 1 y 3, talleres prácticos 1 y 3, y parcial práctico. · 21 términos</p>
+        </header>
+        <section class="gl-sub" id="seguridad-y-confiabilidad-control-de-acceso">
+          <div class="gl-sub-head">
+            <h3>Control de acceso</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Permisos de acceso</dt>
+              <dd>Controlan qué usuarios o procesos pueden leer, escribir, eliminar o ejecutar un archivo, protegiendo la información sensible.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cuenta de usuario estándar</dt>
+              <dd>Cuenta sin privilegios de administrador para el trabajo diario; evita que se instalen programas sin autorización de soporte.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Control de acceso basado en roles</dt>
+              <dd>Limita quién puede ver o modificar cada carpeta o archivo según el cargo de la persona.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Aislamiento de procesos</dt>
+              <dd>Protección que impide que un error en una aplicación dañe la memoria de otra.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cifrado</dt>
+              <dd>Protege la información para que no la vea alguien que no debe.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="seguridad-y-confiabilidad-proteccion-de-la-informacion">
+          <div class="gl-sub-head">
+            <h3>Protección de la información</h3>
+            <span class="gl-num">7 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Copias de seguridad</dt>
+              <dd>Respaldo regular de los archivos importantes (por ejemplo, en OneDrive o un disco externo), probando de vez en cuando que se pueden restaurar.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Copiar en lugar de mover</dt>
+              <dd>Si el disco presenta errores de lectura, se copian los archivos y se verifican las copias, para que el original siga existiendo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Punto de restauración</dt>
+              <dd>Se crea antes de una actualización importante para poder volver atrás.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Actualización controlada</dt>
+              <dd>Instalar controladores y actualizaciones solo desde Windows Update o la página oficial del fabricante, preferiblemente fuera del horario laboral.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Revertir el controlador</dt>
+              <dd>Volver a la versión anterior desde el Administrador de dispositivos si un controlador nuevo da problemas.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Integridad de los datos</dt>
+              <dd>Que la información sea correcta y consistente aunque varios procesos la usen o falle un componente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Consistencia de archivos</dt>
+              <dd>Cuando dos personas modifican lo mismo, se usan bloqueos o se guardan versiones.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="seguridad-y-confiabilidad-tolerancia-a-fallos">
+          <div class="gl-sub-head">
+            <h3>Tolerancia a fallos</h3>
+            <span class="gl-num">6 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Tolerancia a fallos</dt>
+              <dd>Que el sistema siga operando y proteja la integridad de los datos cuando falla un componente.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Redundancia</dt>
+              <dd>Tener servidores de respaldo listos para tomar el control.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Replicación (copia de datos)</dt>
+              <dd>Mantener copias de la base de datos en varios nodos, por ejemplo en al menos dos servidores de sedes diferentes.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Conmutación por error automática</dt>
+              <dd>Transferir el control a un sistema de respaldo de forma inmediata.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Protocolos de confirmación</dt>
+              <dd>En una transacción se aplican todos los cambios o ninguno, evitando actualizaciones parciales.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Recuperación</dt>
+              <dd>Restablecer el último estado consistente con las copias de seguridad si ocurre un daño mayor.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="seguridad-y-confiabilidad-prevencion">
+          <div class="gl-sub-head">
+            <h3>Prevención</h3>
+            <span class="gl-num">3 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Plan de mejoramiento</dt>
+              <dd>Acciones preventivas para que las fallas no se repitan: controladores actualizados, permisos, copias de seguridad, mantenimiento y monitoreo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Registro de incidentes</dt>
+              <dd>Informe donde se anotan congelamientos, problemas al imprimir o al conectar dispositivos y las acciones tomadas, para identificar problemas frecuentes.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Síntoma, causa y evidencia</dt>
+              <dd>El síntoma es lo que se observa, la causa probable es lo que lo produce y la evidencia es el dato que permite confirmarla.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="booteo-e-instalacion" aria-labelledby="booteo-e-instalacion-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">07 / 08</p>
+          <h2 id="booteo-e-instalacion-titulo">Booteo e instalación</h2>
+          <p class="gl-tema-meta">Fuente: taller práctico de booteo e instalación de un S.O. y proyecto final de Lubuntu. · 27 términos</p>
+        </header>
+        <section class="gl-sub" id="booteo-e-instalacion-arranque">
+          <div class="gl-sub-head">
+            <h3>Arranque</h3>
+            <span class="gl-num">11 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Booteo (boot)</dt>
+              <dd>Proceso de arranque de un computador: desde que se enciende hasta que el sistema operativo queda cargado y listo para usarse.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Firmware</dt>
+              <dd>Programa grabado en la placa base que se ejecuta primero al encender el equipo e inicializa el hardware.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>BIOS</dt>
+              <dd>Firmware tradicional de los computadores; arranca desde discos con esquema MBR (modo antiguo o legacy/CSM).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>UEFI</dt>
+              <dd>Firmware moderno que reemplaza al BIOS: inicializa el hardware y arranca una entrada EFI guardada en la partición EFI. Trabaja con discos GPT.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Secure Boot</dt>
+              <dd>Opción de UEFI que solo permite arrancar gestores de arranque firmados; es uno de los datos que se registran al inspeccionar el BIOS/UEFI.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Orden de arranque</dt>
+              <dd>Lista que indica desde qué dispositivo intenta arrancar primero el equipo; se cambia para iniciar desde el USB.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Gestor de arranque (boot loader)</dt>
+              <dd>Programa que carga el sistema operativo; si hay varios, muestra un menú para elegir. Si falla, el equipo no sabe qué sistema cargar.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>GRUB</dt>
+              <dd>GNU GRand Unified Bootloader, el gestor de arranque de Lubuntu; en el proyecto muestra Lubuntu y Windows Boot Manager.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Windows Boot Manager</dt>
+              <dd>Gestor de arranque de Windows.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Arranque dual</dt>
+              <dd>Tener dos sistemas operativos instalados en el mismo equipo y elegir cuál iniciar desde el menú del gestor de arranque.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cadena de arranque del proyecto</dt>
+              <dd>UEFI → entrada EFI → GRUB → montaje de la partición raíz → Lubuntu.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="booteo-e-instalacion-medios-de-instalacion">
+          <div class="gl-sub-head">
+            <h3>Medios de instalación</h3>
+            <span class="gl-num">5 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Imagen ISO</dt>
+              <dd>Archivo que contiene una copia completa del disco de instalación de un sistema operativo; se registra el sistema, la versión y el tamaño.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>USB booteable</dt>
+              <dd>Memoria USB (mínimo 8 GB, recomendable 16 GB) preparada para arrancar el equipo e instalar el sistema.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Rufus y Ventoy</dt>
+              <dd>Herramientas para crear el USB booteable a partir de la ISO.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sesión en vivo</dt>
+              <dd>Arrancar el sistema desde el USB sin instalarlo, para probar el Wi-Fi y el audio antes de instalar.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Inicio avanzado de Windows</dt>
+              <dd>Opción de Windows (Usar un dispositivo) para arrancar desde el USB cuando F12 no abre bien el menú de arranque.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="booteo-e-instalacion-discos-y-particiones">
+          <div class="gl-sub-head">
+            <h3>Discos y particiones</h3>
+            <span class="gl-num">9 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Partición</dt>
+              <dd>División lógica de un disco con su propio formato y uso.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Tabla de particiones</dt>
+              <dd>Estructura que describe cómo está dividido el disco; los dos esquemas vistos son MBR y GPT.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>MBR</dt>
+              <dd>Esquema de particiones antiguo, usado con BIOS; admite pocas particiones primarias y discos más pequeños.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>GPT</dt>
+              <dd>Esquema de particiones moderno, usado con UEFI; admite más particiones y discos más grandes. En el proyecto el USB se creó con GPT para UEFI.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Partición EFI</dt>
+              <dd>Partición en FAT32 que guarda los archivos de arranque que el firmware puede lanzar; en el proyecto, sda7 de 512 MiB montada en /boot/efi.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Partición raíz (/)</dt>
+              <dd>Contiene el sistema, las aplicaciones, la configuración y los archivos del usuario; en el proyecto, sda8 de unos 99,5 GiB en ext4.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Punto de montaje</dt>
+              <dd>Carpeta donde se conecta una partición dentro del sistema de archivos de Linux, como / o /boot/efi.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Particionado manual</dt>
+              <dd>Elegir a mano qué espacio usar; en el proyecto solo el espacio liberado, sin tocar las particiones NTFS de Windows.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>MB y MiB, GB y GiB</dt>
+              <dd>Unidades que los instaladores mezclan; por eso se confirman el tamaño, el formato y el punto de montaje antes de aplicar cambios.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="booteo-e-instalacion-maquinas-virtuales">
+          <div class="gl-sub-head">
+            <h3>Máquinas virtuales</h3>
+            <span class="gl-num">2 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Máquina virtual</dt>
+              <dd>Computador simulado por software dentro del equipo real, en el que se puede instalar un sistema operativo sin tocar el disco físico.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>VirtualBox y VMware</dt>
+              <dd>Programas para crear máquinas virtuales; al instalar se registran la RAM, el disco, los procesadores asignados y el nombre del equipo.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+      <section class="gl-tema" id="herramientas-y-comandos" aria-labelledby="herramientas-y-comandos-titulo">
+        <header class="gl-tema-head">
+          <p class="gl-tema-num">08 / 08</p>
+          <h2 id="herramientas-y-comandos-titulo">Herramientas y comandos</h2>
+          <p class="gl-tema-meta">Fuente: talleres teórico 1 y práctico 1, parcial práctico, taller de booteo y proyecto final. · 20 términos</p>
+        </header>
+        <section class="gl-sub" id="herramientas-y-comandos-herramientas-de-windows">
+          <div class="gl-sub-head">
+            <h3>Herramientas de Windows</h3>
+            <span class="gl-num">9 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt>Administrador de tareas</dt>
+              <dd>Se abre con <code>Ctrl + Shift + Esc</code>. La pestaña Rendimiento muestra las gráficas de CPU y memoria; Procesos permite ordenar por CPU o memoria y finalizar tareas; Aplicaciones de arranque permite deshabilitar programas que inician solos.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Monitor de recursos</dt>
+              <dd>Herramienta de Windows que se usa junto al Administrador de tareas para revisar el uso de los recursos del equipo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Visor de eventos</dt>
+              <dd>Se revisa en Registros de Windows → Sistema y Aplicación para encontrar errores o advertencias que se repiten.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Monitor de confiabilidad</dt>
+              <dd>Muestra en una gráfica los errores que ha tenido el equipo día por día (se busca como “confiabilidad”).</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Administrador de dispositivos</dt>
+              <dd>Permite revisar el estado de los dispositivos, actualizar o revertir controladores.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>services.msc</dt>
+              <dd>Consola de servicios; desde ahí se reinicia el servicio de cola de impresión.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Cola de impresión</dt>
+              <dd>Lista de documentos pendientes de imprimir; si se atora, se vacía y se reinicia el servicio.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Configuración de memoria virtual</dt>
+              <dd>Configuración avanzada del sistema → Rendimiento → Configuración → Opciones avanzadas → Memoria virtual.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Sensor de almacenamiento y Liberación de espacio</dt>
+              <dd>Herramientas de Windows para borrar archivos temporales y liberar espacio sin tocar los documentos del usuario.</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="herramientas-y-comandos-comandos-de-windows">
+          <div class="gl-sub-head">
+            <h3>Comandos de Windows</h3>
+            <span class="gl-num">3 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt><code>tasklist /svc</code></dt>
+              <dd>En PowerShell, lista los procesos y los servicios asociados a cada uno.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>Get-CimInstance -ClassName Win32_LogicalDisk | Where-Object -Property DriveType -EQ -Value 3</code></dt>
+              <dd>En PowerShell, muestra cuánto espacio libre queda en los discos locales.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>systeminfo</code></dt>
+              <dd>Desde cmd, muestra la información del sistema instalado (verificación del taller de booteo).</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="gl-sub" id="herramientas-y-comandos-comandos-de-linux">
+          <div class="gl-sub-head">
+            <h3>Comandos de Linux</h3>
+            <span class="gl-num">8 términos</span>
+          </div>
+          <dl class="gl-list">
+            <div class="gl-row">
+              <dt><code>pwd</code></dt>
+              <dd>Muestra la carpeta actual en forma de ruta, por ejemplo /home/documents/spanish.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>ls</code></dt>
+              <dd>Lista el contenido de una carpeta.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>cd</code></dt>
+              <dd>Permite moverse entre carpetas, por ejemplo <code>cd spanish</code>.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>mkdir</code></dt>
+              <dd>Crea carpetas, por ejemplo <code>mkdir Alejandro</code>.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>cp</code></dt>
+              <dd>Copia archivos y carpetas, por ejemplo <code>cp file.txt copy.txt</code>.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>uname -a</code>, <code>hostnamectl</code> y <code>lsblk</code></dt>
+              <dd>Comandos de verificación de Linux del taller de booteo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt><code>sudo apt update</code> y <code>sudo apt upgrade</code></dt>
+              <dd>Comandos con los que se actualizó Lubuntu después de instalarlo.</dd>
+            </div>
+            <div class="gl-row">
+              <dt>Herramientas del proyecto</dt>
+              <dd>Se usó <code>inxi</code> y se instalaron <code>htop</code>, smartmontools, lm-sensors, sysstat e <code>iotop</code>.</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+        <p class="gl-empty" id="cVacio" hidden>Ningún concepto coincide con la búsqueda. Prueba con otra palabra.</p>
+      </div>
+    </div>
   </main>
   <footer class="footer">Sistemas Operativos · Espacio académico de aprendizaje</footer>
   <script src="js/conceptos.js"></script>
