@@ -235,26 +235,6 @@ h1 {
   color: rgba(181, 181, 188, .7)
 }
 
-.concept-card {
-  min-height: 210px
-}
-
-.concept-card h2 {
-  display: flex;
-  align-items: center;
-  gap: 12px
-}
-
-.concept-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  color: var(--red-text);
-  background: rgba(208, 0, 0, .12);
-  border: 1px solid var(--line)
-}
 
 .case-card h2 {
   font-size: 1.28rem
@@ -839,59 +819,501 @@ html.video-open {
   transform: none
 }
 
-/* Glosario: buscador y fuente de cada categoría */
-.concept-search {
-  max-width: 620px;
-  margin: 0 auto 26px;
-  display: grid;
-  gap: 8px
+/* =========================================================
+   Glosario (conceptos.html): estilo "manual técnico".
+   Sin tarjetas ni brillos: líneas finas, índice lateral y
+   el rojo solo para lo activo, los enlaces y los números.
+   ========================================================= */
+.glosario-page {
+  background: var(--bg);
+  --gl-header: 72px;
+  --gl-panel: #17171A;
+  --gl-hair: #1F1F23;
+  --gl-dim: #8A8A93
 }
 
-.concept-search label {
+.glosario-page:before {
+  display: none
+}
+
+.glosario {
+  max-width: 1240px;
+  padding: 72px 32px 96px
+}
+
+.glosario dl,
+.glosario dd {
+  margin: 0
+}
+
+.gl-num {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--gl-dim)
+}
+
+/* Encabezado */
+.gl-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px
+}
+
+.gl-hero-text {
+  flex: 1 1 520px
+}
+
+.gl-path {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--red-text)
+}
+
+.gl-hero h1 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-shadow: none
+}
+
+.gl-lead {
+  margin: 20px 0 0;
+  max-width: 580px;
+  color: var(--muted);
+  font-weight: 400
+}
+
+.gl-stats {
+  display: flex;
+  gap: 40px
+}
+
+.gl-stats dt {
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--gl-dim)
+}
+
+.gl-stats dd {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.1
+}
+
+/* Buscador */
+.gl-search {
+  margin-bottom: 56px
+}
+
+.gl-search label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .9rem;
+  font-weight: 600
+}
+
+.gl-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--gl-panel);
+  border: 1px solid var(--surface);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  transition: border-color .2s
+}
+
+.gl-search-box:focus-within {
+  border-color: var(--red)
+}
+
+.gl-prompt {
+  color: var(--red-text);
+  font-size: .95rem;
+  white-space: nowrap
+}
+
+.gl-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  font: inherit;
+  font-size: .95rem;
+  outline: none
+}
+
+.gl-search input::placeholder {
+  color: var(--gl-dim)
+}
+
+.gl-search kbd {
+  padding: 2px 8px;
+  border: 1px solid var(--surface);
+  border-radius: 6px;
+  color: var(--gl-dim);
+  font-family: inherit;
+  font-size: .75rem
+}
+
+.gl-count {
+  margin: 8px 0 0;
+  font-size: .85rem;
+  font-weight: 400;
+  color: var(--gl-dim)
+}
+
+/* Distribución: índice + contenido */
+.gl-layout {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start
+}
+
+.gl-toc {
+  flex: 0 0 260px;
+  position: sticky;
+  top: calc(var(--gl-header) + 24px);
+  max-height: calc(100vh - var(--gl-header) - 48px);
+  overflow-y: auto
+}
+
+.gl-toc-title {
+  margin: 0 0 12px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gl-dim)
+}
+
+.gl-toc ol,
+.gl-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.gl-toc-link {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 400;
+  transition: background .2s, color .2s
+}
+
+.gl-toc-name {
+  flex: 1
+}
+
+.gl-toc-link:hover {
+  color: var(--text);
+  background: var(--gl-panel)
+}
+
+.gl-toc-item.is-active .gl-toc-link {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600
+}
+
+.gl-toc-item.is-active .gl-toc-link .gl-num:first-child {
+  color: var(--red-text)
+}
+
+.gl-toc-subs {
+  display: none;
+  margin: 4px 0 8px !important;
+  padding-left: 36px !important
+}
+
+.gl-toc-item.is-active .gl-toc-subs {
+  display: block
+}
+
+.gl-toc-subs a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 12px 5px 0;
+  font-size: .875rem;
+  font-weight: 400;
+  color: var(--muted)
+}
+
+.gl-toc-subs a:hover {
+  color: var(--red-text)
+}
+
+.gl-toc-item[hidden],
+.gl-toc-subs li[hidden] {
+  display: none
+}
+
+.gl-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 88px
+}
+
+/* Temas y subtemas */
+.gl-tema {
+  scroll-margin-top: calc(var(--gl-header) + 24px)
+}
+
+.gl-tema-head {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--surface)
+}
+
+.gl-tema-num {
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--red-text)
+}
+
+.gl-tema-head h2 {
+  margin: 0;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -.01em
+}
+
+.gl-tema-meta {
+  margin: 12px 0 0;
+  font-size: .875rem;
+  font-weight: 400;
+  color: var(--gl-dim)
+}
+
+.gl-sub {
+  padding-top: 40px;
+  scroll-margin-top: calc(var(--gl-header) + 8px)
+}
+
+.gl-sub-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px
+}
+
+.gl-sub-head h3 {
+  margin: 0;
   font-family: var(--font-title);
   font-weight: 600;
-  color: var(--text)
+  font-size: 1.35rem
 }
 
-.concept-search input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(14, 14, 16, .6);
-  color: var(--text);
-  font: inherit
+.gl-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 32px;
+  padding: 16px 0;
+  border-top: 1px solid var(--gl-hair)
 }
 
-.concept-search input:focus {
-  outline: none;
-  border-color: var(--red);
-  box-shadow: 0 0 0 3px rgba(208, 0, 0, .18)
+.gl-row dt {
+  flex: 0 0 220px;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere
 }
 
-.concept-search p {
-  margin: 0;
+.gl-row dd {
+  flex: 1 1 320px;
   color: var(--muted);
-  font-size: .9rem
+  font-size: .95rem;
+  font-weight: 400
 }
 
-.concept-grid {
-  align-items: start
+.gl-row code {
+  font-family: var(--font-mono);
+  font-size: .88em;
+  color: var(--text);
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: var(--gl-panel)
 }
 
-.concept-card .concept-src {
-  margin: -6px 0 0;
-  font-size: .85rem
+.gl-row mark {
+  background: var(--wine);
+  color: var(--text);
+  border-radius: 3px;
+  padding: 0 2px
 }
 
-.concept-card:hover {
-  transform: none
-}
-
-.concept-card [hidden] {
+.gl-row[hidden],
+.gl-sub[hidden],
+.gl-tema[hidden],
+.gl-diagram[hidden] {
   display: none
 }
 
-.concept-card[hidden] {
-  display: none
+/* Diagrama de estados de un proceso */
+.gl-diagram {
+  margin: 16px 0 16px;
+  padding: 24px;
+  background: var(--gl-panel);
+  border: 1px solid var(--surface);
+  border-radius: 12px
+}
+
+.gl-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  font-weight: 400
+}
+
+.gl-flow li:not(.gl-arrow) {
+  padding: 8px 14px;
+  border: 1px solid var(--surface);
+  border-radius: 6px
+}
+
+.gl-flow li.is-key {
+  background: var(--wine);
+  border-color: var(--red)
+}
+
+.gl-arrow {
+  color: var(--gl-dim)
+}
+
+.gl-diagram figcaption {
+  margin-top: 12px;
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--gl-dim)
+}
+
+.gl-diagram strong {
+  color: var(--text);
+  font-weight: 600
+}
+
+.gl-empty {
+  padding: 48px 0;
+  color: var(--muted);
+  text-align: center
+}
+
+/* Tabletas y celulares: el índice se vuelve una barra de temas */
+@media(max-width:900px) {
+  .glosario {
+    padding: 40px 18px 64px
+  }
+
+  .gl-hero {
+    gap: 24px
+  }
+
+  .gl-stats {
+    gap: 28px
+  }
+
+  .gl-stats dd {
+    font-size: 2rem
+  }
+
+  .gl-search {
+    margin-bottom: 24px
+  }
+
+  .gl-layout {
+    flex-direction: column;
+    gap: 24px
+  }
+
+  .gl-toc {
+    position: sticky;
+    top: var(--gl-header);
+    z-index: 10;
+    flex: none;
+    width: calc(100% + 36px);
+    margin: 0 -18px;
+    padding: 10px 18px;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: rgba(14, 14, 16, .96);
+    border-bottom: 1px solid var(--surface)
+  }
+
+  .gl-toc-title,
+  .gl-toc-subs,
+  .gl-toc-item.is-active .gl-toc-subs,
+  .gl-toc-link .gl-num:last-child {
+    display: none
+  }
+
+  .gl-toc ol {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap
+  }
+
+  .gl-toc-link {
+    padding: 7px 12px;
+    border: 1px solid var(--surface);
+    border-radius: 999px;
+    font-size: .85rem
+  }
+
+  .gl-toc-item.is-active .gl-toc-link {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg)
+  }
+
+  .gl-toc-item.is-active .gl-toc-link .gl-num:first-child {
+    color: var(--wine)
+  }
+
+  .gl-tema,
+  .gl-sub {
+    scroll-margin-top: calc(var(--gl-header) + 72px)
+  }
+
+  .gl-content {
+    gap: 64px
+  }
+
+  .gl-row dt {
+    flex-basis: 100%
+  }
 }

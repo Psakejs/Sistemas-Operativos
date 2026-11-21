@@ -12,6 +12,7 @@ ESTRUCTURA DE ARCHIVOS
 - css/repaso.css: estilos propios de la página de repaso.
 - js/repaso-datos.js: temas, tarjetas y preguntas del repaso.
 - js/repaso.js: funcionamiento de la página de repaso.
+- js/conceptos.js: buscador e índice lateral del glosario de conceptos.
 
 
 CÓMO ABRIR EL SITIO
@@ -24,6 +25,9 @@ PERSONALIZACIÓN
 - Puedes editar los textos de cada archivo HTML para ajustar los contenidos al desarrollo de la asignatura.
 - Para cambiar colores, tamaños, tipografía o distribución, modifica css/estilos.css.
 - Para agregar o corregir preguntas del repaso, edita js/repaso-datos.js.
+- Para agregar un concepto al glosario, copia una fila dentro del subtema que corresponda en conceptos.html:
+  <div class="gl-row"><dt>Término</dt><dd>Definición.</dd></div>
+  El buscador y el contador de términos lo incluyen solos; actualiza a mano los números del índice si cambian.
 - No muevas la carpeta css ni cambies el nombre de estilos.css sin actualizar los enlaces de los archivos HTML.
 
 El sitio funciona localmente y no necesita instalación, servidor ni conexión a internet.
