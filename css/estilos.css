@@ -210,10 +210,6 @@ h1 {
   margin: 0
 }
 
-.week-card {
-  min-height: 190px
-}
-
 .edit-area {
   margin-top: 16px;
   min-height: 90px;
@@ -1826,5 +1822,261 @@ html.video-open {
 
   .cs-body ol>li {
     padding-left: 44px
+  }
+}
+
+/* =========================================================
+   Temas (temas.html): cronograma por semanas.
+   Cada semana en su fila, con el tema como título y la teoría
+   y la práctica en dos columnas. Mismo lenguaje del glosario.
+   ========================================================= */
+.temas-page {
+  background: var(--bg)
+}
+
+.temas-page:before {
+  display: none
+}
+
+.temas {
+  max-width: 1240px;
+  padding: 72px 32px 96px
+}
+
+.tm-eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--red-text)
+}
+
+.tm-hero h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  text-shadow: none
+}
+
+.tm-lead {
+  margin: 20px 0 0;
+  max-width: 620px;
+  color: var(--muted);
+  font-weight: 400
+}
+
+/* Franja con las cuatro semanas */
+.tm-overview {
+  margin-top: 48px
+}
+
+.tm-overview ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--surface);
+  border-bottom: 1px solid var(--surface)
+}
+
+.tm-overview li+li {
+  border-left: 1px solid #1F1F23
+}
+
+.tm-overview a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 24px 20px;
+  transition: background .2s
+}
+
+.tm-overview a:hover,
+.tm-overview a:focus-visible {
+  background: #17171A
+}
+
+.tm-ov-label {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 400;
+  color: var(--red-text)
+}
+
+.tm-ov-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--text)
+}
+
+/* Semanas */
+.tm-weeks {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px
+}
+
+.tm-week {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 56px;
+  scroll-margin-top: 96px
+}
+
+.tm-week-side {
+  flex: 0 0 200px
+}
+
+.tm-num {
+  display: block;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: .9;
+  color: var(--surface)
+}
+
+.tm-week-label {
+  margin: 12px 0 0;
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  font-weight: 400;
+  color: var(--red-text)
+}
+
+.tm-week-main {
+  flex: 1 1 560px;
+  min-width: 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--surface)
+}
+
+.tm-week-main h2 {
+  margin: 20px 0 28px;
+  font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -.01em
+}
+
+.tm-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px 48px;
+  align-items: start
+}
+
+.tm-group h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 4px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--wine);
+  font-size: 1rem;
+  font-weight: 600
+}
+
+.tm-count {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 400;
+  color: #8A8A93
+}
+
+.tm-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: tm
+}
+
+.tm-group li {
+  counter-increment: tm;
+  position: relative;
+  padding: 10px 0 10px 34px;
+  border-bottom: 1px solid #1F1F23;
+  color: var(--muted);
+  font-size: .95rem;
+  font-weight: 400
+}
+
+.tm-group li:before {
+  content: counter(tm, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: #4A4A52
+}
+
+.tm-group code {
+  font-family: var(--font-mono);
+  font-size: .88em;
+  color: var(--text);
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: #17171A
+}
+
+/* Tabletas y celulares */
+@media(max-width:900px) {
+  .temas {
+    padding: 40px 18px 64px
+  }
+
+  .tm-overview {
+    margin-top: 32px
+  }
+
+  .tm-overview ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
+  .tm-overview li:nth-child(3) {
+    border-left: 0
+  }
+
+  .tm-overview li:nth-child(n+3) {
+    border-top: 1px solid #1F1F23
+  }
+
+  .tm-overview a {
+    padding: 16px 14px
+  }
+
+  .tm-weeks {
+    padding-top: 48px;
+    gap: 56px
+  }
+
+  .tm-week {
+    gap: 12px;
+    scroll-margin-top: 220px
+  }
+
+  .tm-week-side {
+    flex-basis: 100%;
+    display: flex;
+    align-items: flex-end;
+    gap: 14px
+  }
+
+  .tm-num {
+    font-size: 3.5rem
+  }
+
+  .tm-week-label {
+    margin: 0 0 4px
+  }
+
+  .tm-week-main {
+    flex-basis: 100%
   }
 }
