@@ -42,26 +42,22 @@
           <li><strong>Procesador:</strong> Intel Core i7-8565U, 4 núcleos y 8 hilos.</li>
           <li><strong>Memoria:</strong> 4 GB de RAM.</li>
           <li><strong>Gráficos:</strong> Intel UHD Graphics 620 y NVIDIA GeForce MX110 de 2 GB.</li>
-          <li><strong>Almacenamiento:</strong> disco duro WD de 1 TB, 2,5 pulgadas, 5400 RPM (SMR).</li>
+          <li><strong>Almacenamiento:</strong> disco duro WD (WD10SPZX) de 1 TB, 5400 RPM (SMR).</li>
           <li><strong>Red inalámbrica:</strong> Qualcomm Atheros QCA9377.</li>
           <li><strong>Firmware:</strong> UEFI, Lenovo ASCN37WW (2019-07-04).</li>
           <li><strong>Sistema original:</strong> Windows 10 Pro.</li>
           <li><strong>Sistema instalado:</strong> Lubuntu 26.04.1 LTS con escritorio LXQt 2.3.2 (kernel registrado:
             7.0.0-43-generic).</li>
         </ul>
-        <p style="margin-top:12px">Se eligió Lubuntu porque su escritorio LXQt es liviano y funciona bien con 4 GB de
-          RAM.</p>
       </article>
       <article class="card">
         <h2>Desarrollo del proyecto</h2>
         <ul>
           <li><strong>Identificación del entorno:</strong> se revisaron el hardware del portátil, el firmware UEFI y el
             estado del disco antes de cambiar nada.</li>
-          <li><strong>Exploración del sistema:</strong> con <code>inxi</code>, <code>lsblk</code>, <code>uname -a</code>
-            y <code>hostnamectl</code> se consultaron el procesador, la memoria, los discos y el kernel.</li>
-          <li><strong>Administración de recursos:</strong> se instalaron <code>htop</code> (procesos, CPU y RAM),
-            <code>iotop</code> (uso del disco por proceso), sysstat (estadísticas como <code>iostat</code>), lm-sensors
-            (temperaturas) y smartmontools (salud del disco con <code>smartctl</code>).</li>
+          <li><strong>Exploración del sistema:</strong> se consultó la información del equipo con <code>inxi</code>.</li>
+          <li><strong>Administración de recursos:</strong> se instalaron las herramientas <code>htop</code>,
+            smartmontools, lm-sensors, sysstat e <code>iotop</code>.</li>
           <li><strong>Configuración o solución:</strong> particionado manual del disco y configuración del arranque dual
             con GRUB, sin tocar las particiones de Windows.</li>
           <li><strong>Análisis:</strong> se explica qué hace el sistema operativo en cada etapa del arranque y cómo se
@@ -121,17 +117,18 @@
           <li><strong>GRUB</strong> muestra el menú y arranca el sistema elegido.</li>
           <li><strong>La partición raíz /</strong> se monta y Lubuntu termina de iniciar.</li>
         </ol>
-        <p style="margin-top:12px">Si GRUB falla, el equipo no encuentra qué cargar o arranca directo a Windows. Se puede
-          reparar desde un USB en vivo, reinstalando GRUB o revisando el orden de arranque UEFI.</p>
       </article>
       <article class="card">
         <h2>Video tutorial</h2>
-        <p>Grabar un video con captura de pantalla y narración en el que se evidencie el desarrollo de la actividad.</p>
+        <p>Video explicativo de 5 a 10 minutos, con audio claro y narración propia (MP4 a 720p como mínimo, o un enlace
+          de Drive o YouTube). Según el taller de booteo, debe incluir:</p>
         <ul>
-          <li>Presentar el objetivo: instalar Lubuntu junto a Windows en arranque dual.</li>
-          <li>Explicar el procedimiento paso a paso: respaldo, espacio, USB, arranque, particiones y GRUB.</li>
-          <li>Mostrar los resultados: el menú de GRUB, los dos sistemas funcionando y los comandos de verificación.</li>
-          <li>Finalizar con conclusiones.</li>
+          <li>Introducción, sistema operativo seleccionado y objetivo de la práctica.</li>
+          <li>Descarga de la ISO y creación del USB booteable.</li>
+          <li>Configuración BIOS/UEFI y selección del dispositivo de arranque.</li>
+          <li>Instalación del sistema operativo y configuración inicial.</li>
+          <li>Verificación de funcionamiento.</li>
+          <li>Conclusiones.</li>
         </ul>
         <div class="video-card" data-youtube="xQlivYDZbhw" data-title="Instalación de Lubuntu en arranque dual"
           data-meta="Proyecto final · Sistemas Operativos">
@@ -145,8 +142,7 @@
           <li>No formatear ni modificar las particiones NTFS de Windows durante la instalación.</li>
           <li>Crear el USB con el mismo modo del firmware: GPT para UEFI.</li>
           <li>Revisar el tamaño, el formato y el punto de montaje antes de aplicar los cambios de particiones.</li>
-          <li>Vigilar el disco con <code>smartctl</code> y no guardar en él datos irremplazables.</li>
-          <li>No mostrar contraseñas, datos personales ni información privada durante la grabación.</li>
+          <li>No guardar datos irremplazables en un disco con errores de lectura y sectores pendientes.</li>
         </ul>
       </article>
       <article class="card">
