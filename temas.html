@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
 </head>
 
-<body>
+<body class="temas-page">
   <header class="site-header">
     <div class="nav-wrap"><a class="brand" href="index.html">SISTEMAS OPERATIVOS</a>
       <nav class="navbar" aria-label="Navegación principal"><a href="index.html" class="">Presentación</a><a
@@ -19,109 +19,153 @@
           Tutorial</a></nav>
     </div>
   </header>
-  <main>
-    <section class="section-title">
-      <div class="eyebrow">Registro de aprendizaje</div>
+  <main class="temas">
+    <section class="tm-hero">
+      <p class="tm-eyebrow">Registro de aprendizaje</p>
       <h1>Temas</h1>
-      <p>Organiza en cada espacio los ejes y temas abordados durante las semanas de clase.</p>
+      <p class="tm-lead">Organiza en cada espacio los ejes y temas abordados durante las semanas de clase.</p>
+      <nav class="tm-overview" aria-label="Semanas">
+        <ol>
+        <li><a href="#semana-1"><span class="tm-ov-label">SEMANA 1</span><span class="tm-ov-title">Introducción a los sistemas operativos</span></a></li>
+        <li><a href="#semana-2"><span class="tm-ov-label">SEMANA 2</span><span class="tm-ov-title">Gestión de procesos y recursos del sistema</span></a></li>
+        <li><a href="#semana-3"><span class="tm-ov-label">SEMANA 3</span><span class="tm-ov-title">Sistemas operativos distribuidos</span></a></li>
+        <li><a href="#semana-4"><span class="tm-ov-label">SEMANA 4</span><span class="tm-ov-title">Booteo e instalación de un sistema operativo</span></a></li>
+        </ol>
+      </nav>
     </section>
-    <section class="grid">
-      <article class="card week-card">
-        <h2>SEMANA 1</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
-          <p class="block-title">Introducción a los sistemas operativos</p>
-          <p><strong>Teoría</strong></p>
-          <ul>
-            <li>Concepto y propósito del sistema operativo.</li>
-            <li>Relación entre hardware, software, usuario y aplicaciones.</li>
-            <li>Funciones principales del sistema operativo.</li>
-            <li>Administración de los recursos del sistema.</li>
-            <li>Gestión del procesador y de los procesos.</li>
-            <li>Administración de la memoria.</li>
-            <li>Gestión de dispositivos de entrada y salida.</li>
-            <li>Administración de archivos y directorios: permisos de acceso y sistemas de archivos (NTFS, ext4, APFS).</li>
-            <li>Núcleo, controladores y llamadas al sistema, con el diagrama secuencial de la pregunta 9.</li>
-            <li>Intérprete de comandos y consola: cinco comandos básicos de Linux (<code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cp</code>).</li>
-          </ul>
-          <p><strong>Práctica</strong></p>
-          <ul>
-            <li>Taller práctico: computador de Soluciones Digitales S.A.S. con bajo rendimiento y bloqueos (síntomas, causas, funciones del SO, herramientas, soluciones y plan preventivo).</li>
-            <li>Parcial práctico: equipo de TecnoGestión S.A.S. con fallas de rendimiento y una impresora de red no disponible (diagnóstico, inspección de recursos, impresora y controladores, plan de solución y prevención).</li>
-          </ul>
+    <section class="tm-weeks">
+      <article class="tm-week" id="semana-1" aria-labelledby="semana-1-titulo">
+        <div class="tm-week-side">
+          <span class="tm-num" aria-hidden="true">01</span>
+          <p class="tm-week-label">SEMANA 1</p>
+        </div>
+        <div class="tm-week-main">
+          <h2 id="semana-1-titulo">Introducción a los sistemas operativos</h2>
+          <div class="tm-groups">
+            <section class="tm-group">
+              <h3><span>Teoría</span><span class="tm-count" aria-hidden="true">10</span></h3>
+              <ul>
+              <li>Concepto y propósito del sistema operativo.</li>
+              <li>Relación entre hardware, software, usuario y aplicaciones.</li>
+              <li>Funciones principales del sistema operativo.</li>
+              <li>Administración de los recursos del sistema.</li>
+              <li>Gestión del procesador y de los procesos.</li>
+              <li>Administración de la memoria.</li>
+              <li>Gestión de dispositivos de entrada y salida.</li>
+              <li>Administración de archivos y directorios: permisos de acceso y sistemas de archivos (NTFS, ext4, APFS).</li>
+              <li>Núcleo, controladores y llamadas al sistema, con el diagrama secuencial de la pregunta 9.</li>
+              <li>Intérprete de comandos y consola: cinco comandos básicos de Linux (<code>pwd</code>, <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cp</code>).</li>
+              </ul>
+            </section>
+            <section class="tm-group">
+              <h3><span>Práctica</span><span class="tm-count" aria-hidden="true">02</span></h3>
+              <ul>
+              <li>Taller práctico: computador de Soluciones Digitales S.A.S. con bajo rendimiento y bloqueos (síntomas, causas, funciones del SO, herramientas, soluciones y plan preventivo).</li>
+              <li>Parcial práctico: equipo de TecnoGestión S.A.S. con fallas de rendimiento y una impresora de red no disponible (diagnóstico, inspección de recursos, impresora y controladores, plan de solución y prevención).</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </article>
-      <article class="card week-card">
-        <h2>SEMANA 2</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
-          <p class="block-title">Gestión de procesos y recursos del sistema</p>
-          <p><strong>Teoría</strong></p>
-          <ul>
-            <li>Diferencia entre programa y proceso, y bloque de control de procesos.</li>
-            <li>Estados de un proceso y sus transiciones.</li>
-            <li>Algoritmos de planificación FCFS y SJF.</li>
-            <li>Mecanismos de sincronización, condición de carrera y sección crítica.</li>
-            <li>Semáforos (binario y contador) con las operaciones espera y señal.</li>
-            <li>Bloqueos (deadlock) y cómo prevenirlos.</li>
-          </ul>
-          <p><strong>Práctica: diez problemáticas de hardware</strong></p>
-          <ul>
-            <li>Bajo rendimiento de un procesador multinúcleo.</li>
-            <li>Administración de procesos e hilos por parte del kernel.</li>
-            <li>Saturación de memoria RAM.</li>
-            <li>Diferencias entre las generaciones DDR.</li>
-            <li>Problemas relacionados con los buses de transferencia (MT/s).</li>
-            <li>Gráficos integrados y tarjetas de video dedicadas.</li>
-            <li>Procesador potente con bajo rendimiento gráfico.</li>
-            <li>Memoria RAM compartida y memoria VRAM.</li>
-            <li>Compatibilidad entre componentes de hardware.</li>
-            <li>Diagnóstico integral de un computador.</li>
-          </ul>
+      <article class="tm-week" id="semana-2" aria-labelledby="semana-2-titulo">
+        <div class="tm-week-side">
+          <span class="tm-num" aria-hidden="true">02</span>
+          <p class="tm-week-label">SEMANA 2</p>
+        </div>
+        <div class="tm-week-main">
+          <h2 id="semana-2-titulo">Gestión de procesos y recursos del sistema</h2>
+          <div class="tm-groups">
+            <section class="tm-group">
+              <h3><span>Teoría</span><span class="tm-count" aria-hidden="true">06</span></h3>
+              <ul>
+              <li>Diferencia entre programa y proceso, y bloque de control de procesos.</li>
+              <li>Estados de un proceso y sus transiciones.</li>
+              <li>Algoritmos de planificación FCFS y SJF.</li>
+              <li>Mecanismos de sincronización, condición de carrera y sección crítica.</li>
+              <li>Semáforos (binario y contador) con las operaciones espera y señal.</li>
+              <li>Bloqueos (deadlock) y cómo prevenirlos.</li>
+              </ul>
+            </section>
+            <section class="tm-group">
+              <h3><span>Práctica: diez problemáticas de hardware</span><span class="tm-count" aria-hidden="true">10</span></h3>
+              <ul>
+              <li>Bajo rendimiento de un procesador multinúcleo.</li>
+              <li>Administración de procesos e hilos por parte del kernel.</li>
+              <li>Saturación de memoria RAM.</li>
+              <li>Diferencias entre las generaciones DDR.</li>
+              <li>Problemas relacionados con los buses de transferencia (MT/s).</li>
+              <li>Gráficos integrados y tarjetas de video dedicadas.</li>
+              <li>Procesador potente con bajo rendimiento gráfico.</li>
+              <li>Memoria RAM compartida y memoria VRAM.</li>
+              <li>Compatibilidad entre componentes de hardware.</li>
+              <li>Diagnóstico integral de un computador.</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </article>
-      <article class="card week-card">
-        <h2>SEMANA 3</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
-          <p class="block-title">Sistemas operativos distribuidos</p>
-          <p><strong>Teoría</strong></p>
-          <ul>
-            <li>Concepto de sistemas distribuidos y diferencias con un sistema centralizado.</li>
-            <li>Arquitectura cliente-servidor de tres niveles.</li>
-            <li>Comunicación entre procesos: sockets, colas de mensajes y paso de mensajes.</li>
-            <li>Modelos de comunicación síncrona y asíncrona.</li>
-            <li>Transparencia en sistemas distribuidos.</li>
-            <li>Tolerancia a fallos.</li>
-            <li>Escalabilidad y disponibilidad.</li>
-            <li>Sistemas de archivos distribuidos.</li>
-            <li>Aplicaciones empresariales de los sistemas distribuidos.</li>
-          </ul>
-          <p><strong>Práctica</strong></p>
-          <ul>
-            <li>Caso MULTISERVICIOS S.A.: de un servidor central a una arquitectura distribuida para las cuatro sedes actuales y las tres nuevas (concepto, arquitectura, comunicación, modelos, tolerancia a fallos y almacenamiento distribuido).</li>
-          </ul>
+      <article class="tm-week" id="semana-3" aria-labelledby="semana-3-titulo">
+        <div class="tm-week-side">
+          <span class="tm-num" aria-hidden="true">03</span>
+          <p class="tm-week-label">SEMANA 3</p>
+        </div>
+        <div class="tm-week-main">
+          <h2 id="semana-3-titulo">Sistemas operativos distribuidos</h2>
+          <div class="tm-groups">
+            <section class="tm-group">
+              <h3><span>Teoría</span><span class="tm-count" aria-hidden="true">09</span></h3>
+              <ul>
+              <li>Concepto de sistemas distribuidos y diferencias con un sistema centralizado.</li>
+              <li>Arquitectura cliente-servidor de tres niveles.</li>
+              <li>Comunicación entre procesos: sockets, colas de mensajes y paso de mensajes.</li>
+              <li>Modelos de comunicación síncrona y asíncrona.</li>
+              <li>Transparencia en sistemas distribuidos.</li>
+              <li>Tolerancia a fallos.</li>
+              <li>Escalabilidad y disponibilidad.</li>
+              <li>Sistemas de archivos distribuidos.</li>
+              <li>Aplicaciones empresariales de los sistemas distribuidos.</li>
+              </ul>
+            </section>
+            <section class="tm-group">
+              <h3><span>Práctica</span><span class="tm-count" aria-hidden="true">01</span></h3>
+              <ul>
+              <li>Caso MULTISERVICIOS S.A.: de un servidor central a una arquitectura distribuida para las cuatro sedes actuales y las tres nuevas (concepto, arquitectura, comunicación, modelos, tolerancia a fallos y almacenamiento distribuido).</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </article>
-      <article class="card week-card">
-        <h2>SEMANA 4</h2>
-        <div class="edit-area" contenteditable="true" data-placeholder="Agrega aquí los ejes y temas trabajados durante esta semana...">
-          <p class="block-title">Booteo e instalación de un sistema operativo</p>
-          <p><strong>Preguntas de inmersión</strong></p>
-          <ul>
-            <li>Qué es el proceso de booteo de una máquina o sistema.</li>
-            <li>Diferencia entre BIOS y UEFI.</li>
-            <li>Función del gestor de arranque (boot loader).</li>
-            <li>Qué es una imagen ISO.</li>
-            <li>Diferencia entre GPT y MBR.</li>
-            <li>Qué es una máquina virtual y cuáles son sus ventajas.</li>
-          </ul>
-          <p><strong>Práctica</strong></p>
-          <ul>
-            <li>Preparación del medio booteable con Rufus o Ventoy.</li>
-            <li>Inspección de BIOS/UEFI y configuración del orden de arranque.</li>
-            <li>Instalación del sistema operativo con sus siete evidencias.</li>
-            <li>Verificación con <code>uname -a</code>, <code>hostnamectl</code>, <code>lsblk</code> y <code>systeminfo</code>.</li>
-            <li>Video evidencia del proceso.</li>
-            <li>Proyecto final: Lubuntu junto a Windows en arranque dual.</li>
-          </ul>
+      <article class="tm-week" id="semana-4" aria-labelledby="semana-4-titulo">
+        <div class="tm-week-side">
+          <span class="tm-num" aria-hidden="true">04</span>
+          <p class="tm-week-label">SEMANA 4</p>
+        </div>
+        <div class="tm-week-main">
+          <h2 id="semana-4-titulo">Booteo e instalación de un sistema operativo</h2>
+          <div class="tm-groups">
+            <section class="tm-group">
+              <h3><span>Preguntas de inmersión</span><span class="tm-count" aria-hidden="true">06</span></h3>
+              <ul>
+              <li>Qué es el proceso de booteo de una máquina o sistema.</li>
+              <li>Diferencia entre BIOS y UEFI.</li>
+              <li>Función del gestor de arranque (boot loader).</li>
+              <li>Qué es una imagen ISO.</li>
+              <li>Diferencia entre GPT y MBR.</li>
+              <li>Qué es una máquina virtual y cuáles son sus ventajas.</li>
+              </ul>
+            </section>
+            <section class="tm-group">
+              <h3><span>Práctica</span><span class="tm-count" aria-hidden="true">06</span></h3>
+              <ul>
+              <li>Preparación del medio booteable con Rufus o Ventoy.</li>
+              <li>Inspección de BIOS/UEFI y configuración del orden de arranque.</li>
+              <li>Instalación del sistema operativo con sus siete evidencias.</li>
+              <li>Verificación con <code>uname -a</code>, <code>hostnamectl</code>, <code>lsblk</code> y <code>systeminfo</code>.</li>
+              <li>Video evidencia del proceso.</li>
+              <li>Proyecto final: Lubuntu junto a Windows en arranque dual.</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </article>
     </section>
