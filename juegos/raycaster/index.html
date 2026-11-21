@@ -51,6 +51,14 @@
 </style>
 <script>if (window.self !== window.top) document.documentElement.classList.add("embebido");</script>
 <style>.embebido a[href="../"]{display:none!important}</style>
+<style>
+  /* Versión para APEX OS: solo el juego, sin paneles de explicación */
+  html,body{background:#000;height:100%;overflow:hidden}
+  header,aside,.explain,.hud{display:none!important}
+  main{display:flex;align-items:center;justify-content:center;max-width:none;height:100vh;padding:0}
+  main>section{width:min(100%,calc(100vh * 1.6))}
+  .stage{border:0;border-radius:0}
+</style>
 </head>
 <body>
 <header>

@@ -23,7 +23,7 @@ Además de los clásicos propios (Snake, Pong, Breakout, Invaders, Asteroids), e
 | Zork I, II y III | Intérprete Z-machine (ifvms.js) | MIT (Microsoft, 2025) |
 | Digger | DOSBox (js-dos) | Freeware |
 | Buscaminas | Recreación propia en JavaScript | Código propio |
-| Raycaster | Motor 3D propio en JavaScript | Código propio |
+| Raycaster | Laberinto 3D con motor propio en JavaScript | Código propio |
 
 Desde la terminal de APEX: `games` lista los juegos y `launch doom` (o `zork`, `digger`, `buscaminas`, `raycaster`, `arcade`) los abre.
 
